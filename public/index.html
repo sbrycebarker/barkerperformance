@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html ng-app="app">
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/laptop.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body ng-controller="mainCtrl">
+    <header>
+      <div id="home" class="header-items"><h1><span style="color: white">Barker</span><br>Performance</h1></div>
+      <div id="nav-con" class="header-items">
+
+        <div id="exhausts" class="nav"><h1>EXHAUST</h1></div>
+        <div id="intakes" class="nav"><h1>INTAKES</h1></div>
+        <div id="breaks" class="nav"><h1>BREAKS</h1></div>
+        <div id="about"class="nav"><h1>ABOUT</h1></div>
+
+      </div>
+
+      <div id="cart" class="header-items"><h1><i class="fa fa-shopping-cart" aria-hidden="true"></i></h1></div>
+    </header>
+
+    <ui-view></ui-view>
+
+<script src="https://use.fontawesome.com/9c92e0c655.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script src="js/app.js"></script>
+<script src="js/mainCtrl.js"></script>
+<script src="js/service.js"></script>
+  </body>
+</html>
