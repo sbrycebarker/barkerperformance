@@ -91,7 +91,7 @@ header {
 }
 
 #hero {
-  height: 900px;
+  height: 800px;
   width: 100%;
   background: url('../assets/elanorHD.jpg');
   background-position: center;
@@ -125,7 +125,7 @@ header {
 }
 
 .sec-2-left {
-  background-color: grey;
+  background-color: silver;
   display: flex;
   text-align: center;
 }
@@ -158,7 +158,7 @@ header {
 
 .parts {
   height: 100%;
-  width: 33.3%;
+  width: 33.9%;
   display: flex;
   background-color: black;
   margin: 0;
@@ -178,6 +178,7 @@ header {
 .parts-c {
   background: url('../assets/seats.jpeg');
   background-size: cover;
+  right: 0px;
 }
 
 #section4 {
