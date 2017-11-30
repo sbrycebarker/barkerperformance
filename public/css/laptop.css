@@ -3,7 +3,7 @@
 html {
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: sans-serif;
+  font-family: Helvetica;
 }
 
 header {
@@ -15,7 +15,8 @@ header {
   display: flex;
   flex-direction: row;
   position: fixed;
-  z-index: 100
+  z-index: 100;
+  opacity: .7;
 }
 
 /*.header-items {
@@ -92,9 +93,22 @@ header {
 #hero {
   height: 900px;
   width: 100%;
-  background: url('../assets/smoke.jpeg');
+  background: url('../assets/elanorHD.jpg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+}
+
+#hero h1 {
+  height: 100px;
+  width: 850px;
+  font-size: 70px;
+  color: white;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  text-align: center;
 }
 
 #section2 {
