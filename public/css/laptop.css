@@ -223,12 +223,12 @@ header {
   height: 100%;
   width: 50%;
   position: relative;
-  float: right;
+  float: left;
   text-align: justify;
   color: white;
   opacity: none;
   top: 40%;
-  left: 100px;
+  left: 250px;
 }
 
 .aboutus h1 {
