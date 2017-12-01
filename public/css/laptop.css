@@ -330,7 +330,16 @@ header {
 footer {
   height: 160px;
   width: 100%;
-  background-color: #1A1919
+  background-color: #1A1919;
+  color: silver;
+  display: flex;
+  flex-direction: row;
+}
+
+footer h1 {
+  width: 200px;
+  height: 15px;
+  margin: auto;
 }
 
 }
