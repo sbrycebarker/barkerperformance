@@ -228,7 +228,7 @@ header {
   color: white;
   opacity: none;
   top: 40%;
-  left: 250px;
+  left: 40%;
 }
 
 .aboutus h1 {
@@ -270,6 +270,23 @@ header {
   color: white;
   position: relative;
   margin-left: 100px;
+}
+
+#sec-6-box2 h1 {
+  font-size: 80px;
+  margin-bottom: 10px 0;
+  line-height: normal;
+}
+
+#sec-6-box2 p {
+  font-size: 25px;
+  margin: 5px 0;
+  line-height: 1.3em;
+}
+
+#sec-6-box2 h2 {
+  font-size: 25px;
+  margin: 10px;
 }
 
 .input {
@@ -314,9 +331,21 @@ header {
   flex-direction: column;
 }
 
+.sec-7-con h1 {
+  margin: 10px;
+  margin-top: 100px;
+  font-size: 80px
+}
+
+.sec-7-con h2 {
+  margin: 10px;
+  font-size: 30px;
+  font-family: serif;
+}
+
 .field {
   height: 50px;
-  width: 600px;
+  width: 750px;
   margin: 10px auto;
   background-color: inherit;
   border: 2px solid silver;
