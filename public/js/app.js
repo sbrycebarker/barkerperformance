@@ -7,8 +7,9 @@ angular.module('app',['ui.router'])
         templateUrl: "../html/main.html",
         controller: "mainCtrl"
       })
-      .state('about', {
-        url: "../html/about.html",
+      .state('products', {
+        url: "/products.html",
+        templateUrl: "../html/products.html",
         controller: "mainCtrl"
       })
   })

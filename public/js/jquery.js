@@ -1,17 +1,9 @@
-$(document).ready(function() {
-  console.log("jQuery ready")
-  window.onclick = function() {
-    document.getElementById("myDropdown").classList.toggle("show")
-  }
+$(document).ready(function(){
 
-  window.onclick = function(event) {
-    var Dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdown.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show')
-      }
-    }
-  }
-})
+  $(window).scroll(function (event) {
+    var sc = $(window).scrollTop();
+    // console.log(sc);
+  });
+
+
+});

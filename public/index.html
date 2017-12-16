@@ -7,21 +7,37 @@
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body ng-controller="mainCtrl">
+  <body ng-controller="mainCtrl" data-spy="scroll" data-target=".header-items" data-offset="50">
     <header>
-      <div id="home" class="header-items"><h1><span style="color: white">Barker</span><br>Performance</h1></div>
+      <div id="homebutton" class="header-items" onclick="home()"><a ui-sref="home"><h1><span style="color: white">Barker</span><br>Performance</h1></a></div>
       <div id="nav-con" class="header-items">
 
-        <div id="exhausts" class="nav"><h1>EXHAUST</h1></div>
-        <div id="intakes" class="nav"><h1>INTAKES</h1></div>
-        <div id="breaks" class="nav"><h1>BREAKS</h1></div>
-        <div id="about"class="nav"><h1>ABOUT</h1></div>
+        <div id="home" class="nav" onclick="home()"><a ui-sref="home"><h1>HOME</h1></a></div>
+        <div id="products" class="nav"><a ui-sref="products"><h1>PRODUCTS</h1></a></div>
+        <div id="live" class="nav"><a ui-sref="breaks"><h1>LIFE</h1></a></div>
+        <div id="about"class="nav" onclick="about()"><a ui-sref="home"><h1>ABOUT</h1></a></div>
 
       </div>
 
-      <div id="cart" class="header-items"><h1><i class="fa fa-shopping-cart" aria-hidden="true"></i></h1></div>
+      <div id="cart" class="header-items">
+        <h1>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </h1>
+      </div>
     </header>
+    <script>
+    function home() {
+        $("html, body").animate({ scrollTop: "0" }, 1000)
 
+    }
+
+    function about() {
+        $("html, body").animate({ scrollTop: "2777" }, 1000)
+
+    }
+
+
+    </script>
     <ui-view></ui-view>
 
 <script src="https://use.fontawesome.com/9c92e0c655.js"></script>

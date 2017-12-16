@@ -16,7 +16,7 @@ header {
   flex-direction: row;
   position: fixed;
   z-index: 100;
-  opacity: .7;
+  opacity: .8;
 }
 
 /*.header-items {
@@ -25,16 +25,25 @@ header {
   margin: auto;
 }*/
 
-#home {
+#homebutton {
   height: 100%;
   width: 200px;
   position: absolute;
   display: flex;
 }
 
-#home h1 {
+#homebutton a {
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+#homebutton h1 {
   height: 40px;
-  width: 100px;
+  width: 150px;
   margin: auto;
   border: 2px solid silver;
   position: relative;
@@ -60,15 +69,38 @@ header {
   display: flex;
 }
 
+.nav:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .nav h1 {
   height: 16px;
+  width: 100px;
+  margin: auto;
+  font-size: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+}
+
+.nav a {
+  height: 18px;
   width: 100px;
   margin: auto;
   position: relative;
   display: flex;
   justify-content: center;
   letter-spacing: 2px;
+  text-decoration: none;
+  color: inherit;
 }
+
+.nav a:visited {
+  color: inherit;
+}
+
 
 #cart {
   height: 100%;
@@ -77,6 +109,11 @@ header {
   right: 0;
   display: flex;
   background-color: #ff2800;
+}
+
+#cart h1:hover {
+  cursor: pointer;
+  color: white;
 }
 
 #cart h1 {
@@ -193,7 +230,7 @@ header {
   position: relative;
 }
 
-#section5 {
+#aboutsec {
   height: 650px;
   width: 100%;
   background-color: white;
@@ -374,5 +411,41 @@ footer h1 {
   height: 15px;
   margin: auto;
 }
+
+/* <-------------------------------------PRODUCTS--------------------------------------> */
+
+.products {
+  height: 100vh;
+  color: silver;
+  width: 100%;
+  background-color: #020202;
+}
+
+.products-con {
+  height: 100%;
+  width: 75%;
+  background-color: black;
+  margin: auto;
+  position: relative;
+  border-left: 1px solid silver;
+  border-right: 1px solid silver;
+}
+
+#new-arv {
+  height: 100px;
+  width: 500px;
+  top: 200px;
+  position: relative;
+  margin: auto;
+  font-size: 80px;
+}
+
+#prod-header {
+  display: table;
+  position: absolute;
+  bottom: 0;
+}
+
+/* #020202 */
 
 }
