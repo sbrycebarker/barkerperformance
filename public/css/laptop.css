@@ -151,6 +151,23 @@ header {
   letter-spacing: 10px
 }
 
+#hero h2 {
+  height: 50px;
+  width: 500px;
+  font-size: 30px;
+  color: white;
+  margin: auto;
+  position: relative;
+  top: 60%;
+  text-align: center;
+  letter-spacing: 10px;
+  font-family: serif;
+}
+
+#fa-chevron-down {
+  margin: auto;
+}
+
 #section2 {
   height: 750px;
   width: 100%;
@@ -176,7 +193,7 @@ header {
 }
 
 #sec-2-left-con h1 {
-  font-size: 60px;
+  font-size: 75px;
   margin: 15px;
 }
 
