@@ -438,7 +438,7 @@ footer h1 {
   background-color: #020202;
 }
 
-.products-con {
+#products-con {
   height: 100%;
   width: 75%;
   background-color: black;
@@ -446,7 +446,26 @@ footer h1 {
   position: relative;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
+  padding-top: 200px;
 }
+
+#new-prod {
+  height: 60px;
+  width: 350px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-size: 55px;
+}
+
+#new-prod-con {
+  height: 700px;
+  width: 100%;
+  border: 2px solid white;
+  position: relative;
+}
+
+
 
 #new-arv {
   height: 100px;
