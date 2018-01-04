@@ -440,7 +440,7 @@ footer h1 {
 
 #products-con {
   height: 100%;
-  width: 75%;
+  width: 60%;
   background-color: black;
   margin: auto;
   position: relative;
@@ -449,7 +449,7 @@ footer h1 {
   padding-top: 200px;
 }
 
-#new-prod {
+.title {
   height: 60px;
   width: 350px;
   margin: auto;
@@ -459,13 +459,23 @@ footer h1 {
 }
 
 #new-prod-con {
-  height: 700px;
   width: 100%;
   border: 2px solid white;
   position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
+.item {
+  margin: auto;
+  text-align: center; 
+}
 
+.things {
+  height: 360px;
+  width: 100%;
+  border: 1px solid red;
+}
 
 #new-arv {
   height: 100px;
