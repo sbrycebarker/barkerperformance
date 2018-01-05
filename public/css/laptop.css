@@ -433,9 +433,11 @@ footer h1 {
 
 .products {
   height: 100%;
+  padding-top: 200px;
   color: silver;
   width: 100%;
   background-color: #020202;
+  position: relative;
 }
 
 #products-con {
@@ -444,37 +446,45 @@ footer h1 {
   background-color: black;
   margin: auto;
   position: relative;
-  border-left: 1px solid silver;
-  border-right: 1px solid silver;
-  padding-top: 200px;
 }
 
 .title {
-  height: 60px;
-  width: 350px;
+  height: 100px;
+  width: 100%;
+  padding-top: 30px;
   margin: auto;
   text-align: center;
-  position: relative;
   font-size: 55px;
+  background-color: #020202;
+  vertical-align: middle;
 }
 
 #new-prod-con {
+  height: 360px;
   width: 100%;
-  border: 2px solid white;
   position: relative;
   display: flex;
   flex-direction: row;
 }
 
 .item {
-  margin: auto;
-  text-align: center; 
+  height: 300px;
+  width: 300px;
+  margin: 50px;
+  text-align: center;
+}
+
+.item img {
+  height: 200px;
+  width: 200px
+}
+
+.item h1 {
+  margin: 5px auto;
 }
 
 .things {
-  height: 360px;
   width: 100%;
-  border: 1px solid red;
 }
 
 #new-arv {
@@ -484,6 +494,15 @@ footer h1 {
   position: relative;
   margin: auto;
   font-size: 80px;
+}
+
+#all-products {
+  height: auto;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #prod-header {
