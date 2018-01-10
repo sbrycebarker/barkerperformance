@@ -242,9 +242,19 @@ header {
   height: 800px;
   width: 100%;
   background-color: black;
+  color: white;
   display: flex;
   flex-direction: row;
   position: relative;
+}
+
+#main-prod {
+  height: 360px;
+  width: 75%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
 #aboutsec {
