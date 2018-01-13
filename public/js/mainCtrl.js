@@ -12,16 +12,17 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
   }
 
   function onpage() {
+    $("#" + "home").css("color", "inherit")
+    $("#" + "products").css("color", "inherit")
     $(document).ready(function() {
       var state = $state.current.name
       console.log(state)
-
-      $("#" + state).css("border", "2px solid white")
+      $("#" + state).css("color", "#ff2800")
 
     })
   }
 
-  onpage()
+  onpage();
 
 // <===========================================JAVASCRIPT==========================================================>
 })

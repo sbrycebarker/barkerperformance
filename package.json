@@ -27,6 +27,7 @@
     "owl.carousel": "^2.2.0",
     "passport": "^0.4.0",
     "reload": "^2.2.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "stripe": "^5.4.0"
   }
 }
