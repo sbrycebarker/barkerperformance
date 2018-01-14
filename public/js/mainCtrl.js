@@ -14,12 +14,20 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
   function onpage() {
     $("#" + "home").css("color", "inherit")
     $("#" + "products").css("color", "inherit")
+    $("#" + "life").css("color", "inherit")
     $(document).ready(function() {
       var state = $state.current.name
       console.log(state)
       $("#" + state).css("color", "#ff2800")
 
     })
+    $('.multiple-items').slick({
+        centerMode: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true
+    });
   }
 
   onpage();
