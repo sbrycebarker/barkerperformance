@@ -21,12 +21,10 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
       $("#" + state).css("color", "#ff2800")
 
     })
+
     $('.multiple-items').slick({
-        centerMode: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true
+      slidesToShow: 4,
+      slidesToScroll: 1
     });
   }
 
