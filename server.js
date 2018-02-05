@@ -11,7 +11,6 @@ const express = require('express'),
       app.use(bodyParser.json())
       app.use(cors());
 
-
       mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds119486.mlab.com:19486/barkerperformance', {
         useMongoClient: true,
       })
