@@ -2,8 +2,8 @@ var user = require('./purchase.schema.js');
 
 module.exports = {
 
-  read: function(req, res, next) {
-    purchase.find().exec(function(err, response) {
+  read: (req, res, next) => {
+    purchase.find().exec(err, response => {
       if(err) {
         console.log(err);
       } else {
@@ -12,9 +12,9 @@ module.exports = {
     });
   },
 
-  create: function(req, res, next) {
+  create: (req, res, next) => {
   var user = new user(req.body);
-    purchase.save(function(err, response) {
+    purchase.save(err, response => {
       if (err) {
         res.status(500).json(err);
       } else {
@@ -23,8 +23,8 @@ module.exports = {
     })
   },
 
-  update: function(req, res, next) {
-    purchase.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
+  update: (req, res, next) => {
+    purchase.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
       if(error) {
         return res.status(500).json(error)
       } else {
@@ -33,9 +33,9 @@ module.exports = {
     })
   },
 
-  destroy: function(req, res, next) {
+  destroy: (req, res, next) => {
     // console.log(req.params.body);
-    purchase.findByIdAndRemove(req.params.id, function(error, response){
+    purchase.findByIdAndRemove(req.params.id, (error, response) => {
       // console.log(response);
       if(error) {
         return res.status(500).json(error)

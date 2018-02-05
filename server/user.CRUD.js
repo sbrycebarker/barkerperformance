@@ -2,8 +2,8 @@ var user = require('./user.schema.js');
 
 module.exports = {
 
-  read: function(req, res, next) {
-    user.find().exec(function(err, response) {
+  read: (req, res, next) => {
+    user.find().exec(err, response => {
       if(err) {
         console.log(err);
       } else {
@@ -12,9 +12,9 @@ module.exports = {
     });
   },
 
-  create: function(req, res, next) {
+  create: (req, res, next) => {
   var user = new user(req.body);
-    user.save(function(err, response) {
+    user.save(err, response => {
       if (err) {
         res.status(500).json(err);
       } else {
@@ -23,8 +23,8 @@ module.exports = {
     })
   },
 
-  update: function(req, res, next) {
-    user.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
+  update: (req, res, next) => {
+    user.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
       if(error) {
         return res.status(500).json(error)
       } else {
@@ -33,9 +33,9 @@ module.exports = {
     })
   },
 
-  destroy: function(req, res, next) {
+  destroy: (req, res, next) => {
     // console.log(req.params.body);
-    user.findByIdAndRemove(req.params.id, function(error, response){
+    user.findByIdAndRemove(req.params.id, (error, response) => {
       // console.log(response);
       if(error) {
         return res.status(500).json(error)
