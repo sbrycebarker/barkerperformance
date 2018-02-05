@@ -1,12 +1,49 @@
-var mongoose = require('mongoose');
+var user = require('./user.schema.js');
 
-var Schema = mongoose.Schema;
+module.exports = {
 
-var userSchema = new Schema({
-  name: { type: String },
-  user_id: {type: Number},
-  location: {type: "string"},
-  order_history: {type: Object}
-});
+  read: function(req, res, next) {
+    user.find().exec(function(err, response) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.json(response);
+      }
+    });
+  },
 
-module.exports = mongoose.model('user', userSchema);
+  create: function(req, res, next) {
+  var user = new user(req.body);
+    user.save(function(err, response) {
+      if (err) {
+        res.status(500).json(err);
+      } else {
+        res.status(200).json(response);
+      }
+    })
+  },
+
+  update: function(req, res, next) {
+    user.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
+      if(error) {
+        return res.status(500).json(error)
+      } else {
+        return res.json(response)
+      }
+    })
+  },
+
+  destroy: function(req, res, next) {
+    // console.log(req.params.body);
+    user.findByIdAndRemove(req.params.id, function(error, response){
+      // console.log(response);
+      if(error) {
+        return res.status(500).json(error)
+      }else {
+        return res.json(response)
+      }
+    })
+  }
+
+
+}

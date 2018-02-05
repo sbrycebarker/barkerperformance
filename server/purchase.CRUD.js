@@ -1,12 +1,49 @@
-var mongoose = require('mongoose');
+var user = require('./purchase.schema.js');
 
-var Schema = mongoose.Schema;
+module.exports = {
 
-var purchaseSchema = new Schema({
-  name: { type: String },
-  product_id: {type: Number},
-  price: {type: number},
-  buyer: [{type: Schema.Types.user_id, ref: 'user'}]
-});
+  read: function(req, res, next) {
+    purchase.find().exec(function(err, response) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.json(response);
+      }
+    });
+  },
 
-module.exports = mongoose.model('purchase', purchaseSchema);
+  create: function(req, res, next) {
+  var user = new user(req.body);
+    purchase.save(function(err, response) {
+      if (err) {
+        res.status(500).json(err);
+      } else {
+        res.status(200).json(response);
+      }
+    })
+  },
+
+  update: function(req, res, next) {
+    purchase.findByIdAndUpdate(req.params.id, req.body, function(error, response) {
+      if(error) {
+        return res.status(500).json(error)
+      } else {
+        return res.json(response)
+      }
+    })
+  },
+
+  destroy: function(req, res, next) {
+    // console.log(req.params.body);
+    purchase.findByIdAndRemove(req.params.id, function(error, response){
+      // console.log(response);
+      if(error) {
+        return res.status(500).json(error)
+      }else {
+        return res.json(response)
+      }
+    })
+  }
+
+
+}

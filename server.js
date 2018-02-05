@@ -11,6 +11,13 @@ const express = require('express'),
       app.use(bodyParser.json())
       app.use(cors());
 
+      let user = require('./server/user.CRUD.js');
+      let purchase = require('./server/purchase.CRUD.js');
+
+      app.get('/getUser', user.read);
+      app.get('/getPurchase', purchase.read);
+
+
       mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds119486.mlab.com:19486/barkerperformance', {
         useMongoClient: true,
       })

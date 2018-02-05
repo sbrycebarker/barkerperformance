@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   name: { type: String },
   user_id: {type: Number},
-  location: {type: "string"},
+  location: { type: String },
   order_history: {type: Object}
 });
 

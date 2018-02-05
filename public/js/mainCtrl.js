@@ -31,4 +31,15 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
   onpage();
 
 // <===========================================JAVASCRIPT==========================================================>
+
+  $scope.users = function(results) {
+    service.users().then(function(results){
+      let users = results
+      console.log("results")
+    })
+  }
+  //
+  $scope.users();
+
+
 })
