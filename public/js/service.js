@@ -1,11 +1,22 @@
-angular.module('app').service('service', function($http) {
-  this.serviceTest = 'Hello, I am a working test!'
+angular.module('app').service('service', function($http, $stateParams) {
 
-  this.users = function(users) {
+  this.getUsers = function(data) {
+    console.log("service", data)
     return $http({
       method:'GET',
-      url: '/getUser'
+      data: data,
+      url: '/getUsers',
+      controller: "mainCtrl"
     })
   }
+
+  // this.user = function(user) {
+  //   console.log("service user")
+  //   return $http({
+  //     method: 'GET',
+  //     data: user,
+  //     url: '/getUser/:id'
+  //   })
+  // }
 
 })

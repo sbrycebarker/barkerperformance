@@ -30,16 +30,40 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
 
   onpage();
 
+
+  function home() {
+      $("html, body").animate({ scrollTop: "0" }, 1000)
+
+  }
+
+  function about() {
+      $("html, body").animate({ scrollTop: "2777" }, 1000)
+
+  }
+
 // <===========================================JAVASCRIPT==========================================================>
 
-  $scope.users = function(results) {
-    service.users().then(function(results){
-      let users = results
-      console.log("results")
+  $scope.getUsers = function() {
+    service.getUsers().then(function(result){
+      console.log("main", result.data[0])
+      if (!result) {
+        $scope.users = "Login"
+      } else {        
+      $scope.users = result.data[0].name
+    }
     })
   }
-  //
-  $scope.users();
+
+  $scope.getUsers();
+
+  $scope.user = function(result) {
+    service.user().then(function(result) {
+      $scope.user = result
+    })
+  }
+
+  // $scope.user();
+
 
 
 })

@@ -1,9 +1,18 @@
-var user = require('./purchase.schema.js');
+var purchase = require('./purchaseschema.js');
 
 module.exports = {
 
   read: (req, res, next) => {
     purchase.find().exec(err, response => {
+      if(err) {
+        console.log(err);
+      } else {
+        res.json(response);
+      }
+    });
+  },
+  show: (req, res, next) => {
+    purchase.findById(req.params.id).exec(err, response => {
       if(err) {
         console.log(err);
       } else {

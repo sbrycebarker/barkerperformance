@@ -3,6 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       reload = require('reload'),
       cors = require('cors'),
+      massive = require('massive'),
       mongoose = require('mongoose'),
       MongoStore = require('connect-mongo')(session);
 
@@ -11,16 +12,31 @@ const express = require('express'),
       app.use(bodyParser.json())
       app.use(cors());
 
-      let user = require('./server/user.CRUD.js');
-      let purchase = require('./server/purchase.CRUD.js');
+      let users = require('./server/usercrud.js');
+      let purchase = require('./server/purchasecrud.js');
 
-      app.get('/getUser', user.read);
-      app.get('/getPurchase', purchase.read);
-
-
-      mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds119486.mlab.com:19486/barkerperformance', {
+      mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
         useMongoClient: true,
       })
+
+      app.post('/postUsers', users.create)
+      app.get('/getUsers', users.read);
+      app.get('/getUsers/:id', users.show);
+      app.put('/updateUsers/:id', users.update);
+      app.delete('/deleteUser/:id', users.destroy);
+      app.post('/postPurchase', purchase.create);
+      app.get('/getPurchase', purchase.read);
+      app.get('/getPurchase/:id', purchase.show);
+      app.put('/updatePurchase/:id', purchase.update);
+      app.delete('/delete/:id', purchase.destroy);
+
+
+
+      app.use(session({
+        resave: true,
+        saveUninitialized: true,
+        secret: 'pizzaisgood'
+      }))
 
       reload(app);
 

@@ -23,10 +23,12 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "massive": "^4.6.4",
     "mongoose": "^4.13.5",
     "owl.carousel": "^2.2.0",
     "passport": "^0.4.0",
     "reload": "^2.2.2",
+    "session": "^0.1.0",
     "slick-carousel": "^1.8.1",
     "stripe": "^5.4.0"
   }

@@ -11,4 +11,4 @@ var purchaseSchema = new Schema({
   transaction_id: { type: Number }
 });
 
-module.exports = mongoose.model('purchase', purchaseSchema);
+module.exports = mongoose.model('purchases', purchaseSchema);

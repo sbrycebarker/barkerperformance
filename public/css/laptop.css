@@ -60,6 +60,7 @@ header {
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  right: -150px;
 }
 
 .nav {
@@ -101,6 +102,31 @@ header {
   color: inherit;
 }
 
+.rightbox {
+  height: 100%;
+  width: 400px;
+  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.login {
+  height: 100%;
+  width: 200px;
+  position: relative;
+  display: flex;
+}
+
+.login h1 {
+  height: 20px;
+  width: 200px;
+  font-size: 20px;
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+}
 
 #cart {
   height: 100%;
