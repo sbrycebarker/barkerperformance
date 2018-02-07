@@ -48,7 +48,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
       console.log("main", result.data[0])
       if (!result) {
         $scope.users = "Login"
-      } else {        
+      } else {
       $scope.users = result.data[0].name
     }
     })
