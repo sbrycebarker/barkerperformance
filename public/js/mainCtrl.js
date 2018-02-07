@@ -64,6 +64,10 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
 
   // $scope.user();
 
+  $scope.createUser = function(data) {
+    let user = data;
+  }
+
 
 
 })
