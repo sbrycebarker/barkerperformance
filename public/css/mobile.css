@@ -1,6 +1,594 @@
 
 
-/*@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 800px) {
+
+  html {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    src: url('./Berthold_Akzidenz_Grotesk_Bold_Condensed.otf');
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  header {
+    height: 75px;
+    width: 100%;
+    background-color: black;
+    color: silver;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 100;
+    opacity: .8;
+  }
+
+  .header-items {
+    height: 100%;
+    width: auto;
+    margin: auto;
+  }
+
+  #homebutton {
+    height: 100%;
+    position: absolute;
+    display: flex;
+  }
+
+  #homebutton a {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #homebutton h1 {
+    height: 40px;
+    margin: auto;
+    border: 2px solid silver;
+    position: relative;
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 4px;
+  }
+
+  #nav-con {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    display: none;
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    height: 100%;
+    margin: auto;
+    display: flex;
+  }
+
+  .nav:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav h1 {
+    height: 16px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+  }
+
+  .nav a {
+    height: 18px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nav a:visited {
+    color: inherit;
+  }
+
+  /* #menu {
+    font-size: 20px;
+    float: right;
+    color: white;
+  } */
+
+  .rightbox {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .login {
+    height: 100%;
+    width: 150px;
+    position: relative;
+    display: none;
+  }
+
+  .login h1 {
+    height: 10px;
+    font-size: 10px;
+    color: white;
+    position: relative;
+    display: flex;
+    margin: auto;
+    text-overflow: ellipsis;
+    justify-content: center;
+    letter-spacing: 1px;
+  }
+
+  #cart {
+    height: 100%;
+    width: 50px;
+    position: relative;
+    right: 0;
+    display: flex;
+    background-color: #ff2800;
+  }
+
+  #cart h1:hover {
+    cursor: pointer;
+    color: white;
+  }
+
+  #cart h1 {
+    height: 20px;
+    font-size: 20px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #shop {
+    display: none
+  }
 
 
-}*/
+  #hero {
+    height: 100vh;
+    width: 100%;
+    background: url('../assets/elanorHD.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  #hero h1 {
+    height: 30px;
+    font-size: 20px;
+    color: white;
+    margin: auto;
+    position: relative;
+    top: 40%;
+    text-align: center;
+    letter-spacing: 2px
+  }
+
+  #hero h2 {
+    height: 20px;
+    font-size: 20px;
+    color: white;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: serif;
+  }
+
+  #start-building {
+    top: 50%;
+  }
+
+  #cheveron {
+    height: 10px;
+    position: relative;
+    top: 55%;
+    margin: 50px auto;
+  }
+
+
+
+  #section2 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sec-2-box {
+    width: 100%;
+    height: 50%;
+    margin: 0;
+  }
+
+  .sec-2-left {
+    background-color: #ff2800;
+    display: flex;
+    text-align: center;
+  }
+
+  #sec-2-left-con {
+    margin: auto;
+    color: black;
+  }
+
+  #sec-2-left-con h1 {
+    font-size: 25px;
+    margin: 5px;
+  }
+
+  #sec-2-left-con h2 {
+    margin: 15px;
+    font-size: 12px;
+  }
+
+  .sec-2-right {
+    background: url('../assets/shifter.jpeg');
+    background-size: cover;
+  }
+
+
+
+  #section3 {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .parts {
+    width: 100%;
+    height: 33.9%;
+    display: flex;
+    background-color: black;
+    margin: 0;
+    position: relative;
+  }
+
+  .parts-a {
+    background: url('../assets/bmwexh.jpg');
+    background-size: cover;
+  }
+
+  .parts-b {
+    background: url('../assets/evening.jpg');
+    background-size: cover;
+  }
+
+  .parts-c {
+    background: url('../assets/seats.jpeg');
+    background-size: cover;
+    right: 0px;
+  }
+
+
+
+  #section4 {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: none;
+    flex-direction: row;
+    position: relative;
+  }
+
+  #main-prod {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  #aboutsec {
+    height: 650px;
+    width: 100%;
+    background-color: white;
+    background-size: cover;
+  }
+
+  .porsche {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: url('../assets/porscheHD.jpg');
+    background-position: center;
+    background-size: cover;
+    display: block;
+  }
+
+  .aboutuscon {
+    height: 650px;
+    /* width: 100vw; */
+    background-color: black;
+    opacity: .5;
+    color: white;
+    position: absolute;
+    display: block;
+  }
+
+  .aboutus {
+    height: 100%;
+    position: relative;
+    float: left;
+    text-align: justify;
+    color: white;
+    opacity: none;
+    top: 40%;
+    left: 20%;
+  }
+
+  .aboutus h1 {
+    font-size: 30px;
+    margin: 5px;
+  }
+
+  .aboutus p {
+    font-size: 15px;
+    margin: 5px;
+    line-height: 20px;
+  }
+
+
+  #section6 {
+    height: 550px;
+    width: 100%;
+    background-color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sec-6-box {
+    height: 200px;
+    width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  #sec-6-box1 {
+    color: white;
+
+  }
+
+  #sec-6-box2 {
+    color: white;
+  }
+
+  #sec-6-box2 h1 {
+    font-size: 30px;
+    margin-bottom: 10px 0;
+    line-height: normal;
+  }
+
+  #sec-6-box2 p {
+    font-size: 15px;
+    margin: 5px 0;
+    line-height: 1.3em;
+  }
+
+  #sec-6-box2 h2 {
+    font-size: 15px;
+  }
+
+  .input {
+    height: 50px;
+    width: 100%;
+    margin: 5px auto;
+  }
+
+  .name {
+    margin-top: 0;
+  }
+
+  .message {
+    height: 100px
+  }
+
+  .send {
+    height: 40px;
+    width: 100px;
+    position: relative;
+    float: right;
+    background-color: white;
+    border: 2px solid silver;
+    text-align: center;
+  }
+
+  #section7 {
+    height: 415px;
+    width: 100%;
+    background-color: #141414;
+    margin: auto;
+    display: flex;
+  }
+
+  .sec-7-con {
+    height: 100%;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    color: silver;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sec-7-con h1 {
+    margin: 10px;
+    margin-top: 100px;
+    font-size: 25px
+  }
+
+  .sec-7-con h2 {
+    margin: 10px;
+    font-size: 15px;
+    font-family: serif;
+  }
+
+  .field {
+    margin: 10px;
+    background-color: inherit;
+    border: 2px solid silver;
+  }
+
+  .listinput {
+    border-color: inherit;
+  }
+
+  .listbutton {
+    color: white;
+    text-align: center;
+  }
+
+  footer {
+    height: 100px;
+    width: 100%;
+    background-color: #1A1919;
+    color: silver;
+    display: flex;
+    flex-direction: row;
+  }
+
+  footer h1 {
+    width: 200px;
+    height: 15px;
+    margin: auto;
+  } */
+
+  /* <-------------------------------------PRODUCTS--------------------------------------> */
+
+  .products {
+    height: 100%;
+    padding-top: 200px;
+    color: silver;
+    width: 100%;
+    background-color: #020202;
+    position: relative;
+  }
+
+  #products-con {
+    height: 100%;
+    width: 60%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+  }
+
+  .title {
+    height: 100px;
+    width: 100%;
+    padding-top: 30px;
+    margin: auto;
+    text-align: center;
+    font-size: 55px;
+    background-color: #020202;
+    vertical-align: middle;
+  }
+
+  #new-prod-con {
+    height: 360px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .item {
+    height: 40%;
+    /* border: 1px solid white; */
+    width: 20vw;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-item {
+    height: 200px;
+    /* border: 1px solid white; */
+    width: 25vw;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-item img {
+    height: 25%;
+    width: auto;
+    margin: auto;
+  }
+
+  .item img {
+    height: 25%;
+    width: auto;
+    margin: auto;
+  }
+
+  .item h1 {
+    margin: 5px auto;
+    font-size: 30px;
+  }
+
+  .details {
+    display: none
+  }
+
+  .things {
+    width: 100%;
+  }
+
+  #new-arv {
+    height: 100px;
+    width: 500px;
+    top: 200px;
+    position: relative;
+    margin: auto;
+    font-size: 80px;
+  }
+
+  #all-products {
+    height: auto;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #prod-header {
+    display: table;
+    position: absolute;
+    bottom: 0;
+  }
+
+  /* <<-------------------------------------life------------------------------------------------------------->> */
+
+  #life {
+    color: inherit;
+  }
+
+
+}

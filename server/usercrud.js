@@ -1,5 +1,4 @@
 var users = require('./userschema.js');
-// let car = require('./carschema.js');
 
 module.exports = {
 

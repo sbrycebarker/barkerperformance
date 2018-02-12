@@ -1,9 +1,11 @@
-@media only screen and (min-width: 400px){
+@media only screen and (min-width: 800px){
 
 html {
+  height: 100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  src: url(./Berthold Akzidenz Grotesk Bold Condensed.otf);
+  src: url('./Berthold_Akzidenz_Grotesk_Bold_Condensed.otf');
   font-family: 'Barlow Condensed', sans-serif;
 }
 
