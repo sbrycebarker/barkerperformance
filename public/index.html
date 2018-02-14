@@ -3,9 +3,10 @@
   <head>
     <link rel="icon" href="./assets/motor.png" type="image/png" sizes="18x18">
     <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/laptop.css">
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
@@ -13,6 +14,7 @@
   </head>
   <body ng-controller="mainCtrl" data-spy="scroll" data-target=".header-items" data-offset="50">
     <header>
+      <!-- <div class="header-overlay"><div class="loader"></div></div> -->
       <div id="homebutton" class="header-items" onclick="home()"><a ui-sref="home"><h1><span style="color: white">Barker</span><br>Performance</h1></a></div>
       <div id="nav-con" class="header-items">
 
@@ -31,7 +33,7 @@
 
         <div id="cart" class="header-items">
           <h1>
-            <i id="menue" class="fas fa-bars"></i>
+            <i id="menu" class="fas fa-bars"></i>
             <i id="shop" class="fa fa-shopping-cart" aria-hidden="true"></i>
           </h1>
         </div>
@@ -52,8 +54,7 @@
 
     </script>
     <ui-view></ui-view>
-<script src="https://use.fontawesome.com/9c92e0c655.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/9c92e0c655.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

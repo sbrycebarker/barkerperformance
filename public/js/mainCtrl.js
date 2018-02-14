@@ -68,6 +68,17 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
     let user = data;
   }
 
-
+  $(document).ready(function() {
+    $('body').css('display', 'none');
+    $('body').fadeIn(500);
+    $('.link').click(function(event) {
+      event.preventDefault();
+      newLocation = $('.link a').attr("href");
+      $('body').fadeOut(500, newpage);
+    });
+    function newpage() {
+      $scope.state = newLocation;
+    }
+  });
 
 })

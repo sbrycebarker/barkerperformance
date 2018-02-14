@@ -5,12 +5,30 @@ const express = require('express'),
       cors = require('cors'),
       massive = require('massive'),
       mongoose = require('mongoose'),
+      config = require('./config.js');
       MongoStore = require('connect-mongo')(session);
 
       var app = express();
 
       app.use(bodyParser.json())
       app.use(cors());
+
+
+      app.use(session({
+        saveUninitialized: true,
+        resave: true,
+        secret: config.secret,
+        cookie: { path: '/',
+                  httpOnly: true,
+                  secure: false,
+                  maxAge: null
+                }
+      }))
+
+      if (app.get('env') === 'production') {
+        app.set('trust proxy', 1) // trust first proxy
+        sess.cookie.secure = true // serve secure cookies
+      }
 
       let users = require('./server/usercrud.js');
       let purchase = require('./server/purchasecrud.js');

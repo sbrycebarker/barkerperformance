@@ -270,6 +270,7 @@
 
   .parts-b {
     background: url('../assets/evening.jpg');
+    background-position: center;
     background-size: cover;
   }
 
@@ -381,16 +382,19 @@
     font-size: 30px;
     margin-bottom: 10px 0;
     line-height: normal;
+    text-align: center;
   }
 
   #sec-6-box2 p {
     font-size: 15px;
     margin: 5px 0;
     line-height: 1.3em;
+    text-align: center;
   }
 
   #sec-6-box2 h2 {
     font-size: 15px;
+    text-align: center;
   }
 
   .input {
@@ -438,7 +442,7 @@
   .sec-7-con h1 {
     margin: 10px;
     margin-top: 100px;
-    font-size: 25px
+    font-size: 25px;
   }
 
   .sec-7-con h2 {
