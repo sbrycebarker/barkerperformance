@@ -163,11 +163,11 @@ header {
 }
 
 #menu {
-  display: none
+  /* display: none */
 }
 
 #shop {
-  /* display: none; */
+  display: none;
 }
 
 #cart {
