@@ -1,44 +1,50 @@
 angular.module('app').controller('mainCtrl', function($scope, service, $state, $http) {
   $scope.test = service.serviceTest
-
-  function home() {
-      $("html, body").animate({ scrollTop: "0" }, 1000)
-
+  function createSlick() {
+    $('.slick').slick({
+      centerMode: true,
+      infinite: true,
+      autoplay: true,
+    });
   }
 
-  function about() {
-      $("html, body").animate({ scrollTop: "2777" }, 1000)
-
-  }
+  createSlick()
 
   function onpage() {
     $("#" + "home").css("color", "inherit")
     $("#" + "products").css("color", "inherit")
     $("#" + "life").css("color", "inherit")
+    // if ($state.current.name === 'products') {
+    //   $('html, body').animate({scrollTop:0}, 'slow')
+    // }
     $(document).ready(function() {
       var state = $state.current.name
-      console.log(state)
       $("#" + state).css("color", "#ff2800")
-
     })
 
-    $('.multiple-items').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1
-    });
   }
 
   onpage();
 
+  $scope.build = function() {
+    $("html, body").animate({ scrollTop: "888" }, 500)
+  }
 
-  function home() {
-      $("html, body").animate({ scrollTop: "0" }, 1000)
+
+  function pizza() {
+    console.log('pizza')
+      $("html, body").animate({ scrollTop: "2777" }, 1000)
 
   }
 
-  function about() {
-      $("html, body").animate({ scrollTop: "2777" }, 1000)
-
+    $scope.menuOpen =  function() {
+      var sidebar = document.getElementById('sidebar');
+      if (sidebar.style.width == '0px' || sidebar.style.width == 0 ) {
+        console.log('OPEN')
+      sidebar.style.width = '400px'
+    } else {
+      sidebar.style.width = '0px';
+    }
   }
 
 // <===========================================JAVASCRIPT==========================================================>
@@ -68,17 +74,5 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
     let user = data;
   }
 
-  $(document).ready(function() {
-    $('body').css('display', 'none');
-    $('body').fadeIn(500);
-    $('.link').click(function(event) {
-      event.preventDefault();
-      newLocation = $('.link a').attr("href");
-      $('body').fadeOut(500, newpage);
-    });
-    function newpage() {
-      $scope.state = newLocation;
-    }
-  });
 
 })

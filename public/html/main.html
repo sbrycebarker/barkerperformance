@@ -1,11 +1,17 @@
 <title>Build your dream...</title>
 
 <main>
+  <div id="sidebar" class="sidebar">
+    <li class="mobilemen"></li>
+    <li class="mobilemen"></li>
+    <li class="mobilemen"></li>
+    <li class="mobilemen"></li>
+  </div>
   <div id="hero"class="section">
 
     <h1>BUILD YOUR DREAM</h1>
     <h2 id="start-building">START BUILDING</h2>
-    <h2 id="cheveron"><i class="fa fa-chevron-down" aria-hidden="true"></i></h2>
+    <h2 id="cheveron" ng-click="build()"><i class="fa fa-chevron-down" aria-hidden="true"></i></h2>
   </div>
 
   <div id="section2" class="section">
@@ -29,7 +35,7 @@
   </div>
 
   <div id="section4" class="section">
-    <div id="main-prod" class="multiple-items" data-slick='{"slidesToShow": 3}'>
+    <div id="main-prod" class="multiple-items slick" data-slick='{"slidesToShow": 3}'>
       <ul class="item sale">
         <img src="../assets/exploded-turbo.png">
         <h1>Turbo-A</h1>

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html ng-app="app">
   <head>
     <link rel="icon" href="./assets/motor.png" type="image/png" sizes="18x18">
@@ -22,9 +22,7 @@
         <div id="products" class="nav"><a ui-sref="products"><h1>PRODUCTS</h1></a></div>
         <div id="life" class="nav"><a ui-sref="life"><h1>LIFE</h1></a></div>
         <div id="about"class="nav" onclick="about()"><a ui-sref="home"><h1>ABOUT</h1></a></div>
-
       </div>
-
       <div class="rightbox">
         <div></div>
         <div class="login">
@@ -33,12 +31,14 @@
 
         <div id="cart" class="header-items">
           <h1>
-            <i id="menu" class="fas fa-bars"></i>
+            <i id="menu" ng-click="menuOpen()" class="fas fa-bars"></i>
             <i id="shop" class="fa fa-shopping-cart" aria-hidden="true"></i>
           </h1>
         </div>
       </div>
     </header>
+    <!-- <aside id="sidebar" class="sidebar"></aside> -->
+    <ui-view></ui-view>
     <script>
 
     function home() {
@@ -47,13 +47,14 @@
     }
 
     function about() {
-        $("html, body").animate({ scrollTop: "2777" }, 1000)
+        $('main').ready(function(){
+          console.log("ready")
+          $("html, body").animate({ scrollTop: "2350" }, 1000)
+        })
 
     }
 
-
     </script>
-    <ui-view></ui-view>
 <script defer src="https://use.fontawesome.com/9c92e0c655.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>

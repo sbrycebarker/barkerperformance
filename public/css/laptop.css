@@ -53,6 +53,10 @@ header {
   100% { transform: rotate(360deg); }
 }
 
+
+/* #sidebar {
+  display: none;
+} */
 /*.header-items {
   height: 100%;
   width: auto;
@@ -163,11 +167,11 @@ header {
 }
 
 #menu {
-  /* display: none */
+  display: none
 }
 
 #shop {
-  display: none;
+  /* display: none; */
 }
 
 #cart {
