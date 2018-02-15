@@ -44,10 +44,11 @@
     opacity: 1;
   }
 
-  .mobilemen {
-    height: 25%;
+  .menuitem {
+    /* height: 25%; */
     width: 100%;
-    display: inherit;
+    display: flex;
+    flex: 5;
     z-index: 5;
     border-bottom: 1px solid silver;
   }
@@ -188,6 +189,7 @@
   #hero {
     height: 100vh;
     width: 100%;
+    min-height: 350px;
     background: url('../assets/elanorHD.jpg');
     background-position: center;
     background-repeat: no-repeat;

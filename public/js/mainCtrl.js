@@ -41,7 +41,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
       var sidebar = document.getElementById('sidebar');
       if (sidebar.style.width == '0px' || sidebar.style.width == 0 ) {
         console.log('OPEN')
-      sidebar.style.width = '400px'
+      sidebar.style.width = '100%'
     } else {
       sidebar.style.width = '0px';
     }

@@ -201,6 +201,14 @@ header {
   text-align: center;
 }
 
+.cart-side {
+  display: none;
+}
+
+.menuitem {
+  display: none;
+}
+
 #hero {
   height: 800px;
   width: 100%;
