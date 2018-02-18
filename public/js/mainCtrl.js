@@ -5,6 +5,25 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
       centerMode: true,
       infinite: true,
       autoplay: true,
+      responsive: [
+          {
+            breakpoint: 1500,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 1000,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              dots: true
+            }
+          }
+        ]
     });
   }
 
