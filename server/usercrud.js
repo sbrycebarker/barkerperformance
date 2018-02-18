@@ -8,7 +8,7 @@ module.exports = {
               // console.log(err)
               // res.status(500).json(err)
             } else {
-              console.log(response)
+              // console.log(response)
               res.json(response)
             }
           });
