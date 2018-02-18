@@ -166,6 +166,10 @@ header {
   letter-spacing: 2px;
 }
 
+.m-login {
+  display: none;
+}
+
 #menu {
   display: none
 }
