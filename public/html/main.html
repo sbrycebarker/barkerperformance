@@ -2,9 +2,17 @@
 
 <main>
   <div id="cart-side" class="cart-side">
+    <div class="cart-head">
+      <div class="arrowcont">
+      <h1 class="closeCart" ng-click="closeCart()">></h1>
+      </div>
+      <h1>Cart</h1>
+    </div>
     <div class="cartlist"></div>
     <div class="total">
-      <button class="viewcart"></button>
+      <h1>Total</h1>
+      <h1>$ 300{{total}}</h1>
+      <!-- <button class="viewcart"></button> -->
     </div>
   </div>
   <div id="sidebar" class="sidebar">

@@ -98,6 +98,7 @@
 
   #homebutton {
     height: 100%;
+    padding: 0 10px;
     position: absolute;
     display: flex;
   }
@@ -105,6 +106,7 @@
   #homebutton a {
     height: 100%;
     position: absolute;
+    padding: 0 5px;
     display: flex;
     text-decoration: none;
     color: inherit;
@@ -197,7 +199,7 @@
     letter-spacing: 1px;
   }
 
-  #cart {
+  #cart-btn {
     height: 100%;
     width: 100px;
     position: relative;
@@ -206,12 +208,12 @@
     background-color: #ff2800;
   }
 
-  #cart h1:hover {
+  #cart-btn h1:hover {
     cursor: pointer;
     color: white;
   }
 
-  #cart h1 {
+  #cart-btn h1 {
     height: 20px;
     font-size: 20px;
     margin: auto;
@@ -229,6 +231,14 @@
 
   #shop {
     display: none
+  }
+
+  .cartlist {
+
+  }
+
+  .cart-side {
+
   }
 
 

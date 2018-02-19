@@ -66,6 +66,21 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
     }
   }
 
+  $scope.cartOpen =  function() {
+    var cartside = document.getElementById('cart-side');
+    if (cartside.style.width == '0px' || cartside.style.width == 0 ) {
+      console.log('OPEN')
+    cartside.style.width = '500px'
+  } else {
+    cartside.style.width = '0px';
+  }
+}
+
+  $scope.closeCart = function() {
+    var cartside = document.getElementById('cart-side');
+      cartside.style.width = '0px';
+  }
+
 // <===========================================JAVASCRIPT==========================================================>
 
   $scope.getUsers = function() {
