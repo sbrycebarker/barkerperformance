@@ -23,7 +23,7 @@ const express = require('express'),
       mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
         useMongoClient: true,
       })
-      
+
       // app.use(stripe({
       //   stripe.customers.create({
       //     email:
@@ -40,6 +40,7 @@ const express = require('express'),
                   maxAge: null
                 }
       }))
+
       app.use(passport.initialize());
 
       if (app.get('env') === 'production') {
@@ -95,6 +96,12 @@ const express = require('express'),
   app.get('/auth/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+  })
+
+  app.get('/auth/me', function(req, res) {
+    if (!req.user) return res.sendStatus(404);
+    console.log("me", req.user)
+    res.status(200).send(req.user);
   })
 
 //<<====================================login==============================>>
