@@ -3,6 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       reload = require('reload'),
       cors = require('cors'),
+      http = require('http'),
       massive = require('massive'),
       mongoose = require('mongoose'),
       Auth0Strategy = require('passport-auth0'),
@@ -42,6 +43,7 @@ const express = require('express'),
       }))
 
       app.use(passport.initialize());
+      app.use(passport.session());
 
       if (app.get('env') === 'production') {
         app.set('trust proxy', 1) // trust first proxy
@@ -72,13 +74,6 @@ const express = require('express'),
     }
   );
 
-  app.get('/login',
-    passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
-    res.redirect("/");
-  });
-
-  app.get('/auth', passport.authenticate('auth0'));
-
   passport.serializeUser(function(userA, done) {
   console.log('serializing', userA);
   var userB = userA;
@@ -93,16 +88,27 @@ const express = require('express'),
   done(null, userC); //PUTS 'USER' ON REQ.USER
   });
 
+  app.get('/auth', passport.authenticate('auth0'));
+
+  app.get('/login',
+    passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
+    res.redirect("/");
+  });
+
+  app.get('/auth/me', function(req, res) {
+    if (!req.user) {
+      return "Login"
+    } else {
+      console.log("me", req.user)
+      res.status(200).send(req.user);
+    }
+  })
+
   app.get('/auth/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   })
 
-  app.get('/auth/me', function(req, res) {
-    if (!req.user) return res.sendStatus(404);
-    console.log("me", req.user)
-    res.status(200).send(req.user);
-  })
 
 //<<====================================login==============================>>
 
@@ -120,7 +126,7 @@ const express = require('express'),
       app.put('/updatePurchase/:id', purchase.update);
       app.delete('/delete/:id', purchase.destroy);
 
-      reload(app);
+      // reload(app);
 
       app.use(express.static('./public'))
             var port = 8085

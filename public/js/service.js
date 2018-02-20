@@ -1,7 +1,6 @@
-angular.module('app').service('service', function($http, $stateParams) {
+angular.module('app').service('service', function($http) {
 
   this.getUsers = function(data) {
-    console.log("service", data)
     return $http({
       method:'GET',
       data: data,
@@ -9,19 +8,19 @@ angular.module('app').service('service', function($http, $stateParams) {
       controller: "mainCtrl"
     })
   }
-  // 
-  // this.getUser = function(res) {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/auth/me'
-  //   })
-  //   .then(function(res) {
-  //     return res.data;
-  //   })
-  //   .catch(function(err) {
-  //     console.log("Log In")
-  //   })
-  // }
+
+  this.getUser = function(res) {
+    return $http({
+      method: 'GET',
+      url: '/auth/me'
+    })
+    .then(function(res) {
+      return res.data;
+    })
+    .catch(function(err) {
+      console.log("Log In")
+    })
+  }
 
   this.logout = function() {
     return $http({
