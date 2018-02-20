@@ -81,7 +81,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
       cartside.style.width = '0px';
   }
 
-// <===========================================JAVASCRIPT==========================================================>
+// <===========================================CRUD==========================================================>
 
   $scope.getUsers = function() {
     service.getUsers().then(function(result){
@@ -96,17 +96,28 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state, $
 
   $scope.getUsers();
 
-  $scope.user = function(result) {
-    service.user().then(function(result) {
-      $scope.user = result
-    })
-  }
-
   // $scope.user();
 
   $scope.createUser = function(data) {
     let user = data;
   }
+
+  $scope.getUser = function() {
+    service.getUser().then(function(user) {
+      console.log("user", user)
+      if (user) {
+        $scope.user = user[0].username;
+        $scope.userid = user[0].user_id
+        console.log("userinfo", $scope.user)
+      } else {
+        $scope.user = 'LOG IN!';
+      }
+    })
+    }
+
+    $scope.getUser()
+
+    $scope.logout = service.logout;
 
 
 })

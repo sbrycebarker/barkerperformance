@@ -187,6 +187,12 @@
     display: flex;
   }
 
+  .login:hover {
+    background-color: silver;
+    color: black;
+    cursor: pointer;
+  }
+
   .login h1 {
     height: 10px;
     font-size: 12px;

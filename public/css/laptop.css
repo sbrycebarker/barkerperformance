@@ -155,6 +155,12 @@ header {
   display: flex;
 }
 
+.login:hover {
+  background-color: silver;
+  color: black;
+  cursor: pointer;
+}
+
 .login h1 {
   height: 20px;
   width: 200px;

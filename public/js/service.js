@@ -10,13 +10,30 @@ angular.module('app').service('service', function($http, $stateParams) {
     })
   }
 
-  // this.user = function(user) {
-  //   console.log("service user")
-  //   return $http({
-  //     method: 'GET',
-  //     data: user,
-  //     url: '/getUser/:id'
-  //   })
-  // }
+  this.getUser = function(res) {
+    return $http({
+      method: 'GET',
+      url: '/auth/me'
+    })
+    .then(function(res) {
+      return res.data;
+    })
+    .catch(function(err) {
+      console.log("Log In")
+    })
+  }
+
+  this.logout = function() {
+    return $http({
+      method: 'GET',
+      url: '/auth/logout'
+    })
+    .then(function(res) {
+      return res.data;
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
 
 })
