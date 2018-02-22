@@ -153,6 +153,8 @@ header {
   width: 200px;
   position: relative;
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .login:hover {
