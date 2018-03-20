@@ -479,4 +479,11 @@
 
   /* #020202 */ }
 
+  .checkout {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    background-color: black;
+  }
+
 /*# sourceMappingURL=full.css.map */

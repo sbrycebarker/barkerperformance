@@ -4,14 +4,40 @@
   <div id="cart-side" class="cart-side">
     <div class="cart-head">
       <div class="arrowcont">
-      <h1 class="closeCart" ng-click="closeCart()">></h1>
+        <h1 class="closeCart" ng-click="closeCart()">></h1>
       </div>
       <h1>Cart</h1>
     </div>
     <div class="cartlist"></div>
+    <form action="/charge" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
+      data-amount="300"
+      data-name="Barker Performance"
+      data-description="Example charge"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-locale="auto"
+      dat-currency= "usd">
+    </script>
+  </form>
     <div class="total">
       <h1>Total</h1>
       <h1>$ 300{{total}}</h1>
+      <h1>
+        <form action="/charge" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
+          data-amount="300"
+          data-name="Barker Performance"
+          data-description="Example charge"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          dat-currency= "usd">
+        </script>
+      </form>
+      </h1>
       <!-- <button class="viewcart"></button> -->
     </div>
   </div>
@@ -33,7 +59,7 @@
       <h1>Cart</h1>
     </div>
   </div>
-  <div id="hero"class="section">
+  <div id="hero" class="section">
 
     <h1>BUILD YOUR DREAM</h1>
     <h2 id="start-building">START BUILDING</h2>
@@ -101,11 +127,7 @@
         <div class="aboutus">
           <h1>ABOUT US</h1>
           <p>
-          This is a portfolio site, it is made<br>
-          for the purpose of displaying the<br>
-          makers abilities using code. It <br>
-          uses a Wix template as refrerence <br>
-          but is built buy the maker</p>
+            This is a portfolio site, it is made<br> for the purpose of displaying the<br> makers abilities using code. It <br> uses a Wix template as refrerence <br> but is built buy the maker</p>
         </div>
       </div>
     </div>
@@ -121,12 +143,9 @@
     </div>
     <div id="sec-6-box2" class="sec-6-box">
       <h1>CONTACT</h1>
-        <p>
-           This is will be a paragraph asking for feedback or any questions
-           a visitor may have, also I’m a great place for you to tell a story
-           and let your users know a little more about you. But you may leave
-           feedback for the creator of this portfolio site.
-        </p>
+      <p>
+        This is will be a paragraph asking for feedback or any questions a visitor may have, also I’m a great place for you to tell a story and let your users know a little more about you. But you may leave feedback for the creator of this portfolio site.
+      </p>
       <h2>sbrycebarker@gmail.com</h2>
       <h2>801-358-3800</h2>
     </div>
@@ -142,7 +161,10 @@
   </div>
 
   <footer>
-    <h1>@ 2018 by SERGIO BARKER</h1> <h1>FAQ</h1> <h1>Shipping & Returns</h1> <h1>Terms & Conditions</h1>
+    <h1>@ 2018 by SERGIO BARKER</h1>
+    <h1>FAQ</h1>
+    <h1>Shipping & Returns</h1>
+    <h1>Terms & Conditions</h1>
   </footer>
 
 </main>

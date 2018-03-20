@@ -17,4 +17,9 @@ angular.module('app',['ui.router'])
         templateUrl: "../html/life.html",
         controller: "mainCtrl"
       })
+      .state('checkout', {
+        url: "/checkout",
+        templateUrl: "../html/checkout.html",
+        controller: "mainCtrl"
+      })
   })

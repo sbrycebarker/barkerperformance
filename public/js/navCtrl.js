@@ -15,6 +15,6 @@ angular.module('app').controller('navCtrl', function($scope, service, $state) {
     })
   }
 
-    $scope.getUser();
+    // $scope.getUser();
 
 })

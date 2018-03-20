@@ -8,7 +8,7 @@ const express = require('express'),
       mongoose = require('mongoose'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
-      stripe = require('stripe')('sk_test_...'),
+      stripe = require('stripe')('pk_test_bLfWBEElGWXWGYBGUmZsMIbM'),
       config = require('./config.js');
       MongoStore = require('connect-mongo')(session);
 
@@ -19,7 +19,10 @@ const express = require('express'),
 
       var app = express();
 
+      // app.set('view engine', 'hbs');
+
       app.use(bodyParser.json())
+      app.use(bodyParser.urlencoded({extended:false}))
       app.use(cors());
       mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
         useMongoClient: true,
@@ -122,6 +125,18 @@ const express = require('express'),
       app.get('/getPurchase/:id', purchase.show);
       app.put('/updatePurchase/:id', purchase.update);
       app.delete('/delete/:id', purchase.destroy);
+
+
+// ====================================STRIPE PAYMENT======================
+    app.get('/paysuccess', function(req, res) {
+      res.render('paysuccess', {
+
+      })
+    })
+
+    app.post('/charge', function(req, res) {
+
+    })
 
       // reload(app);
 

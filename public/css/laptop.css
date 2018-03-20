@@ -705,6 +705,26 @@ footer h1 {
 #life {
   color: inherit;
 }
+.checkout {
+  height: 100vh;
+  width: 100vw;
+}
+
+#checkout_container {
+  height: 500px;
+  width: 1000px;
+  border: 3px solid black;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.stripe-button !important{
+  height: 50px;
+  width: 200px;
+  border: 1px solid black;
+  display: relative
+}
 
 /* #020202 */
 
