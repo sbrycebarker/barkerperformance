@@ -6,6 +6,7 @@ const express = require('express'),
       http = require('http'),
       massive = require('massive'),
       mongoose = require('mongoose'),
+      hbs = require('handlebars'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
       stripe = require('stripe')('pk_test_bLfWBEElGWXWGYBGUmZsMIbM'),
@@ -99,9 +100,12 @@ const express = require('express'),
   });
 
   app.get('/auth/me', function(req, res) {
-    if (!req.user) return res.sendStatus(404);
-        console.log("me", req.user)
-        res.status(200).send(req.user);
+    if (!req.user) {
+       return res.sendStatus(404)
+     } else {
+       console.log("me", req.user)
+       res.status(200).send(req.user);
+     }
   })
 
   app.get('/auth/logout', function(req, res) {

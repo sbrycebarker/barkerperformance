@@ -96,10 +96,15 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
 
   $scope.getUsers();
 
-
-  // $scope.createUser = function(data) {
-  //   let user = data;
-  // }
+  $scope.contact = function(data) {
+    if (!data.email) {
+      console.error("Please enter valid email!");
+      $scope.invalidEmail = "Please enter valid email";
+    } else {
+      console.log("data", data)
+      document.getElementsByClassName('input').value = ''  
+    }
+  }
 
 
     $scope.logout = service.logout;

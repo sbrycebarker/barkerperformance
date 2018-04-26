@@ -135,16 +135,17 @@
 
   <div id="section6" class="section">
     <div id="sec-6-box1" class="sec-6-box">
-      <input id="name" class="name input" type="text" ng-model="name" placeholder="Name"></input>
-      <input id="email" class="email input" type="text" ng-model="email" placeholder="Email"></input>
+      <input id="name" class="name input" type="text" ng-model="name" placeholder="Name *" required></input>
+      <input id="email" class="email input" type="email" ng-model="email" placeholder="Email *" required></input>
       <input id="subject" class="subject input" type="text" ng-model="subject" placeholder="Subject"></input>
-      <input id="message" class="message input" type="text" ng-model="message" placeholder="Message"></input>
-      <button id="send" class="send">SEND</button>
+      <textarea id="message" class="message input" type="text" ng-model="message" placeholder="Message" required></textarea>
+      <button id="send" class="send" ng-click="contact( { name: name, email: email, subject: subject, message: message } )">SEND</button>
     </div>
     <div id="sec-6-box2" class="sec-6-box">
-      <h1>CONTACT</h1>
+      <h1>Feedback</h1>
       <p>
-        This is will be a paragraph asking for feedback or any questions a visitor may have, also I’m a great place for you to tell a story and let your users know a little more about you. But you may leave feedback for the creator of this portfolio site.
+        How do you like my site? Please leave some feedback if you would like it would much would be appreciated. Use the fields to the left
+        or my email or phone number below. Tips, suggestions, anything.
       </p>
       <h2>sbrycebarker@gmail.com</h2>
       <h2>801-358-3800</h2>
@@ -155,8 +156,8 @@
     <div class="sec-7-con">
       <h1>JOIN OUR MAILING LIST</h1>
       <h2>AND NEVER MISS AN UPDATE</h2>
-      <input class="listinput field" placeholder="Email Address" style="color: white; padding-left: 15px"></input>
-      <button class="listbutton field">SUSCRIBE NOW</button>
+      <input class="listinput field" type="email" ng-model="list_email" placeholder="Email Address" style="color: white; padding-left: 15px"></input>
+      <button class="listbutton field" ng-click="addToList( {email: list_email} )" required>SUSCRIBE NOW</button>
     </div>
   </div>
 
