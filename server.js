@@ -10,14 +10,13 @@ const express = require('express'),
       hbs = require('handlebars'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
-      stripe = require('stripe')('pk_test_bLfWBEElGWXWGYBGUmZsMIbM'),
-      config = require('./config.js');
+      config = require('./config.js'),
+      stripe = require('stripe')(config.stripe.pk_test),
       MongoStore = require('connect-mongo')(session);
 
-      var mon = mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
+      mongoose.connect(config.mongoose.mongodb, {
         useMongoClient: true,
       });
-      // console.log(mon)
 
       var app = express();
 
@@ -26,9 +25,6 @@ const express = require('express'),
       app.use(bodyParser.json())
       app.use(bodyParser.urlencoded({extended:false}))
       app.use(cors());
-      mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
-        useMongoClient: true,
-      })
 
       // app.use(stripe({
       //   stripe.customers.create({

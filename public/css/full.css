@@ -143,6 +143,10 @@
     color: inherit;
   }
 
+  .nav a:hover {
+    color: red;
+  }
+
   .rightbox {
     height: 100%;
     width: 400px;

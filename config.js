@@ -15,7 +15,16 @@ module.exports = {
             }
   },
   stripe: {
-    pub_key: 'pk_test_8Na8dE5Mru3gFLqBTitXTM2V',
-    sec_key: 'sk_test_HfnkOxWVpJKkfsEaH0y9jayf'
+    // pub_key: 'pk_test_8Na8dE5Mru3gFLqBTitXTM2V',
+    sec_key: 'sk_test_HfnkOxWVpJKkfsEaH0y9jayf',
+    pk_test: 'pk_test_bLfWBEElGWXWGYBGUmZsMIbM'
+  },
+  mongoose: {
+    mongodb: 'mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance'
   }
 }
+
+
+// mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
+//   useMongoClient: true,
+// })
