@@ -5,6 +5,15 @@ module.exports = {
     clientID: "c9iqLtJ5TP88XwmXGKAW62L1gQP1sXzm",
     clientSecret: "ibxfL7srdzqIfkyHo-OtPb-rdAwNp8i6PesgKKbRCmQ2n6mQpbTYSb3sOyWYMB5S"
   },
+  session: {
+    saveUninitialized: true,
+    resave: true,
+    cookie: { path: '/',
+              httpOnly: true,
+              secure: false,
+              maxAge: null
+            }
+  },
   stripe: {
     pub_key: 'pk_test_8Na8dE5Mru3gFLqBTitXTM2V',
     sec_key: 'sk_test_HfnkOxWVpJKkfsEaH0y9jayf'

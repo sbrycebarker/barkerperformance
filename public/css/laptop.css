@@ -109,7 +109,7 @@ header {
 }
 
 .nav:hover {
-  color: white;
+  color: #ff2800;
   cursor: pointer;
 }
 
@@ -133,7 +133,7 @@ header {
   justify-content: center;
   letter-spacing: 2px;
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
 }
 
 .nav a:visited {
@@ -709,9 +709,10 @@ footer h1 {
 
 /* <<-------------------------------------life------------------------------------------------------------->> */
 
-#life {
+/* #life {
   color: inherit;
-}
+} */
+
 .checkout {
   height: 100vh;
   width: 100vw;

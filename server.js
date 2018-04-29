@@ -4,6 +4,7 @@ const express = require('express'),
       reload = require('reload'),
       cors = require('cors'),
       http = require('http'),
+      nodemailer = require('nodemailer'),
       massive = require('massive'),
       mongoose = require('mongoose'),
       hbs = require('handlebars'),
@@ -36,14 +37,10 @@ const express = require('express'),
       // }))
 
       app.use(session({
-        saveUninitialized: true,
-        resave: true,
+        saveUninitialized: config.session.saveUninitialized,
+        resave: config.session.resave,
         secret: config.secret,
-        cookie: { path: '/',
-                  httpOnly: true,
-                  secure: false,
-                  maxAge: null
-                }
+        cookie: config.session.cookie
       }))
 
       app.use(passport.initialize());
