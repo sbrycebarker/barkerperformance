@@ -1,5 +1,5 @@
 module.exports = {
-  secret: 'pizzaisgood', 
+  secret: 'pizzaisgood',
   auth0: {
     domain: "sbrycebarker.auth0.com",
     clientID: "c9iqLtJ5TP88XwmXGKAW62L1gQP1sXzm",
