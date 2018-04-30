@@ -23,13 +23,13 @@ module.exports = {
 
   create: (req, res, next) => {
   var user = new user(req.body);
-    purchase.save(err, response => {
-      if (err) {
-        res.status(500).json(err);
-      } else {
-        res.status(200).json(response);
-      }
-    })
+    // purchase.save(err, response => {
+    //   if (err) {
+    //     res.status(500).json(err);
+    //   } else {
+    //     res.status(200).json(response);
+    //   }
+    // })
   },
 
   update: (req, res, next) => {

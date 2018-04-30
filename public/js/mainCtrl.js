@@ -108,7 +108,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
 
 
     $scope.logout = service.logout;
-//<<=================================== Email =============================>>
+//<<=================================== Nodemailer =============================>>
 
   $scope.sendMail = function(email) {
     // console.log('email', email)
@@ -119,6 +119,18 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
       } else {
         console.log('message sent')
         $scope.thankYou = "thank you"
+      }
+    })
+  }
+  $scope.email_list = 'Email Address'
+  $scope.addToList = function(email) {
+    service.addToList(email).then(function(result) {
+      if (!result) {
+        console.error('Invalid Email');
+        $scope.email_list = 'Invalid Email'
+      } else {
+        console.log('message sent')
+        $scope.email_list = "thank you"
       }
     })
   }

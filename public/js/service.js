@@ -39,7 +39,7 @@ angular.module('app').service('service', function($http) {
     console.log('email', email)
     return $http({
       method: 'POST',
-      url: '/sendMail',
+      url: '/feedback',
       data: email
     }).then(function(res) {
       return res.data;

@@ -1,17 +1,22 @@
-nodemailer = require('nodemailer'),
+      let nodemailer = require('nodemailer'),
+          config = require('../config.js');
+
+
 
 let transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // true for 465, false for other ports
-  auth: {
-      user: config.nodemailer.user, // generated ethereal user
-      pass: config.nodemailer.pass // generated ethereal password
-  }
-  });
+host: 'smtp.gmail.com',
+port: 587,
+secure: false, // true for 465, false for other ports
+auth: {
+    user: config.nodemailer.user, // generated ethereal user
+    pass: config.nodemailer.pass // generated ethereal password
+}
+});
 
 module.exports = {
-  list: (req, res) => {
+
+  feedback: (req, res) => {
+
     console.log('sent', req.body);
     const outPut = `
       <p>You have new feedback</p>
@@ -27,7 +32,6 @@ module.exports = {
       from: '"Barker Performance 👻" <sergiobarkerdev@gmail.com>', // sender address
       to: 'sbrycebarker@gmail.com', // list of receivers
       subject: req.body.subject, // Subject line
-      text: 'Hello world?', // plain text body
       html: outPut // html body
     };
 
@@ -44,7 +48,4 @@ module.exports = {
       // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   });
 }
-}
-
-
 }
