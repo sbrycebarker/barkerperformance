@@ -139,13 +139,13 @@
       <input id="email" class="email input" type="email" ng-model="email" placeholder="Email *" required></input>
       <input id="subject" class="subject input" type="text" ng-model="subject" placeholder="Subject"></input>
       <textarea id="message" class="message input" type="text" ng-model="message" placeholder="Message" required></textarea>
-      <button id="send" class="send" ng-click="contact( { name: name, email: email, subject: subject, message: message } )">SEND</button>
+      <button id="send" type="submit" class="send" ng-click="sendMail( { name: name, email: email, subject: subject, message: message } )">SEND</button>
     </div>
     <div id="sec-6-box2" class="sec-6-box">
       <h1>Feedback</h1>
       <p>
-        How do you like my site? Please leave some feedback if you would like it would much would be appreciated. Use the fields to the left
-        or my email or phone number below. Tips, suggestions, anything.
+        How do you like my site? Please leave some feedback if you like. It would be much appreciated. Use the fields to the left
+        my email or phone number below.<br> Tips, suggestions, anything.
       </p>
       <h2>sbrycebarker@gmail.com</h2>
       <h2>801-358-3800</h2>

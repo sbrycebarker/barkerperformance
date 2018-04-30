@@ -81,7 +81,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
       cartside.style.width = '0px';
   }
 
-// <===========================================CRUD==========================================================>
+// <=========================================== Data ==========================================================>
 
   $scope.getUsers = function() {
     service.getUsers().then(function(result){
@@ -102,12 +102,25 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
       $scope.invalidEmail = "Please enter valid email";
     } else {
       console.log("data", data)
-      document.getElementsByClassName('input').value = ''  
+      document.getElementsByClassName('input').value = ''
     }
   }
 
 
     $scope.logout = service.logout;
+//<<=================================== Email =============================>>
 
+  $scope.sendMail = function(email) {
+    // console.log('email', email)
+    service.sendMail(email).then(function(result) {
+      if (!result) {
+        console.error('Invalid Email');
+        $scope.thankYou = 'Invalid Email'
+      } else {
+        console.log('message sent')
+        $scope.thankYou = "thank you"
+      }
+    })
+  }
 
 })

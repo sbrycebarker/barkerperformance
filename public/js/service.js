@@ -35,4 +35,15 @@ angular.module('app').service('service', function($http) {
     })
   }
 
+  this.sendMail = function (email) {
+    console.log('email', email)
+    return $http({
+      method: 'POST',
+      url: '/sendMail',
+      data: email
+    }).then(function(res) {
+      return res.data;
+    })
+  }
+
 })

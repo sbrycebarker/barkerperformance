@@ -1,5 +1,5 @@
 module.exports = {
-  secret: 'pizzaisgood',
+  secret: 'pizzaisgood', 
   auth0: {
     domain: "sbrycebarker.auth0.com",
     clientID: "c9iqLtJ5TP88XwmXGKAW62L1gQP1sXzm",
@@ -8,11 +8,12 @@ module.exports = {
   session: {
     saveUninitialized: true,
     resave: true,
-    cookie: { path: '/',
-              httpOnly: true,
-              secure: false,
-              maxAge: null
-            }
+    cookie: {
+      path: '/',
+      httpOnly: true,
+      secure: false,
+      maxAge: null
+    }
   },
   stripe: {
     // pub_key: 'pk_test_8Na8dE5Mru3gFLqBTitXTM2V',
@@ -21,6 +22,10 @@ module.exports = {
   },
   mongoose: {
     mongodb: 'mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance'
+  },
+  nodemailer: {
+    user: 'sergiobarkerdev@gmail.com',
+    pass: '1234Bryce'
   }
 }
 
