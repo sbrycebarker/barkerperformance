@@ -111,11 +111,11 @@ const express = require('express'),
       let purchase = require('./server/purchasecrud.js');
       let parts = require('./server/partcrud.js')
 
-      app.post('/postUsers', users.create)
       app.get('/getUsers', users.read);
       app.get('/getUsers/:id', users.show);
       app.put('/updateUsers/:id', users.update);
       app.delete('/deleteUser/:id', users.destroy);
+      app.post('/addUser', users.create);
       // app.post('/postPurchase', purchase.create);
       // app.get('/getPurchase', purchase.read);
       // app.get('/getPurchase/:id', purchase.show);

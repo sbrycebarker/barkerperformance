@@ -13,4 +13,4 @@ var userSchema = new Schema({
   mailing_list: { type: String }
 });
 
-module.exports = mongoose.model('breaks', userSchema);
+module.exports = mongoose.model('users', userSchema);

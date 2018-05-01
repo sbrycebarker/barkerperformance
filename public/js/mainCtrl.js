@@ -82,19 +82,38 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
   }
 
 // <=========================================== Data ==========================================================>
+  $scope.user = [];
 
-  // $scope.getUsers = function() {
-  //   service.getUsers().then(function(result){
-  //     console.log("main", result.data[0])
-  //     if (!result) {
-  //       $scope.users = "Login"
-  //     } else {
-  //     $scope.users = result.data[0]
-  //   }
-  //   })
-  // }
-  //
-  // $scope.getUsers();
+  $scope.getUser = function() {
+    service.getUser().then(function(user) {
+      console.log("user", user)
+      if (user) {
+        $scope.user.push(user)
+        $scope.username = user.displayName;
+        $scope.userid = user.user_id
+        console.log("userinfo", $scope.user)
+      } else {
+        $scope.username = 'LOG IN!';
+      }
+    })
+  }
+  $scope.getUser();
+
+  $scope.getUsers = function() {
+    service.getUsers().then(function(result){
+      console.log(result)
+      let users = result
+      for (var i = 0; i < users.length; i++) {
+        if (i.user_id === $scope.userid) {
+          console.log("Welcome")
+        } else {
+          service.addUser($scope.user)
+        }
+      }
+    })
+  }
+
+  $scope.getUsers();
 
   $scope.contact = function(data) {
     if (!data.email) {

@@ -5,10 +5,10 @@ module.exports = {
       read: function(req, res, next) {
         users.find().exec(function(err, response){
             if(err) {
-              // console.log(err)
-              // res.status(500).json(err)
+              console.log(err)
+              res.status(500).json(err)
             } else {
-              // console.log(response)
+              console.log(response)
               res.json(response)
             }
           });
@@ -28,13 +28,8 @@ module.exports = {
       create: function(req, res, next) {
         // var users = new Car(req.body);
         console.log("stuff", req.body)
-        var user = req.body[0];
-        var finalprice = req.body[3];
-        var color = req.body[1]
-        var cart = req.body[2];
-        var email = req.body[4]
         // console.log("car data", req.body)
-        var cart = new Cart({user, color, cart, finalprice, email})
+        var user = new User(req.body)
           users.save(function(err, response) {
             if (err) {
               console.log(err)

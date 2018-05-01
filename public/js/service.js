@@ -63,4 +63,12 @@ angular.module('app').service('service', function($http) {
     })
   }
 
+  this.addUser = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/getParts',
+      data: user
+    })
+  }
+
 })
