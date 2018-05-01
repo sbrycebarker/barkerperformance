@@ -109,23 +109,30 @@ const express = require('express'),
 
       let users = require('./server/usercrud.js');
       let purchase = require('./server/purchasecrud.js');
+      let parts = require('./server/partcrud.js')
 
       app.post('/postUsers', users.create)
       app.get('/getUsers', users.read);
       app.get('/getUsers/:id', users.show);
       app.put('/updateUsers/:id', users.update);
       app.delete('/deleteUser/:id', users.destroy);
-      app.post('/postPurchase', purchase.create);
-      app.get('/getPurchase', purchase.read);
-      app.get('/getPurchase/:id', purchase.show);
-      app.put('/updatePurchase/:id', purchase.update);
-      app.delete('/delete/:id', purchase.destroy);
+      // app.post('/postPurchase', purchase.create);
+      // app.get('/getPurchase', purchase.read);
+      // app.get('/getPurchase/:id', purchase.show);
+      // app.put('/updatePurchase/:id', purchase.update);
+      // app.delete('/delete/:id', purchase.destroy);
+      app.get('/getParts', parts.read)
 
-// <<=========================== Email ======================================>>
+// <<=========================== Nodemailer ======================================>>
 
-      let nodemail = require('./server/nodemailer.js')
-// setup email data with unicode symbols
-      app.post('/feedback', nodemail.feedback);
+      let nodemail = require('./server/nodemailer.js');
+
+      app.post('/feedback', nodemail.create);
+      app.get('/getFeedback', nodemail.read);
+      // app.post('/feedconf', nodemail.fedconf);
+      app.put('/addToList', nodemail.list);
+      app.get('/addToList', nodemail.getlist);
+      // app.post('/listconf', nodemail.listconf);
 
 
 // <<====================================STRIPE PAYMENT======================>>

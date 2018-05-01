@@ -1,5 +1,5 @@
 <title>BPF | Products</title>
-<div class="products">
+<div id="products" class="products">
   <h1 class="title">NEW PRODUCTS</h1>
 <div id="products-con">
 <div id="new-prod-con" class="things slick" data-slick='{"slidesToShow": 3 }'>
@@ -30,81 +30,11 @@
   </ul>
 </div>
   <h1 class="title">ALL PRODUCTS</h1>
-<div id="all-products" class="things">
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/suspension.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/disc-brake.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/disc-brake.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="item">
-    <img src="../assets/disc-brake.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
+<div id="all-products" class="things" ng-click="productView()">
+  <ul class="item" ng-repeat="part in parts">
+    <img src="{{part.img}}">
+    <h1>{{part.name}}</h1>
+    <h1>${{part.price}}</h1>
   </ul>
 </div>
 <div class="things">

@@ -18,7 +18,7 @@ angular.module('app').service('service', function($http) {
       return res.data;
     })
     .catch(function(err) {
-      // console.log("Log In")
+
     })
   }
 
@@ -43,6 +43,23 @@ angular.module('app').service('service', function($http) {
       data: email
     }).then(function(res) {
       return res.data;
+    })
+  }
+
+  this.addToList = function (email) {
+    console.log('email', email)
+    return $http({
+      method: 'PUT',
+      url: '/addToList',
+      data: email
+    })
+  }
+
+  this.getParts = function (data) {
+    return $http({
+      method: 'GET',
+      url: '/getParts',
+      // data: data
     })
   }
 

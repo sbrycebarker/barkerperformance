@@ -1,4 +1,4 @@
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 950px) {
 
 html {
   height: 100%;
@@ -162,9 +162,7 @@ header {
 }
 
 .login:hover {
-  background-color: silver;
   color: black;
-  cursor: pointer;
 }
 
 .login h1 {
@@ -176,6 +174,18 @@ header {
   display: flex;
   justify-content: center;
   letter-spacing: 2px;
+}
+
+.button-primary {
+  background-color: black;
+  color: silver;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.button-primary:hover {
+  color: #ff2800
 }
 
 .m-login {
@@ -484,13 +494,13 @@ header {
 #sec-6-box1 {
   color: white;
   position: relative;
-  margin-right: 100px;
+  margin: auto;
 }
 
 #sec-6-box2 {
   color: white;
   position: relative;
-  margin-left: 100px;
+  margin: auto;
 }
 
 #sec-6-box2 h1 {
@@ -550,7 +560,7 @@ header {
 
 .sec-7-con {
   height: 100%;
-  width: 40%;
+  width: 70%;
   margin: auto;
   text-align: center;
   color: silver;
@@ -572,7 +582,7 @@ header {
 
 .field {
   height: 50px;
-  width: 750px;
+  width: 80%;
   margin: 10px auto;
   background-color: inherit;
   border: 2px solid silver;
@@ -652,6 +662,10 @@ footer h1 {
   flex-direction: column;
 }
 
+.item:hover {
+  cursor: pointer;
+}
+
 .p-item {
   height: 200px;
   /* border: 1px solid white; */
@@ -660,6 +674,10 @@ footer h1 {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.p-item:hover {
+  cursor: pointer;
 }
 
 .p-item img {

@@ -5,9 +5,11 @@ var Schema = mongoose.Schema;
 var partSchema = new Schema({
   _id: { type: String },
   name: { type: String },
-  part_id: {type: Number},
+  part_id: {type: String},
   price: { type: Number },
-  img: { type: String }
+  img: { type: String },
+  type: {type: String},
+  details: {type: String}
 });
 
-module.exports = mongoose.model('parts', userSchema);
+module.exports = mongoose.model('parts', partSchema);

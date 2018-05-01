@@ -83,18 +83,18 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
 
 // <=========================================== Data ==========================================================>
 
-  $scope.getUsers = function() {
-    service.getUsers().then(function(result){
-      console.log("main", result.data[0])
-      if (!result) {
-        $scope.users = "Login"
-      } else {
-      $scope.users = result.data[0].name
-    }
-    })
-  }
-
-  $scope.getUsers();
+  // $scope.getUsers = function() {
+  //   service.getUsers().then(function(result){
+  //     console.log("main", result.data[0])
+  //     if (!result) {
+  //       $scope.users = "Login"
+  //     } else {
+  //     $scope.users = result.data[0]
+  //   }
+  //   })
+  // }
+  //
+  // $scope.getUsers();
 
   $scope.contact = function(data) {
     if (!data.email) {
@@ -123,6 +123,7 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
     })
   }
   $scope.email_list = 'Email Address'
+
   $scope.addToList = function(email) {
     service.addToList(email).then(function(result) {
       if (!result) {
@@ -134,5 +135,22 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
       }
     })
   }
+
+  // <<====================================== Parts =================================>>
+    $scope.getParts = function() {
+      service.getParts().then(function(parts) {
+        // console.log(parts)
+        $scope.parts = parts.data
+      })
+    }
+        $scope.getParts()
+
+
+  // <<================================= SHOPING ==========================================>>
+    let cart = [];
+    $scope.addToCart = (part) => {
+      cart.push(part);
+      $scope.cart = cart
+    }
 
 })

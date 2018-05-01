@@ -1,18 +1,20 @@
-var purchase = require('./purchaseschema.js');
+var parts = require('./partschema.js');
 
 module.exports = {
 
   read: (req, res, next) => {
-    purchase.find().exec(err, response => {
+    parts.find().exec(function(err, response) {
       if(err) {
-        console.log(err);
+        console.log(err)
+        return res.status(500).json(err)
       } else {
-        res.json(response);
+        // console.log("got parts", response)
+        return res.json(response)
       }
-    });
+  })
   },
   show: (req, res, next) => {
-    purchase.findById(req.params.id).exec(err, response => {
+    parts.findById(req.params.id).exec(err, response => {
       if(err) {
         console.log(err);
       } else {
@@ -22,8 +24,8 @@ module.exports = {
   },
 
   create: (req, res, next) => {
-  var user = new user(req.body);
-    purchase.save(err, response => {
+  var parts = new parts(req.body);
+    parts.save(err, response => {
       if (err) {
         res.status(500).json(err);
       } else {
@@ -33,7 +35,7 @@ module.exports = {
   },
 
   update: (req, res, next) => {
-    purchase.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
+    parts.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
       if(error) {
         return res.status(500).json(error)
       } else {
@@ -44,7 +46,7 @@ module.exports = {
 
   destroy: (req, res, next) => {
     // console.log(req.params.body);
-    purchase.findByIdAndRemove(req.params.id, (error, response) => {
+    parts.findByIdAndRemove(req.params.id, (error, response) => {
       // console.log(response);
       if(error) {
         return res.status(500).json(error)

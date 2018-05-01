@@ -12,7 +12,7 @@ module.exports = {
       path: '/',
       httpOnly: true,
       secure: false,
-      maxAge: null
+      maxAge: 3600*24
     }
   },
   stripe: {

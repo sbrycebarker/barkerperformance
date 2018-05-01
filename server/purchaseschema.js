@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var purchaseSchema = new Schema({
-  _id: { type: Number },
+  _id: { type: String },
   purchase_item_ids: { type: Array },
   name: { type: String },
   price: { type: Number },

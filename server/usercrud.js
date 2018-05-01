@@ -55,6 +55,24 @@ module.exports = {
           }
         })
     },
+    list: function(req, res, next) {
+      // let new = {
+      //
+      // }
+      console.log(req.body.email)
+      mailinglist.findByIdAndUpdate(req.body.id,
+       {$push: {wishlist: req.body.part}},
+
+        function(error, response) {
+        if(error) {
+          console.log(error)
+          return res.status(500).json(error)
+        } else {
+          console.log("update", response)
+          return res.json(response)
+        }
+      })
+    },
 
       destroy: function(req, res, next) {
         users.findByIdAndRemove(req.params.id, function(error, response){
