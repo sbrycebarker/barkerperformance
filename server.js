@@ -69,7 +69,7 @@ const express = require('express'),
   );
 
   passport.serializeUser(function(userA, done) {
-  console.log('serializing', userA);
+  // console.log('serializing', userA);
   var userB = userA;
   done(null, userB); //PUTS 'USER' ON THE SESSION
   });
@@ -91,9 +91,9 @@ const express = require('express'),
 
   app.get('/auth/me', function(req, res) {
     if (!req.user) {
-       return res.sendStatus(404)
+       return res.send(null)
      } else {
-       console.log("me", req.user)
+       // console.log("me", req.user)
        res.status(200).send(req.user);
      }
   })
@@ -152,6 +152,7 @@ const express = require('express'),
     app.post('/charge', function(req, res) {
 
     })
+
 
       // reload(app);
 

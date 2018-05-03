@@ -3,11 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  _id: { type: String },
-  name: { type: String },
+  name: { type: Object },
   user_id: {type: String},
   admin: { type: Boolean },
-  location: { type: String },
+  emails: { type: Array },
+  nickname: { type: String},
+  picture: { type: String},
   order_history: {type: String},
   wishlist: { type: String },
   mailing_list: { type: String }

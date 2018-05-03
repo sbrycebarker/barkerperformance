@@ -146,7 +146,7 @@ header {
 
 .rightbox {
   height: 100%;
-  width: 400px;
+  width: 500px;
   float: right;
   display: flex;
   flex-direction: row;
@@ -154,7 +154,7 @@ header {
 
 .login {
   height: 100%;
-  width: 200px;
+  width: 300px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -184,12 +184,18 @@ header {
   font-size: 18px;
   font-family: 'Barlow Condensed', sans-serif;
 }
+
 .button-primary:hover {
   color: #ff2800
 }
 
 .m-login {
   display: none;
+  border: 1px dotted white
+}
+
+.log {
+  margin: auto;
 }
 
 #menu {
@@ -285,8 +291,8 @@ header {
 
 #cart-side h1 {
   margin: auto;
-  height: 25px;
-  width: 50px;
+  /* height: 25px; */
+  /* width: 50px; */
   text-align: center;
   vertical-align: middle;
 }
@@ -596,6 +602,11 @@ header {
 .listbutton {
   color: white;
   text-align: center;
+}
+
+#subscribe {
+  cursor: pointer;
+  /* background-color: red */
 }
 
 footer {

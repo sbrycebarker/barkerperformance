@@ -1,0 +1,42 @@
+#profile-section {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  /* background-color: #020202; */
+  position: absolute;
+}
+
+#profile-con {
+  height: 100%;
+  width: 60vw;
+  margin: auto;
+  background-color: black;
+  position: relative;
+  padding-top: 200px;
+  z-index: 0
+}
+
+#profile-info {
+  height: 400px;
+  width: 100%;
+  border: 1px solid silver
+}
+
+#profile-header {
+  height: 75px;
+  width: 100%;
+  /* border-style: double; */
+  border-bottom: 1px silver solid;
+}
+
+#username {
+  height: 100%;
+  width: 200px;
+  /* border: 1px solid black; */
+  display: flex;
+  color: silver;
+}
+
+#username h1 {
+  margin: auto;
+}

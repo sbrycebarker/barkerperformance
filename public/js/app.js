@@ -5,7 +5,6 @@ angular.module('app',['ui.router'])
       .state('home', {
         url: '/',
         templateUrl: "../html/main.html",
-        controller: "mainCtrl"
       })
       .state('products', {
         url: "/products",
@@ -19,7 +18,12 @@ angular.module('app',['ui.router'])
       })
       .state('checkout', {
         url: "/checkout",
-        templateUrl: "../html/checkout.hbs",
+        templateUrl: "../html/checkout.html",
+        controller: "mainCtrl"
+      })
+      .state('profile', {
+        url: "/profile",
+        templateUrl: "../html/profile.html",
         controller: "mainCtrl"
       })
   })

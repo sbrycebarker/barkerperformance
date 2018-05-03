@@ -64,11 +64,19 @@ angular.module('app').service('service', function($http) {
   }
 
   this.addUser = function (user) {
+    console.log('running service')
     return $http({
       method: 'POST',
-      url: '/getParts',
+      url: '/addUser',
       data: user
     })
   }
+
+  // this.login = function () {
+  //   return $http({
+  //     method: 'GET',
+  //     url: '/auth'
+  //   })
+  // }
 
 })

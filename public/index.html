@@ -12,11 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:600,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/laptop.css">
   <link rel="stylesheet" type="text/css" href="css/mobile.css">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body ng-controller="mainCtrl" data-spy="scroll" data-target=".header-items" data-offset="50">
-  <header ng-controller="navCtrl">
+  <header id="header">
     <!-- <div class="header-overlay"><div class="loader"></div></div> -->
     <div id="homebutton" class="header-items" onclick="home()"><a ui-sref="home"><h1><span style="color: white">Barker</span><br>Performance</h1></a></div>
     <div id="nav-con" class="header-items">
@@ -26,6 +27,7 @@
       <div id="products" class="nav"><a ui-sref="products"><h1>PRODUCTS</h1></a></div>
       <div id="life" class="nav"><a ui-sref="checkout"><h1>LIFE</h1></a></div>
       <div id="about" class="nav" onclick="about()"><a ui-sref="home"><h1>ABOUT</h1></a></div>
+      <div id="profile" class="nav"><a ui-sref="profile"><h1>PROFILE</h1></a></div>
     </div>
     <div class="rightbox">
       <div></div>
@@ -42,6 +44,46 @@
       </div>
     </div>
   </header>
+  <div id="cart-side" class="cart-side">
+    <div class="cart-head">
+      <div class="arrowcont">
+        <h1 class="closeCart" ng-click="closeCart()">></h1>
+      </div>
+      <h1>Cart</h1>
+    </div>
+    <div class="cartlist"></div>
+    <!-- <form action="/charge" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
+      data-amount="300"
+      data-name="Barker Performance"
+      data-description="Example charge"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-locale="auto"
+      dat-currency= "usd">
+    </script>
+  </form> -->
+    <div class="total">
+      <h1>Total</h1>
+      <h1>$ 300{{total}}</h1>
+      <h1>
+        <form action="/charge" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
+          data-amount="300"
+          data-name="Barker Performance"
+          data-description="Example charge"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          dat-currency= "usd">
+        </script>
+      </form>
+      </h1>
+      <!-- <button class="viewcart"></button> -->
+    </div>
+  </div>
   <!-- <aside id="sidebar" class="sidebar"></aside> -->
   <ui-view></ui-view>
   <script>

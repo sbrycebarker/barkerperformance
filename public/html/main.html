@@ -1,46 +1,6 @@
 <title>Build your dream...</title>
 
 <main id="main">
-  <div id="cart-side" class="cart-side">
-    <div class="cart-head">
-      <div class="arrowcont">
-        <h1 class="closeCart" ng-click="closeCart()">></h1>
-      </div>
-      <h1>Cart</h1>
-    </div>
-    <div class="cartlist"></div>
-    <form action="/charge" method="POST">
-    <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
-      data-amount="300"
-      data-name="Barker Performance"
-      data-description="Example charge"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-      data-locale="auto"
-      dat-currency= "usd">
-    </script>
-  </form>
-    <div class="total">
-      <h1>Total</h1>
-      <h1>$ 300{{total}}</h1>
-      <h1>
-        <form action="/charge" method="POST">
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
-          data-amount="300"
-          data-name="Barker Performance"
-          data-description="Example charge"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto"
-          dat-currency= "usd">
-        </script>
-      </form>
-      </h1>
-      <!-- <button class="viewcart"></button> -->
-    </div>
-  </div>
   <div id="sidebar" class="sidebar">
     <div class="menuitem mp">
       <img>
@@ -158,7 +118,7 @@
       <h1>JOIN OUR MAILING LIST</h1>
       <h2>AND NEVER MISS AN UPDATE</h2>
       <input class="listinput field" type="email" ng-model="list_email" placeholder="{{email_list}}" style="color: white; padding-left: 15px"></input>
-      <button class="listbutton field" type="button" ng-click="addToList({email: list_email})" required>SUSCRIBE NOW</button>
+      <button id="subscribe" class="listbutton field" type="button" ng-click="addToList({email: list_email})" required>SUSCRIBE NOW</button>
     </div>
   </div>
 

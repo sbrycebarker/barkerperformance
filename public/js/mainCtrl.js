@@ -83,37 +83,50 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
 
 // <=========================================== Data ==========================================================>
   $scope.user = [];
-
+          // $scope.username = 'LOG IN!';
   $scope.getUser = function() {
+
     service.getUser().then(function(user) {
-      console.log("user", user)
+      console.log(user)
       if (user) {
         $scope.user.push(user)
         $scope.username = user.displayName;
         $scope.userid = user.user_id
         console.log("userinfo", $scope.user)
+        $scope.getUsers()
       } else {
         $scope.username = 'LOG IN!';
       }
     })
+
   }
   $scope.getUser();
 
   $scope.getUsers = function() {
-    service.getUsers().then(function(result){
-      console.log(result)
-      let users = result
-      for (var i = 0; i < users.length; i++) {
-        if (i.user_id === $scope.userid) {
-          console.log("Welcome")
-        } else {
-          service.addUser($scope.user)
-        }
+    service.getUsers().then(function(data){
+      console.log("addUser", data)
+      let users = data
+      console.log('users', users.data)
+      for (var i in users.data) {
+        console.log("looping", i)
+        // if (i.user_id === $scope.user_id) {
+        //   console.log("match", $scope.user)
+        // }
       }
+        // else {
+          console.log('adding')
+          service.addUser($scope.user).then(function(newUser) {
+            if (newUser) {
+              console.log("newUser", newUser)
+              $scope.newUser = newUser
+            }
+          })
+        // }
+      // }
     })
   }
 
-  $scope.getUsers();
+  // $scope.getUsers();
 
   $scope.contact = function(data) {
     if (!data.email) {
