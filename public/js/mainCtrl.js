@@ -29,16 +29,37 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
 
   createSlick()
 
+  $scope.home = function() {
+    $("html, body").animate({
+      scrollTop: "0"
+    }, 1000)
+    let location = document.getElementById('home')
+    $(".nav").css("color", "inherit")
+    location.style.color = "#ff2800"
+  }
+
+  $scope.about = function() {
+    // location.home
+    $('main').ready(function() {
+      console.log("ready")
+      $("html, body").animate({
+        scrollTop: "2450"
+      }, 1000)
+    })
+    let location = document.getElementById('home')
+    location.style.color = "#ff2800"
+    $(".nav").css("color", "inherit")
+  }
+
   function onpage() {
-    $("#" + "home").css("color", "inherit")
-    $("#" + "products").css("color", "inherit")
-    $("#" + "life").css("color", "inherit")
-    // if ($state.current.name === 'products') {
-    //   $('html, body').animate({scrollTop:0}, 'slow')
-    // }
+    $("#home").css("color", "inherit")
+    $("#products").css("color", "inherit")
+    $("#life").css("color", "inherit")
+    $("#profile").css("color", "inherit")
     $(document).ready(function() {
       var state = $state.current.name
       $("#" +  state).css("color", "#ff2800")
+
     })
 
   }

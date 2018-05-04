@@ -23,11 +23,31 @@
     <div id="nav-con" class="header-items">
 
       <!-- <div id="mobile-login" class="m-login"><a>{{users}}</a></div> -->
-      <div id="home" class="nav" onclick="home()"><a ui-sref="home"><h1>HOME</h1></a></div>
-      <div id="products" class="nav"><a ui-sref="products"><h1>PRODUCTS</h1></a></div>
-      <div id="life" class="nav"><a ui-sref="checkout"><h1>LIFE</h1></a></div>
-      <div id="about" class="nav" onclick="about()"><a ui-sref="home"><h1>ABOUT</h1></a></div>
-      <div id="profile" class="nav"><a ui-sref="profile"><h1>PROFILE</h1></a></div>
+      <div id="home" class="nav" ng-click="home()">
+        <a ui-sref="home">
+          <h1>HOME</h1>
+        </a>
+      </div>
+      <div id="products" class="nav">
+        <a ui-sref="products">
+          <h1>PRODUCTS</h1>
+        </a>
+      </div>
+      <div id="life" class="nav">
+        <a ui-sref="life">
+          <h1>LIFE</h1>
+        </a>
+      </div>
+      <div id="about" class="nav" ng-click="about()">
+        <a ui-sref="home">
+          <h1>ABOUT</h1>
+        </a>
+      </div>
+      <div id="profile" class="nav">
+        <a ui-sref="profile">
+          <h1>PROFILE</h1>
+        </a>
+      </div>
     </div>
     <div class="rightbox">
       <div></div>
@@ -87,22 +107,7 @@
   <!-- <aside id="sidebar" class="sidebar"></aside> -->
   <ui-view></ui-view>
   <script>
-    function home() {
-      $("html, body").animate({
-        scrollTop: "0"
-      }, 1000)
 
-    }
-
-    function about() {
-      $('main').ready(function() {
-        console.log("ready")
-        $("html, body").animate({
-          scrollTop: "2350"
-        }, 1000)
-      })
-
-    }
   </script>
   <script defer src="https://use.fontawesome.com/9c92e0c655.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
