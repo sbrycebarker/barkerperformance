@@ -26,4 +26,9 @@ angular.module('app',['ui.router'])
         templateUrl: "../html/profile.html",
         controller: "mainCtrl"
       })
+      .state('view', {
+        url: "/view/:part",
+        templateUrl: "../html/view.html",
+        controller: "mainCtrl"
+      })
   })

@@ -121,7 +121,8 @@ const express = require('express'),
       // app.get('/getPurchase/:id', purchase.show);
       // app.put('/updatePurchase/:id', purchase.update);
       // app.delete('/delete/:id', purchase.destroy);
-      app.get('/getParts', parts.read)
+      app.get('/getParts', parts.read);
+      app.get('/getPart/:_id', parts.show);
 
 // <<=========================== Nodemailer ======================================>>
 

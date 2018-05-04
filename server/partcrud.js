@@ -14,10 +14,13 @@ module.exports = {
   })
   },
   show: (req, res, next) => {
-    parts.findById(req.params.id).exec(err, response => {
+    console.log("getPart", req.params)
+    parts.findById(req.params)
+    .exec(function(err, response){
       if(err) {
-        console.log(err);
+        console.log("error", err);
       } else {
+        console.log("response", response);
         res.json(response);
       }
     });

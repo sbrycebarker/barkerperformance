@@ -30,10 +30,10 @@
   </ul>
 </div>
   <h1 class="title">ALL PRODUCTS</h1>
-<div id="all-products" class="things" ng-click="productView()">
-  <ul class="item" ng-repeat="part in parts">
+<div id="all-products" class="things">
+  <ul class="item" ui-sref="view({part: part._id})" ng-repeat="part in parts">
     <img src="{{part.img}}">
-    <h1>{{part.name}}</h1>
+    <h1>{{part.name}}{{part._id}}</h1>
     <h1>${{part.price}}</h1>
   </ul>
 </div>

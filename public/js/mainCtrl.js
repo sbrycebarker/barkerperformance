@@ -1,4 +1,4 @@
-angular.module('app').controller('mainCtrl', function($scope, service, $state) {
+angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
   $scope.test = service.serviceTest
   function createSlick() {
     $('.slick').slick({
@@ -205,5 +205,18 @@ angular.module('app').controller('mainCtrl', function($scope, service, $state) {
       cart.push(part);
       $scope.cart = cart
     }
+    let things = []
+
+    $scope.getProduct = function() {
+      $scope.pizza = "this"
+    }
+
+    $scope.productView = function(){
+      service.getPart().then(function(partMatch) {
+        $scope.pizza = partMatch.data
+    })
+  }
+
+    $scope.productView()
 
 })

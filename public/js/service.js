@@ -1,4 +1,4 @@
-angular.module('app').service('service', function($http) {
+angular.module('app').service('service', function($http, $stateParams ) {
 
   this.getUsers = function(data) {
     return $http({
@@ -59,7 +59,7 @@ angular.module('app').service('service', function($http) {
     return $http({
       method: 'GET',
       url: '/getParts',
-      // data: data
+      controller: "mainCtrl"
     })
   }
 
@@ -72,11 +72,13 @@ angular.module('app').service('service', function($http) {
     })
   }
 
-  // this.login = function () {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/auth'
-  //   })
-  // }
+  this.getPart = function () {
+    console.log($stateParams.part)
+    return $http({
+      method: 'GET',
+      url: '/getPart/' + $stateParams.part,
+      controller: 'mainCtrl',
+    })
+  }
 
 })
