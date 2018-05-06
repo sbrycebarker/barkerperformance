@@ -1,40 +1,21 @@
 <title>BPF | Products</title>
 <div id="products" class="products">
-  <h1 class="title">NEW PRODUCTS</h1>
+  <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
-<div id="new-prod-con" class="things slick" data-slick='{"slidesToShow": 3 }'>
-  <ul class="p-item">
+<slick id="new-prod-con" class="things slick" style="margin: auto" init-onload="true" data-slick='{"slidesToShow": 1 }'>
+  <ul class="p-item" ng-repeat="newpart in newPart">
     <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
+    <h1>{{newpart.name}}</h1>
     <h1>$1</h1>
   </ul>
-  <ul class="p-item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="p-item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="p-item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-  <ul class="p-item">
-    <img src="../assets/exploded-turbo.png">
-    <h1>NAME</h1>
-    <h1>$1</h1>
-  </ul>
-</div>
+</slick>
   <h1 class="title">ALL PRODUCTS</h1>
 <div id="all-products" class="things">
   <ul class="item" ui-sref="view({part: part._id})" ng-repeat="part in parts">
     <img src="{{part.img}}">
-    <h1>{{part.name}}{{part._id}}</h1>
+    <h1>{{part.name}}</h1>
     <h1>${{part.price}}</h1>
+    <!-- <h1>part id: {{part.part_id}}</h1> -->
   </ul>
 </div>
 <div class="things">

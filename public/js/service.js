@@ -74,11 +74,13 @@ angular.module('app').service('service', function($http, $stateParams ) {
 
   this.getPart = function () {
     console.log($stateParams.part)
-    return $http({
-      method: 'GET',
-      url: '/getPart/' + $stateParams.part,
-      controller: 'mainCtrl',
-    })
+      return $http({
+        method: 'GET',
+        url: '/getPart/' + $stateParams.part,
+        controller: 'mainCtrl',
+      }).catch( function () {
+        return "nopart"
+      })
   }
 
 })

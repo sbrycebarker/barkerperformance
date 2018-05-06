@@ -321,7 +321,8 @@ header {
   position: relative;
   top: 50%;
   text-align: center;
-  letter-spacing: 10px
+  letter-spacing: 10px;
+  animation-duration: 2s;
 }
 
 #hero h2 {
@@ -335,6 +336,7 @@ header {
   text-align: center;
   letter-spacing: 10px;
   font-family: serif;
+  animation-duration: 2s;
 }
 
 #fa-chevron-down {
@@ -655,16 +657,16 @@ footer h1 {
 }
 
 #new-prod-con {
-  height: 360px;
+  height: 100%;
   width: 100%;
-  position: relative;
   display: flex;
   flex-direction: row;
+  vertical-align: middle;
 }
 
 .item {
   height: 400px;
-  /* border: 1px solid white; */
+  border: 1px solid white;
   margin: 50px;
   display: flex;
   flex: 3;
@@ -678,8 +680,8 @@ footer h1 {
 }
 
 .p-item {
-  height: 200px;
-  /* border: 1px solid white; */
+  height: 350px;
+  border: 1px solid white;
   width: 300px;
   margin: auto;
   text-align: center;
@@ -692,7 +694,7 @@ footer h1 {
 }
 
 .p-item img {
-  height: 200px;
+  height: 275px;
   width: auto;
   margin: auto;
 }

@@ -1,9 +1,12 @@
-<title>BP | {{thing}}</title>
+<title>BP | {{part.name}}</title>
 <section id="view">
 
   <div id="view-con">
-    <h1 class="part">{{pizza}}PART SHOULD BE HERE</h1>
-    <h1 class="part">{{scope}}</h1>
+    <img id="part-img" src="{{part.img}}" class="img">
+    <h1 class="part">{{part.name}}</h1>
+    <h1 class="part">Part id: {{part.part_id}}</h1>
+    <h1 class="part">Price: ${{part.price}}</h1>
+    <h1 class="part">{{part.details}}</h1>
   </div>
 
 </section>

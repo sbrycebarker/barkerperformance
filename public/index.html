@@ -15,12 +15,13 @@
   <link rel="stylesheet" type="text/css" href="css/profile.css">
   <link rel="stylesheet" type="text/css" href="css/view.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
 <body ng-controller="mainCtrl" data-spy="scroll" data-target=".header-items" data-offset="50">
   <header id="header">
     <!-- <div class="header-overlay"><div class="loader"></div></div> -->
-    <div id="homebutton" class="header-items" onclick="home()"><a ui-sref="home"><h1><span style="color: white">Barker</span><br>Performance</h1></a></div>
+    <div id="homebutton" class="header-items" ng-click="home()"><a ui-sref="home"><h1><span style="color: white">Barker</span><br>Performance</h1></a></div>
     <div id="nav-con" class="header-items">
 
       <!-- <div id="mobile-login" class="m-login"><a>{{users}}</a></div> -->
@@ -34,11 +35,11 @@
           <h1>PRODUCTS</h1>
         </a>
       </div>
-      <div id="life" class="nav">
+      <!-- <div id="life" class="nav">
         <a ui-sref="view">
           <h1>VIEW</h1>
         </a>
-      </div>
+      </div> -->
       <div id="about" class="nav" ng-click="about()">
         <a ui-sref="home">
           <h1>ABOUT</h1>

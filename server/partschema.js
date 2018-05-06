@@ -8,7 +8,8 @@ var partSchema = new Schema({
   price: { type: Number },
   img: { type: String },
   type: {type: String},
-  details: {type: String}
+  details: {type: String},
+  new: {type: Boolean}
 });
 
 module.exports = mongoose.model('parts', partSchema);

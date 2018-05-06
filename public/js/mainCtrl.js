@@ -3,6 +3,7 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
   function createSlick() {
     $('.slick').slick({
       centerMode: true,
+      // init-onload: true,
       infinite: true,
       autoplay: true,
       responsive: [
@@ -30,6 +31,7 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
   createSlick()
 
   $scope.home = function() {
+    console.log("homebutton")
     $("html, body").animate({
       scrollTop: "0"
     }, 1000)
@@ -192,8 +194,15 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
   // <<====================================== Parts =================================>>
     $scope.getParts = function() {
       service.getParts().then(function(parts) {
-        // console.log(parts)
+        console.log(parts)
         $scope.parts = parts.data
+        let newPart = [];
+        for (var i = 0; i < parts.data.length; i++) {
+          if (parts.data[i].new === true ) {
+            newPart.push(parts.data[i])
+          }
+        }
+        $scope.newPart = newPart
       })
     }
         $scope.getParts()
@@ -203,18 +212,22 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
     let cart = [];
     $scope.addToCart = (part) => {
       cart.push(part);
-      $scope.cart = cart
+      $scope.cart = cart;
     }
     let things = []
 
-    $scope.getProduct = function() {
-      $scope.pizza = "this"
-    }
+    // $scope.getProduct = function() {
+    //   $scope.pizza = "this"
+    // }
 
     $scope.productView = function(){
-      service.getPart().then(function(partMatch) {
-        $scope.pizza = partMatch.data
-    })
+      let location = document.getElementById('products')
+      location.style.color = "#ff2800"
+        service.getPart().then(function(partMatch) {
+          console.log(partMatch)
+            $scope.part = partMatch.data
+      })
+
   }
 
     $scope.productView()
