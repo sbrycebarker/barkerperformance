@@ -1,9 +1,9 @@
 angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
   $scope.test = service.serviceTest
   function createSlick() {
+    console.info("running slick")
     $('.slick').slick({
       centerMode: true,
-      // init-onload: true,
       infinite: true,
       autoplay: true,
       responsive: [
@@ -193,16 +193,17 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
 
   // <<====================================== Parts =================================>>
     $scope.getParts = function() {
+      let newPart = [];
       service.getParts().then(function(parts) {
         console.log(parts)
         $scope.parts = parts.data
-        let newPart = [];
         for (var i = 0; i < parts.data.length; i++) {
           if (parts.data[i].new === true ) {
             newPart.push(parts.data[i])
           }
         }
-        $scope.newPart = newPart
+        console.info("newPart",newPart)
+        $scope.newpart = newPart
       })
     }
         $scope.getParts()
@@ -216,13 +217,11 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
     }
     let things = []
 
-    // $scope.getProduct = function() {
-    //   $scope.pizza = "this"
-    // }
+    $scope.getProduct = function() {
+      $scope.pizza = "this"
+    }
 
     $scope.productView = function(){
-      let location = document.getElementById('products')
-      location.style.color = "#ff2800"
         service.getPart().then(function(partMatch) {
           console.log(partMatch)
             $scope.part = partMatch.data

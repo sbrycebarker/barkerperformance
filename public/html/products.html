@@ -1,17 +1,43 @@
 <title>BPF | Products</title>
-<div id="products" class="products">
+<div id="products" class="products" ng-controller"mainCtrl">
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
-<slick id="new-prod-con" class="things slick" style="margin: auto" init-onload="true" data-slick='{"slidesToShow": 1 }'>
-  <ul class="p-item" ng-repeat="newpart in newPart">
+  <h1>{{newpart}}</h1>
+<slick id="new-prod-con" class="things slick" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
+  <ul class="p-item sale draw">
     <img src="../assets/exploded-turbo.png">
-    <h1>{{newpart.name}}</h1>
+    <h1>Turbo-D</h1>
     <h1>$1</h1>
+    <h1 class="details">View Details</h1>
+  </ul>
+  <ul class="p-item sale draw">
+    <img src="../assets/exploded-turbo.png">
+    <h1>Turbo-F</h1>
+    <h1>$1</h1>
+    <h1 class="details">View Details</h1>
+  </ul>
+  <ul class="p-item sale draw">
+    <img src="../assets/suspension.png">
+    <h1>Racing suspension Package 1</h1>
+    <h1>$1</h1>
+    <h1 class="details">View Details</h1>
+  </ul>
+  <ul class="p-item sale draw">
+    <img src="../assets/disc-brake.png">
+    <h1>Break Kit 3</h1>
+    <h1>$1</h1>
+    <h1 class="details">View Details</h1>
+  </ul>
+  <ul class="p-item sale draw">
+    <img src="../assets/suspension.png">
+    <h1>Racing suspension Package 2</h1>
+    <h1>$1</h1>
+    <h1 class="details">View Details</h1>
   </ul>
 </slick>
   <h1 class="title">ALL PRODUCTS</h1>
 <div id="all-products" class="things">
-  <ul class="item" ui-sref="view({part: part._id})" ng-repeat="part in parts">
+  <ul class="item draw" ui-sref="view({part: part._id})" ng-repeat="part in parts">
     <img src="{{part.img}}">
     <h1>{{part.name}}</h1>
     <h1>${{part.price}}</h1>
