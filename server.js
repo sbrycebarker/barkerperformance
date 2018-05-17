@@ -137,7 +137,7 @@ const express = require('express'),
 
 
 // <<====================================STRIPE PAYMENT======================>>
-
+    //
     // app.use(stripe({
     //   stripe.customers.create({
     //     email: "sbrycesti@gmail.com"
@@ -146,7 +146,7 @@ const express = require('express'),
 
     app.get('/paysuccess', function(req, res) {
       res.render('paysuccess', {
-
+        // `<h1>THANK YOU</h1>`
       })
     })
 

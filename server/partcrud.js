@@ -14,7 +14,7 @@ module.exports = {
   })
   },
   show: (req, res, next) => {
-    console.log("getPart", req.params)
+    // console.log("getPart", req.params)
     parts.findById(req.params)
     .exec(function(err, response){
       if(err) {

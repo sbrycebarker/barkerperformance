@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-controller="mainCtrl">
 
 <head>
   <link rel="icon" href="./assets/motor.png" type="image/png" sizes="18x18">
@@ -54,7 +54,7 @@
     <div class="rightbox">
       <div></div>
       <div class="login">
-        <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+        <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}{{newUser}}</button></a></h1>
         <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
       </div>
 

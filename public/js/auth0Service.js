@@ -1,6 +1,6 @@
 angular.module('app').service('auth0service', function($http, service){
 
-//
+// 
 //   this.getUser = function(res) {
 //   return $http({
 //     method: 'GET',
@@ -13,7 +13,7 @@ angular.module('app').service('auth0service', function($http, service){
 //     console.log("Log In")
 //   })
 // }
-
+//
 // this.logout = function() {
 //   return $http({
 //     method: 'GET',

@@ -1,5 +1,5 @@
 angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
-  $scope.test = service.serviceTest
+
   function createSlick() {
     console.info("running slick")
     $('.slick').slick({
@@ -116,7 +116,7 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
         $scope.username = user.displayName;
         $scope.userid = user.user_id
         console.log("userinfo", $scope.user)
-        $scope.getUsers()
+        // $scope.getUsers()
       } else {
         $scope.username = 'LOG IN!';
       }
@@ -124,17 +124,16 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
 
   }
   $scope.getUser();
-
   $scope.getUsers = function() {
     service.getUsers().then(function(data){
       console.log("addUser", data)
       let users = data
       console.log('users', users.data)
       for (var i in users.data) {
-        console.log("looping", i)
-        // if (i.user_id === $scope.user_id) {
-        //   console.log("match", $scope.user)
-        // }
+        // console.log("looping", i)
+        if (i.user_id === $scope.user_id) {
+          // console.log("match", $scope.user)
+        }
       }
         // else {
           console.log('adding')
@@ -229,6 +228,7 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
 
   }
 
-    $scope.productView()
+    // $scope.productView()
+
 
 })
