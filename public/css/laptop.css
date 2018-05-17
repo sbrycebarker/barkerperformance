@@ -375,16 +375,25 @@ header {
   background-color: #ff2800;
   display: flex;
   text-align: center;
+  color: black;
+  transition: color;
+  transition-duration: 1s;
+  transition-delay: .25s
+}
+
+.sec-2-left:hover {
+  cursor: pointer;
+  color: silver;
 }
 
 #sec-2-left-con {
   margin: auto;
-  color: black;
 }
+
 
 #sec-2-left-con h1 {
   font-size: 75px;
-  margin: 15px;
+  margin: 25px;
 }
 
 #sec-2-left-con h2 {
