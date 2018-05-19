@@ -73,7 +73,7 @@ angular.module('app').service('service', function($http, $stateParams ) {
   }
 
   this.getPart = function () {
-    console.log("params", $stateParams.part)
+    // console.log("params", $stateParams.part)
       return $http({
         method: 'GET',
         url: '/getPart/' + $stateParams.part,

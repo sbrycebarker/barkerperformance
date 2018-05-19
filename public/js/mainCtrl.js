@@ -3,7 +3,6 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
 window.scrollTo(0, 0)
 
   function createSlick() {
-    console.info("running slick")
     $('.slick').slick({
       centerMode: true,
       infinite: true,
@@ -33,7 +32,6 @@ window.scrollTo(0, 0)
   createSlick()
 
   $scope.home = function() {
-    console.log("homebutton")
     $("html, body").animate({
       scrollTop: "0"
     }, 1000)
@@ -111,13 +109,13 @@ window.scrollTo(0, 0)
           // $scope.username = 'LOG IN!';
   $scope.getUser = function() {
     service.getUser().then(function(user) {
-      console.log("user", user)
+      // console.log("user", user)
       if (user) {
         $scope.user.push(user)
         $scope.username = user.displayName;
-        $scope.userid = user.user_id
-        console.log("userinfo", $scope.user)
-        // $scope.getUsers()
+        $scope.user = user
+        // console.log("userinfo", $scope.user)
+        $scope.getUsers()
       } else {
         $scope.username = 'LOG IN!';
       }
@@ -125,26 +123,26 @@ window.scrollTo(0, 0)
 
   }
   $scope.getUser();
+
   $scope.getUsers = function() {
+    console.log("user", $scope.user)
     service.getUsers().then(function(data){
       console.log("addUser", data)
       let users = data
       console.log('users', users.data)
-      for (var i in users.data) {
-        // console.log("looping", i)
-        if (i.user_id === $scope.user_id) {
-          // console.log("match", $scope.user)
-        }
-      }
-        // else {
-          console.log('adding')
-          service.addUser($scope.user).then(function(newUser) {
-            if (newUser) {
-              console.log("newUser", newUser)
-              $scope.newUser = newUser
-            }
-          })
-        // }
+      // for (var i in users.data) {
+      //   if (i.user_id === $scope.user_id) {
+      //     console.log("match", $scope.user)
+      //   } else {
+      //       console.log('adding')
+            service.addUser($scope.user).then(function(newUser) {
+              if (newUser) {
+                console.log("newUser", newUser)
+                $scope.newUser = newUser
+              }
+            })
+      //     }
+      // }
       // }
     })
   }
@@ -182,10 +180,10 @@ window.scrollTo(0, 0)
   $scope.addToList = function(email) {
     service.addToList(email).then(function(result) {
       if (!result) {
-        console.error('Invalid Email');
+
         $scope.email_list = 'Invalid Email'
       } else {
-        console.log('message sent')
+
         $scope.email_list = "thank you"
       }
     })
@@ -202,7 +200,7 @@ window.scrollTo(0, 0)
             newPart.push(parts.data[i])
           }
         }
-        console.info("newPart",newPart)
+        // console.info("newPart",newPart)
         $scope.newpart = newPart
       })
     }
@@ -229,7 +227,7 @@ window.scrollTo(0, 0)
 
   }
 
-    // $scope.productView()
+    $scope.productView()
 
 
 })

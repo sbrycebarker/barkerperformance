@@ -6,7 +6,12 @@
   <div id="profile-info">
 
     <div id="profile-header">
-      <div id="username"><h1>{{username}}</h1></div>
+      <div id="username">
+        <h1>{{username}}</h1>
+        <h1><img src="{{user.picture}}" alt=""></h1>
+        <h1>{{user.emails[0].value}}</h1>
+        <!-- <h1>{{}}</h1> -->
+      </div>
     </div>
 
   </div>

@@ -28,12 +28,13 @@ module.exports = {
       create: function(req, res, next) {
         // var newUser = new Car(req.body);
         // console.log("stuff", req.body[0])
-        var newUser = req.body[0];
+        var newUser = req.body;
         // console.log("user", newUser)
         var users = new Users(newUser)
+        console.log("newUser",newUser)
           users.save(function(err, response) {
             if (err) {
-              console.log("create", err)
+              // console.log("create", err)
               res.status(500).json(err);
             } else {
               res.status(200).json(req.body);

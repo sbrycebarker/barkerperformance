@@ -5,7 +5,7 @@ module.exports = {
   read: (req, res, next) => {
     purchase.find().exec(err, response => {
       if(err) {
-        console.log(err);
+        // console.log(err);
       } else {
         res.json(response);
       }
@@ -14,7 +14,7 @@ module.exports = {
   show: (req, res, next) => {
     purchase.findById(req.params.id).exec(err, response => {
       if(err) {
-        console.log(err);
+        // console.log(err);
       } else {
         res.json(response);
       }

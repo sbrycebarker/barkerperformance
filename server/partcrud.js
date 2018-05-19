@@ -5,7 +5,7 @@ module.exports = {
   read: (req, res, next) => {
     parts.find().exec(function(err, response) {
       if(err) {
-        console.log(err)
+        // console.log(err)
         return res.status(500).json(err)
       } else {
         // console.log("got parts", response)
@@ -18,9 +18,9 @@ module.exports = {
     parts.findById(req.params)
     .exec(function(err, response){
       if(err) {
-        console.log("error", err);
+        // console.log("error", err);
       } else {
-        console.log("response", response);
+        // console.log("response", response);
         res.json(response);
       }
     });

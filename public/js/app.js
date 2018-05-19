@@ -22,12 +22,12 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
         controller: "mainCtrl"
       })
       .state('profile', {
-        url: "/profile",
+        url: "/profile/:user",
         templateUrl: "../html/profile.html",
         controller: "mainCtrl"
       })
       .state('view', {
-        url: "/view",
+        url: "/view/:part",
         templateUrl: "../html/view.html",
         controller: "mainCtrl"
       })

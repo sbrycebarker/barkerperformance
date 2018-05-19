@@ -52,7 +52,7 @@ const express = require('express'),
     callbackURL:  '/callback',
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
-      console.log(profile)
+      // console.log(profile)
       return done(null, profile);
     }
   ));
@@ -69,7 +69,7 @@ const express = require('express'),
   );
 
   passport.serializeUser(function(userA, done) {
-  console.log('serializing', userA);
+  // console.log('serializing', userA);
   var userB = userA;
   done(null, userB); //PUTS 'USER' ON THE SESSION
   });
