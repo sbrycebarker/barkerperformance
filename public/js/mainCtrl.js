@@ -1,5 +1,7 @@
 angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
 
+window.scrollTo(0, 0)
+
   function createSlick() {
     console.info("running slick")
     $('.slick').slick({
@@ -108,9 +110,8 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
   $scope.user = [];
           // $scope.username = 'LOG IN!';
   $scope.getUser = function() {
-
     service.getUser().then(function(user) {
-      console.log(user)
+      console.log("user", user)
       if (user) {
         $scope.user.push(user)
         $scope.username = user.displayName;
@@ -194,7 +195,7 @@ angular.module('app').controller('mainCtrl', function($scope,$stateParams, servi
     $scope.getParts = function() {
       let newPart = [];
       service.getParts().then(function(parts) {
-        console.log(parts)
+        // console.log(parts)
         $scope.parts = parts.data
         for (var i = 0; i < parts.data.length; i++) {
           if (parts.data[i].new === true ) {

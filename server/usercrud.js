@@ -29,7 +29,7 @@ module.exports = {
         // var newUser = new Car(req.body);
         // console.log("stuff", req.body[0])
         var newUser = req.body[0];
-        console.log("user", newUser)
+        // console.log("user", newUser)
         var users = new Users(newUser)
           users.save(function(err, response) {
             if (err) {

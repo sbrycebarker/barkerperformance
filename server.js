@@ -49,10 +49,10 @@ const express = require('express'),
     domain:       config.auth0.domain,
     clientID:     config.auth0.clientID,
     clientSecret: config.auth0.clientSecret,
-    callbackURL:  '/callback'
+    callbackURL:  '/callback',
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
-
+      console.log(profile)
       return done(null, profile);
     }
   ));
@@ -69,7 +69,7 @@ const express = require('express'),
   );
 
   passport.serializeUser(function(userA, done) {
-  // console.log('serializing', userA);
+  console.log('serializing', userA);
   var userB = userA;
   done(null, userB); //PUTS 'USER' ON THE SESSION
   });
@@ -91,9 +91,9 @@ const express = require('express'),
 
   app.get('/auth/me', function(req, res) {
     if (!req.user) {
+
        return res.send(null)
      } else {
-       // console.log("me", req.user)
        res.status(200).send(req.user);
      }
   })

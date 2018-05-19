@@ -2,8 +2,8 @@ module.exports = {
   secret: 'pizzaisgood',
   auth0: {
     domain: "sbrycebarker.auth0.com",
-    clientID: "c9iqLtJ5TP88XwmXGKAW62L1gQP1sXzm",
-    clientSecret: "ibxfL7srdzqIfkyHo-OtPb-rdAwNp8i6PesgKKbRCmQ2n6mQpbTYSb3sOyWYMB5S"
+    clientID: "ZZLjUjwbdYp74jswH6QYTk2BrOT7220K",
+    clientSecret: "QF1ohVM-4txGKCGGwPkCVw51UO0fkDfVR5kC8Ycdr0EF9WcyDUmd8PYmeb8-uolo"
   },
   session: {
     saveUninitialized: true,
