@@ -205,6 +205,8 @@
   #cart-btn h1:hover {
     cursor: pointer;
     color: white;
+    transition: color;
+    transition-duration: 1s;
   }
 
   #cart-btn h1 {
@@ -218,6 +220,8 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    transition: color;
+    transition-duration: 1s;
   }
 
   .cart-side {

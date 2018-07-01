@@ -36,6 +36,7 @@
     "reload": "^2.2.2",
     "session": "^0.1.0",
     "slick-carousel": "^1.8.1",
-    "stripe": "^5.5.0"
+    "stripe": "^5.5.0",
+    "uglify-js": "^3.4.2"
   }
 }

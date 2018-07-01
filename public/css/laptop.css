@@ -218,7 +218,7 @@ header {
 }
 
 #shop {
-  /* display: none; */
+
 }
 
 #cart-btn {
@@ -227,11 +227,15 @@ header {
   position: absolute;
   right: 0;
   display: flex;
+  transition: color;
+  transition-duration: 1s;
   background-color: #ff2800;
 }
 
 #cart-btn h1:hover {
   cursor: pointer;
+  transition: color;
+  transition-duration: 1s;
   color: white;
 }
 
@@ -246,6 +250,8 @@ header {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  transition: color;
+  transition-duration: 1s
 }
 
 .cart-side {

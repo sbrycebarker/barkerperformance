@@ -7,6 +7,8 @@
     <h1 class="part">Part id: {{part.part_id}}</h1>
     <h1 class="part">Price: ${{part.price}}</h1>
     <h1 class="part">{{part.details}}</h1>
+    <button ng-click="addToCart()">Add to cart</button>
+    <button ng-click="addtoWishList({part_id: part.part_id})">Add to wishlist</button>
   </div>
 
 </section>

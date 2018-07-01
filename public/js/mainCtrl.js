@@ -127,23 +127,28 @@ window.scrollTo(0, 0)
   $scope.getUsers = function() {
     console.log("user", $scope.user)
     service.getUsers().then(function(data){
-      console.log("addUser", data)
       let users = data
       console.log('users', users.data)
       // for (var i in users.data) {
-      //   if (i.user_id === $scope.user_id) {
-      //     console.log("match", $scope.user)
-      //   } else {
-      //       console.log('adding')
-            service.addUser($scope.user).then(function(newUser) {
-              if (newUser) {
-                console.log("newUser", newUser)
-                $scope.newUser = newUser
-              }
-            })
-      //     }
-      // }
-      // }
+        // if (i.user_id === $scope.user_id) {
+        //     console.log("match")
+        // } else {
+            console.log("addUser")
+          service.addUser($scope.user).then(function(newUser) {
+            if (newUser) {
+              console.log("newUser", newUser)
+              $scope.newUser = newUser
+            }
+          })
+
+          // }
+          // service.addUser($scope.user).then(function(newUser) {
+          //   if (newUser) {
+          //     console.log("newUser", newUser)
+          //     $scope.newUser = newUser
+          //   }
+          // })
+          // }
     })
   }
 
