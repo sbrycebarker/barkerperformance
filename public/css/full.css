@@ -139,6 +139,10 @@
     color: #ff2800
   }
 
+  .nav a {
+    color: orange
+  }
+
   .nav a:visited {
     color: inherit;
   }

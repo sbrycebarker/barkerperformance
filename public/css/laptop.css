@@ -146,6 +146,10 @@ header {
   color: inherit;
 }
 
+.nav a:link {
+  color: inherit
+}
+
 .nav a:hover {
   color: #ff2800;
 }
