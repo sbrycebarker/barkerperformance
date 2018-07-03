@@ -6,7 +6,7 @@ window.scrollTo(0, 0)
     $('.slick').slick({
       centerMode: true,
       infinite: true,
-      autoplay: true,
+      // autoplay: true,
       responsive: [
           {
             breakpoint: 1500,
@@ -39,6 +39,13 @@ window.scrollTo(0, 0)
     $(".nav").css("color", "inherit")
     location.style.color = "#ff2800"
   }
+
+  // let info = "part-info";
+  // function details() {
+  //   info.addEventListener('mouseover', function(event) {
+  //     details.style.display = block;
+  //   })
+  // }
 
   $scope.about = function() {
     // location.home

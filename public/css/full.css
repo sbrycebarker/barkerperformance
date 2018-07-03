@@ -412,9 +412,8 @@
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
-    text-align: center;
   }
 
   #main-prod {
@@ -424,7 +423,6 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    border-radius: 1px solid white;
   }
 
   #aboutsec {
@@ -663,6 +661,8 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 5px;
   }
 
   .p-item {
@@ -672,36 +672,44 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .p-item img {
     height: 200px;
     width: auto;
     margin: auto;
-  }
-
-  .part-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .part-info h1 {
-    border: 1px solid white;
+    position: relative;
   }
 
   .item img {
     height: 270px;
     width: auto;
     margin: auto;
+    position: relative;
   }
 
   .item h1 {
     margin: 5px auto;
     font-size: 30px;
+    position: relative;
   }
 
   .details {
-    display: none
+    width: 100%;
+    background-color: white;
+    z-index: 25;
+    opacity: .5;
+    color: black;
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    transition: height 2s;
+    position: absolute;
+  }
+
+  .details:hover {
+    height: 25%
   }
 
   .things {

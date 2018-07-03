@@ -651,7 +651,6 @@ header {
 
 #subscribe {
   cursor: pointer;
-  /* background-color: red */
 }
 
 footer {
@@ -971,6 +970,7 @@ footer h1 {
   width: 100%;
   image: cover;
   margin: auto;
+  z-index: 1;
 }
 
 .part-info {
@@ -980,22 +980,37 @@ footer h1 {
   justify-content: center;
   position: absolute;
   bottom: 0;
+  z-index: 1;
 }
 
 .item img {
   height: 270px;
-  width: auto;
+  width: 270px;
   margin: auto;
+  z-index: 1;
 }
 
 .item h1 {
   margin: 5px auto;
   font-size: 30px;
-
 }
 
 .details {
-  display: none
+  height: 25%;
+  width: 100%;
+  background-color: white;
+  z-index: 25;
+  opacity: 0;
+  text-align: center;
+  display: flex;
+  vertical-align: middle;
+  transition: opacity 2s;
+  position: absolute;
+  bottom: 0;
+}
+
+.details:hover {
+  opacity: .6;
 }
 
 .things {
