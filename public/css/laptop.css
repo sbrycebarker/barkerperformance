@@ -666,6 +666,12 @@ footer h1 {
   width: 200px;
   height: 15px;
   margin: auto;
+  transition: color 1s
+}
+
+footer h1:hover {
+  color: #ff2800;
+  cursor: pointer;
 }
 
 /* <-------------------------------------PRODUCTS--------------------------------------> */
