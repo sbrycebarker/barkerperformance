@@ -195,7 +195,7 @@
     display: flex;
   }
 
-  .login:hover {
+  .log:hover {
     background-color: silver;
     color: black;
     cursor: pointer;
@@ -580,7 +580,7 @@
     width: 200px;
     height: 15px;
     margin: auto;
-  } */
+  }
 
   /* <-------------------------------------PRODUCTS--------------------------------------> */
 
