@@ -10,7 +10,7 @@
     <h1 class="part">{{part.details}}</h1>
   </div>
   <div id="btn-con">
-    <button ng-click="addToCart()">Add to cart</button>
+    <button ng-click="addToCart({part_id: part.part_id})">Add to cart</button>
     <button ng-click="addtoWishList({part_id: part.part_id})">Add to wishlist</button>
   </div>
 

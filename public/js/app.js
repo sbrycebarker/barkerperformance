@@ -9,13 +9,13 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
       .state('products', {
         url: "/products",
         templateUrl: "../html/products.html",
-        controller: "mainCtrl"
+        controller: "partsCtrl"
       })
-      .state('life', {
-        url: "/life",
-        templateUrl: "../html/life.html",
-        controller: "mainCtrl"
-      })
+      // .state('life', {
+      //   url: "/life",
+      //   templateUrl: "../html/life.html",
+      //   controller: "mainCtrl"
+      // })
       .state('checkout', {
         url: "/checkout",
         templateUrl: "../html/checkout.html",
@@ -29,6 +29,6 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
       .state('view', {
         url: "/view/:part",
         templateUrl: "../html/view.html",
-        controller: "mainCtrl"
+        controller: "partsCtrl"
       })
   })

@@ -227,19 +227,19 @@ window.scrollTo(0, 0)
     }
     let things = []
 
-    $scope.getProduct = function() {
-      $scope.pizza = "this"
-    }
+    // $scope.getProduct = function() {
+    //   $scope.pizza = "this"
+    // }
 
-    $scope.productView = function(){
-        service.getPart().then(function(partMatch) {
-          console.log(partMatch)
-            $scope.part = partMatch.data
-      })
-
-  }
-
-    $scope.productView()
+  //   $scope.productView = function(){
+  //       service.getPart().then(function(partMatch) {
+  //         console.log(partMatch)
+  //           $scope.part = partMatch.data
+  //     })
+  //
+  // }
+  //
+  //   $scope.productView()
 
 
 })
