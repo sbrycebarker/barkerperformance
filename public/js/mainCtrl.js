@@ -1,4 +1,4 @@
-angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
+
 
 window.scrollTo(0, 0)
 
@@ -243,3 +243,4 @@ window.scrollTo(0, 0)
 
 
 })
+

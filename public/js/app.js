@@ -14,7 +14,7 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
       .state('life', {
         url: "/life",
         templateUrl: "../html/life.html",
-        controller: "mainCtrl"
+        // controller: "mainCtrl"
       })
       .state('checkout', {
         url: "/checkout",
@@ -24,11 +24,11 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
       .state('profile', {
         url: "/profile/:user",
         templateUrl: "../html/profile.html",
-        controller: "mainCtrl"
+        // controller: "mainCtrl"
       })
       .state('view', {
         url: "/view/:part",
         templateUrl: "../html/view.html",
-        controller: "mainCtrl"
+        // controller: "mainCtrl"
       })
   })
