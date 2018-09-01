@@ -695,19 +695,114 @@
     font-size: 80px;
   }
 
+  #new-prod-con {
+    width: 100%;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+  }
+
+  .p-item {
+    width: 200px;
+    height: 200px;
+  }
+
+  .p-item ul {
+    margin: 0 100px;
+  }
+
   #all-products {
     height: auto;
     display: flex;
     margin: auto;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .item {
+    width: 100%;
+  }
+
+  .item img {
+    width: 100%;
   }
 
   #prod-header {
     display: table;
     position: absolute;
     bottom: 0;
+  }
+
+  #prod-footer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #prod-footer h1 {
+    text-align: center;
+  }
+
+
+  #view {
+    height: 100%;
+    width: 100%;
+    background-color: #121212;
+    position: absolute;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #view-con {
+    height: auto;
+    width: 90vw;
+    margin: auto;
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #part-img {
+    width: 50%;
+    margin: auto;
+  }
+
+  #view-con h1 {
+    margin: 5px auto;
+    text-align: center;
+  }
+
+  .part {
+    margin: auto;
+    color: silver;
+    flex: 4;
+    display: flex;
+    position: relative;
+    align-content: center;
+  }
+
+  #btn-con {
+    width: 90vw;
+    margin: auto;
+    /* border: 1px solid silver; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  #btn-con button {
+    height: 40px;
+    margin: 15px auto;
+    border: 2px solid silver;
+    background-color: inherit;
+    color: silver;
+    margin: auto;
   }
 
   /* <<-------------------------------------life------------------------------------------------------------->> */

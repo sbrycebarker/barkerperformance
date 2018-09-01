@@ -1,5 +1,29 @@
 <title>BPF | Products</title>
-
+<div id="sidebar" class="sidebar">
+  <div class="menuitem mp">
+    <img>
+    <a ui-sref="products">
+      <h1>PRODUCTS</h1>
+    </a>
+  </div>
+  <div class="menuitem ma">
+    <a ui-sref="home">
+      <h1>ABOUT</h1>
+    </a>
+  </div>
+  <div class="menuitem ml">
+    <a ui-sref="profile({user: user.displayName})">
+      <h1>PROFILE</h1>
+    </a>
+  </div>
+  <div class="menuitem mlg">
+    <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+    <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
+  </div>
+  <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
+    <h1>Cart</h1>
+  </div>
+</div>
 <div id="products" class="products" ng-controller"mainCtrl">
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
@@ -59,6 +83,13 @@
 </div>
 
 <footer id="prod-footer">
-<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>
+  <h1>Icons made by </h1>
+  <h1><a href="http://www.freepik.com" title="Freepik">Freepik</a></h1>
+   <h1>from</h1>
+   <h1><a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></h1>
+    <h1>is licensed by</h1>
+    <h1><a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></h1>
+    </div>
 </footer>
 </div>

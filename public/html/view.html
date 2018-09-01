@@ -1,5 +1,29 @@
 <title>BP | {{part.name}}</title>
-
+<div id="sidebar" class="sidebar">
+  <div class="menuitem mp">
+    <img>
+    <a ui-sref="products">
+      <h1>PRODUCTS</h1>
+    </a>
+  </div>
+  <div class="menuitem ma">
+    <a ui-sref="home">
+      <h1>ABOUT</h1>
+    </a>
+  </div>
+  <div class="menuitem ml">
+    <a ui-sref="profile({user: user.displayName})">
+      <h1>PROFILE</h1>
+    </a>
+  </div>
+  <div class="menuitem mlg">
+    <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+    <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
+  </div>
+  <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
+    <h1>Cart</h1>
+  </div>
+</div>
 <section id="view">
 
   <div id="view-con">
