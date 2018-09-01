@@ -1,4 +1,4 @@
-
+angular.module('app').controller('mainCtrl', function($scope,$stateParams, service, $state) {
 
 window.scrollTo(0, 0)
 
@@ -116,7 +116,7 @@ window.scrollTo(0, 0)
           // $scope.username = 'LOG IN!';
   $scope.getUser = function() {
     service.getUser().then(function(user) {
-      console.log("user", user)
+      // console.log("user", user)
       if (user) {
         $scope.user.push(user)
         $scope.username = user.displayName;
@@ -243,4 +243,3 @@ window.scrollTo(0, 0)
 
 
 })
-
