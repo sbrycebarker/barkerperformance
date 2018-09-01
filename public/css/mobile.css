@@ -805,6 +805,16 @@
     margin: auto;
   }
 
+
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer h1 {
+    width: 200px;
+    text-align: center;
+  }
   /* <<-------------------------------------life------------------------------------------------------------->> */
 
   /* #life {
