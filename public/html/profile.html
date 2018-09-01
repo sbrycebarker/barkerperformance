@@ -4,17 +4,22 @@
 
 <div id="profile-con">
 
-  <div id="profile-info">
 
-    <div id="profile-header">
-      <div id="username">
-        <h1>{{username}}</h1>
-        <h1><img src="{{user.picture}}" alt=""></h1>
-        <h1>{{user.emails[0].value}}</h1>
-        <!-- <h1>{{}}</h1> -->
+  <div id="profile-header">
+    <div id="username">
+      <h1>{{username}}</h1>
+      <h1><img src="{{user.picture}}" alt=""></h1>
+      <h1>{{user.emails[0].value}}</h1>
+      <!-- <h1>{{}}</h1> -->
+    </div>
+  </div>
+
+  <div id="profile-info">
+    <div id="order-history">
+      <div id="oh-list" ng-repeat="order in history">
+        {{order}}
       </div>
     </div>
-
   </div>
 
 </div>
