@@ -116,7 +116,7 @@ window.scrollTo(0, 0)
           // $scope.username = 'LOG IN!';
   $scope.getUser = function() {
     service.getUser().then(function(user) {
-      // console.log("user", user)
+      console.log("user", user)
       if (user) {
         $scope.user.push(user)
         $scope.username = user.displayName;

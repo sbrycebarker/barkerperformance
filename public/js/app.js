@@ -19,7 +19,7 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
       .state('checkout', {
         url: "/checkout",
         templateUrl: "../html/checkout.html",
-        controller: "mainCtrl"
+        // controller: "mainCtrl"
       })
       .state('profile', {
         url: "/profile/:user",
