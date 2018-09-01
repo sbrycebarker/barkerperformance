@@ -4,18 +4,25 @@
   <div id="sidebar" class="sidebar">
     <div class="menuitem mp">
       <img>
-      <h1>Products</h1>
+      <a ui-sref="products">
+        <h1>PRODUCTS</h1>
+      </a>
     </div>
     <div class="menuitem ma">
-      <h1>About</h1>
+      <a ui-sref="home">
+        <h1>ABOUT</h1>
+      </a>
     </div>
     <div class="menuitem ml">
-      <h1>Life</h1>
+      <a ui-sref="profile({user: user.displayName})">
+        <h1>PROFILE</h1>
+      </a>
     </div>
     <div class="menuitem mlg">
-      <h1>Login</h1>
+      <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+      <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
     </div>
-    <div class="menuitem mc" style="border-bottom: none">
+    <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
       <h1>Cart</h1>
     </div>
   </div>

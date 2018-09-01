@@ -61,6 +61,10 @@
   /* .menuitem img {
     width: 100%;
   } */
+  a {
+    text-decoration: none;
+    color: white;
+  }
 
   .mp {
     background: url("../assets/alfa.jpeg");
@@ -81,15 +85,22 @@
   }
 
   .mlg {
-    background: url("../assets/oldschool.jpeg");
-    background-size: auto 500px;
-    background-position: center;
+    background: url("../assets/dark mustang.jpeg");
+    background-size: auto 300px;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+  }
+
+  .mlg h1 {
+    margin: auto;
   }
 
   .mc {
-    background: url("../assets/challenger.jpeg") 25px 200px;
-    background-size: auto 500px;
+    background: url("../assets/white_pickup.jpg") 0px 150px;
+    background-size: auto 300px;
     right: 0;
+    color: black;
   }
 
   .menuitem h1 {
