@@ -176,16 +176,20 @@ window.scrollTo(0, 0)
 //<<=================================== Nodemailer =============================>>
 
   $scope.sendMail = function(email) {
-    // console.log('email', email)
+    if (email.email) {
     service.sendMail(email).then(function(result) {
       if (!result) {
         console.error('Invalid Email');
-        $scope.thankYou = 'Invalid Email'
+        $scope.error = 'Invalid Email'
       } else {
         console.log('message sent')
-        $scope.thankYou = "thank you"
+        $scope.thankYou = "thank you!!"
       }
     })
+  } else {
+    $scope.error = 'Invalid Email';
+    $scope.required = 'required';
+  }
   }
   $scope.email_list = 'Email Address'
 
@@ -196,7 +200,7 @@ window.scrollTo(0, 0)
         $scope.email_list = 'Invalid Email'
       } else {
 
-        $scope.email_list = "thank you"
+        $scope.email_list = "thank you!!"
       }
     })
   }

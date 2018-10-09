@@ -101,8 +101,11 @@
       <input id="email" class="email input" type="email" ng-model="email" placeholder="Email *" required></input>
       <input id="subject" class="subject input" type="text" ng-model="subject" placeholder="Subject"></input>
       <textarea id="message" class="message input" type="text" ng-model="message" placeholder="Message" required></textarea>
-      <button id="send" type="submit" class="send" ng-click="sendMail( { name: name, email: email, subject: subject, message: message } )">SEND</button>
-      <h1>{{thankYou}}</h1>
+      <div id="feedback-send" class="input">
+        <button id="send" type="submit" class="send" style="float: left"ng-click="sendMail( { name: name, email: email, subject: subject, message: message } )">SEND</button>
+        <h1 id="thanks" class="response">{{thankYou}}</h1>
+        <h1 id="thanks" class="response" style="color: red">{{error}}</h1>
+      </div>
     </div>
     <div id="sec-6-box2" class="sec-6-box">
       <h1>Feedback</h1>

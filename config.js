@@ -25,7 +25,7 @@ module.exports = {
   },
   nodemailer: {
     user: 'sergiobarkerdev@gmail.com',
-    pass: '1234Bryce'
+    pass: '1304dev24'
   }
 }
 
