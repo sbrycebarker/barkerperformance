@@ -1,5 +1,5 @@
-angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
-    $locationProvider.html5Mode(true)
+angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterProvider){
+    // $locationProvider.html5Mode(true)
     $urlRouterProvider.when('', '/')
       $stateProvider
       .state('home', {
@@ -12,11 +12,6 @@ angular.module('app',['ui.router']).config(function($stateProvider, $urlRouterPr
         templateUrl: "../html/products.html",
         controller: "partsCtrl"
       })
-      // .state('life', {
-      //   url: "/life",
-      //   templateUrl: "../html/life.html",
-      //   controller: "mainCtrl"
-      // })
       .state('checkout', {
         url: "/checkout",
         templateUrl: "../html/checkout.html",

@@ -91,7 +91,6 @@ const express = require('express'),
 
   app.get('/auth/me', function(req, res) {
     if (!req.user) {
-
        return res.send(null)
      } else {
        res.status(200).send(req.user);

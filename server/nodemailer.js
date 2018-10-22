@@ -112,6 +112,14 @@ module.exports = {
     ,
 
     list: (req, res) => {
+      console.log(req)
+
+      let mailOptions = {
+        from: '"Barker Performance 👻" <sergiobarkerdev@gmail.com>',
+        to: req.body.email,
+        subject: 'Thank You',
+        html: `<h1>Thanks for siging up for our 'mailing list'</h1>`
+      };
 
       transporter.sendMail(mailOptions, (error, info) => {
           // console.log('sendMail', transporter)

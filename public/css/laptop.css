@@ -1,4 +1,4 @@
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 950px) and (max-width: 1400px){
 
 html {
   height: 100%;
@@ -93,7 +93,7 @@ header {
 
 #nav-con {
   height: 100%;
-  width: 500px;
+  width: 450px;
   margin: auto;
   position: relative;
   display: flex;
@@ -103,7 +103,6 @@ header {
 
 .nav {
   height: 100%;
-  width: 100px;
   margin: auto;
   display: flex;
   transition: color;
@@ -156,7 +155,7 @@ header {
 
 .rightbox {
   height: 100%;
-  width: 500px;
+  width: 300px;
   float: right;
   display: flex;
   flex-direction: row;
@@ -164,7 +163,7 @@ header {
 
 .login {
   height: 100%;
-  width: 300px;
+  width: 200px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -227,7 +226,7 @@ header {
 
 #cart-btn {
   height: 100%;
-  width: 200px;
+  width: 100px;
   position: absolute;
   right: 0;
   display: flex;
@@ -468,7 +467,6 @@ header {
 
 #main-prod {
   height: 500px;
-  width: 1580px;
   margin: auto;
   position: relative;
   display: flex;
@@ -998,8 +996,8 @@ footer h1:hover {
 }
 
 .item img {
-  height: 270px;
-  width: 270px;
+  height: auto;
+  width: 25vw;
   margin: auto;
   z-index: 1;
 }

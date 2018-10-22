@@ -540,6 +540,7 @@
     float: right;
     background-color: white;
     border: 2px solid silver;
+    color: black;
     text-align: center;
   }
 
@@ -861,7 +862,7 @@
   }
 
   #feedback-send {
-    border: 1px solid red
+    /* border: 1px solid red */
   }
 
   footer {

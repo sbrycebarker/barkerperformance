@@ -1,4 +1,4 @@
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 1400px) {
   html {
     height: 100%;
     width: 100%;
@@ -11,7 +11,7 @@
 
   header {
     height: 100px;
-    width: 100%;
+    width: 100vw;
     background-color: black;
     color: silver;
     display: flex;
@@ -408,7 +408,6 @@
 
   #section4 {
     height: 600px;
-    width: 100%;
     background-color: black;
     color: white;
     display: flex;
@@ -418,7 +417,6 @@
 
   #main-prod {
     height: 500px;
-    width: 1580px;
     margin: auto;
     position: relative;
     display: flex;
@@ -780,5 +778,10 @@
     display: relative
   }
 
+
+@import "laptop.css";
+@import "mobile.css";
+@import "profile.css";
+@import "view.css";
 
 /*# sourceMappingURL=full.css.map */

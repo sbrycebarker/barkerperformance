@@ -90,7 +90,7 @@ window.scrollTo(0, 0)
       var sidebar = document.getElementById('sidebar');
       if (sidebar.style.width == '0px' || sidebar.style.width == 0 ) {
         console.log('OPEN')
-      sidebar.style.width = '100%'
+      sidebar.style.width = '50%'
     } else {
       sidebar.style.width = '0px';
     }
