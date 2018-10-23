@@ -87,11 +87,11 @@
 }
 
 
-  footer {
-    display: flex;
-    height: 75px;
-    position: absolute;
-    bottom: 0;
-    flex-direction: column;
-    text-align: center;
-  }
+#profile-footer {
+  display: flex;
+  height: 75px;
+  bottom: 0;
+  position: absolute;
+  flex-direction: column;
+  text-align: center;
+}
