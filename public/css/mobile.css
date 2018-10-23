@@ -644,7 +644,6 @@
 
   .item {
     height: 40%;
-    /* border: 1px solid white; */
     width: 20vw;
     margin: auto;
     text-align: center;
@@ -653,19 +652,25 @@
   }
 
   .p-item {
-    height: 200px;
-    /* border: 1px solid white; */
-    width: 25vw;
-    margin: 10px;
+    height: 250px;
+    width: 250px;
+    margin: auto;
     text-align: center;
     display: flex;
     flex-direction: column;
   }
 
-  .p-item img {
-    height: 25%;
-    width: auto;
+  .part-info {
+    bottom: 0;
     margin: auto;
+  }
+
+  .p-item img {
+    height: 150px;
+    width: 150px;
+    image: cover;
+    margin: auto;
+    z-index: 1;
   }
 
   .item img {
@@ -703,11 +708,6 @@
     align-items: center;
   }
 
-  .p-item {
-    width: 200px;
-    height: 200px;
-  }
-
   .p-item ul {
     margin: 0 100px;
   }
@@ -716,7 +716,7 @@
     height: auto;
     display: flex;
     margin: auto;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -803,61 +803,6 @@
     border: 2px solid silver;
     background-color: inherit;
     color: silver;
-    margin: auto;
-  }
-  #profile-section {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    /* background-color: #020202; */
-    position: absolute;
-  }
-
-  #profile-con {
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    background-color: black;
-    position: relative;
-    padding-top: 200px;
-    z-index: 0;
-    color: silver;
-  }
-
-  #profile-info {
-    height: 200px;
-    width: 90vw;
-    margin: auto;
-    border: 1px solid silver;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    color: silver;
-  }
-
-  #order-history {
-    height: 50%;
-    background-color: white;
-  }
-
-  #profile-info h1 {
-    margin: auto;
-  }
-
-  #profile-header {
-    height: 75px;
-    width: 100%;
-  }
-
-  #username {
-    height: 100%;
-    width: 200px;
-    /* border: 1px solid black; */
-    display: flex;
-    color: silver;
-  }
-
-  #username h1 {
     margin: auto;
   }
 

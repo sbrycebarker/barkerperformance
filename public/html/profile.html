@@ -1,4 +1,30 @@
 <title>BP | Profile</title>
+<div id="sidebar" class="sidebar">
+  <div class="menuitem mp">
+    <img>
+    <a ui-sref="products">
+      <h1>PRODUCTS</h1>
+    </a>
+  </div>
+  <div class="menuitem ma">
+    <a ui-sref="home">
+      <h1>ABOUT</h1>
+    </a>
+  </div>
+  <div class="menuitem ml">
+    <a ui-sref="profile({user: user.displayName})">
+      <h1>PROFILE</h1>
+    </a>
+  </div>
+  <div class="menuitem mlg">
+    <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+    <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
+  </div>
+  <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
+    <h1>Cart</h1>
+  </div>
+</div>
+<body id="profile-body">
 
 <section id="profile-section" ng-controller="mainCtrl">
 
@@ -6,10 +32,10 @@
 
 
   <div id="profile-header">
-    <div id="username">
-      <h1>{{username}}</h1>
-      <h1><img src="{{user.picture}}" alt=""></h1>
-      <h1>{{user.emails[0].value}}</h1>
+    <div id="user">
+      <ul id="username"><h1>a{{username}}</h1></ul>
+      <ul id="user-email"><h1>a{{user.emails[0].value}}</h1></ul>
+      <img src="{{user.picture}}" alt="">
       <!-- <h1>{{}}</h1> -->
     </div>
   </div>
@@ -29,3 +55,11 @@
 </div>
 
 </section>
+
+<footer>
+  <h1>&copy; 2018 by SERGIO BARKER</h1>
+  <h1>Shipping & Returns</h1>
+  <h1>Terms & Conditions</h1>
+</footer>
+
+</body>

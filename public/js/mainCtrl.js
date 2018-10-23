@@ -184,6 +184,7 @@ window.scrollTo(0, 0)
       } else {
         console.log('message sent')
         $scope.thankYou = "thank you!!"
+        document.getElementById("sec-6-box1").reset();
       }
     })
   } else {

@@ -1,47 +1,97 @@
-@media only screen and (min-width: 950px) {
-body {
+
+
+
+#profile-body {
+  height: 100vh;
+  width: 100vw;
   background-color: none;
+  background-image: url('../assets/gt40.jpeg');
+  background-size: cover;
+  background-position: center;
+  --dark: #020202;
 }
+
 #profile-section {
   height: 100%;
   width: 100%;
-  background-color: white;
-  /* background-color: #020202; */
   position: absolute;
+  display: flex;
+  vertical-align: middle;
 }
 
 #profile-con {
-  height: 100%;
-  width: 100%;
+  height: 70vh;
+  width: 90vw;
   margin: auto;
-  /* background-color: black; */
   position: relative;
-  padding-top: 200px;
   z-index: 0;
+  background-color: var(--dark);
+  opacity: .8;
+  box-sizing: border-box;
   color: silver;
+  min-height: 500px;
 }
 
 #profile-info {
   height: 400px;
   width: 100%;
-  border: 1px solid silver
+  box-sizing: border-box;
 }
 
 #profile-header {
-  height: 75px;
+  box-sizing: border-box;
+  height: 100px;
+  display: flex;
   width: 100%;
-  /* border-style: double; */
-  border-bottom: 1px silver solid;
+  border: 1px silver solid;
+}
+
+#user {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+  color: silver;
+  text-align: center;
 }
 
 #username {
-  height: 100%;
-  width: 200px;
+  height: 20px;
+  width: 100px;
+  border: 1px solid white;
+  box-sizing: border-box;
   display: flex;
-  color: silver;
+  align-items: center;
 }
 
-#username h1 {
-  margin: auto;
+#user-email {
+  height: 20px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
+
+#user-email h1 {
+  margin: 10px;
 }
+
+#user img {
+  height: 100px;
+  background-color: #ff2800;
+  width: auto;
+  position: absolute;
+  right: 0;
+  float: right;
+}
+
+
+  footer {
+    display: flex;
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    flex-direction: column;
+    text-align: center;
+  }
