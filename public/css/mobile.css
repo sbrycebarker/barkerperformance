@@ -323,9 +323,12 @@
     position: relative;
     top: 55%;
     margin: 50px auto;
+    cursor: pointer;
   }
 
-
+ #cheveron:hover {
+   cursor: pointer;
+ }
 
   #section2 {
     height: 100vh;
@@ -763,7 +766,6 @@
     height: auto;
     width: 90vw;
     margin: auto;
-    border: 1px solid silver;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -15,7 +15,6 @@
 #view-con {
   width: 450px;
   margin: 200px;
-  border: 1px solid silver;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,9 +36,8 @@
 
 #btn-con {
   height: 300px;
-  width: 500px;
+  width: auto;
   margin: auto;
-  border: 1px solid silver;
   display: flex;
   flex-direction: column;
   align-items: center;

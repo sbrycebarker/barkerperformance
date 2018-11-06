@@ -11,8 +11,10 @@ const express = require('express'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
       config = require('./config.js'),
+      // angular = require('angular'),
       stripe = require('stripe')(config.stripe.pk_test),
       MongoStore = require('connect-mongo')(session);
+
 
 
 // <<============================= Setup=====================================>>
