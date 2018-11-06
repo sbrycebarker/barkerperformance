@@ -1,7 +1,7 @@
-      let nodemailer = require('nodemailer'),
-          config = require('../config.js'),
-          Feedback = require('./feedbackschema.js'),
-          mailinglist = require('./emailschema.js');
+let nodemailer = require('nodemailer'),
+    config = require('../config.js'),
+    Feedback = require('./feedbackschema.js'),
+    mailinglist = require('./emailschema.js');
 
 
 
@@ -9,12 +9,12 @@
 // const db = config.mongoose
 
 let transporter = nodemailer.createTransport({
-host: 'smtp.gmail.com',
-port: 587,
-secure: false, // true for 465, false for other ports
-auth: {
-    user: config.nodemailer.user, // generated ethereal user
-    pass: config.nodemailer.pass // generated ethereal password
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: config.nodemailer.user, // generated ethereal user
+        pass: config.nodemailer.pass // generated ethereal password
 }
 });
 
