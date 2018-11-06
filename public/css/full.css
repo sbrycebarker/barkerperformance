@@ -1,3 +1,9 @@
+@import url("laptop.css");
+@import url("mobile.css");
+@import url("profile.css");
+@import url("view.css");
+@import url("animate.css");
+
 @media only screen and (min-width: 1400px) {
   html {
     height: 100%;
@@ -778,10 +784,5 @@
     display: relative
   }
 
-
-/* @import "laptop.css";
-@import "mobile.css";
-@import "profile.css";
-@import "view.css"; */
 
 /*# sourceMappingURL=full.css.map */
