@@ -1,3 +1,219 @@
+
+@keyframes bottomright {
+  0% {
+    width: 0;
+    height: 0;
+    padding-top: 0;
+    visibility: visible;
+  }
+  25% {
+    width: 100%;
+    height: 0;
+    padding-top: 0;
+    visibility: visible;
+  }
+  50% {
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes revbottomright {
+  0% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+  25% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+  75% {
+    width: 100%;
+    height: 0;
+    padding-top: 0;
+    visibility: visible;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    padding-top: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes topleft {
+  0% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  25% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  50% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  75% {
+    width: 100%;
+    height: 0;
+    padding-bottom: 0;
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes revtopleft {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  25% {
+    width: 100%;
+    height: 0;
+    padding-bottom: 0;
+    visibility: visible;
+  }
+  50% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  75% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+}
+
+.draw {
+  transition: color 1s ease-in-out;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  position: relative;
+}
+
+.draw:hover {
+  color: #ff2800;
+  transition: color 1s ease-in-out;
+}
+
+.draw:before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  padding-right: 1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #ff2800;
+  border-right: 1px solid #ff2800;
+  visibility: hidden;
+}
+
+.draw:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding-left: 1px;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #ff2800;
+  border-left: 1px solid #ff2800;
+  visibility: hidden;
+}
+/* topleft */
+.draw:hover:before {
+  animation: topleft 0.5s ease-in-out forwards;
+}
+/* bottomright */
+.draw:hover:after {
+  animation: bottomright 0.5s ease-in-out forwards;
+}
+/* revtopleft */
+.draw.active:before {
+  animation: revtopleft 0.5s ease-in-out forwards;
+}
+/* revbottomright */
+.draw.active:after {
+  animation: revbottomright 0.5s ease-in-out forwards;
+}
+
+.draw.active:before,
+.draw.active:after {
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+
+.draw.temp:before, .draw.temp:after {
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+}
+
+#homebutton .draw:before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  padding-right: 2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #ff2800;
+  border-right: 2px solid #ff2800;
+  visibility: hidden;
+}
+
+#homebutton .draw:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  padding-left: 2px;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #ff2800;
+  border-left: 2px solid #ff2800;
+  visibility: hidden;
+}
+
 @media only screen and (min-width: 950px) {
 
 html {
@@ -752,221 +968,6 @@ footer h1:hover {
   margin: 0 auto;
   margin-top: 200px;
 } */
-
-@keyframes bottomright {
-  0% {
-    width: 0;
-    height: 0;
-    padding-top: 0;
-    visibility: visible;
-  }
-  25% {
-    width: 100%;
-    height: 0;
-    padding-top: 0;
-    visibility: visible;
-  }
-  50% {
-    height: 100%;
-    width: 100%;
-    visibility: visible;
-  }
-  75% {
-    visibility: visible;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-
-@keyframes revbottomright {
-  0% {
-    width: 100%;
-    height: 100%;
-    visibility: visible;
-  }
-  25% {
-    width: 100%;
-    height: 100%;
-    visibility: visible;
-  }
-  50% {
-    width: 100%;
-    height: 100%;
-    visibility: visible;
-  }
-  75% {
-    width: 100%;
-    height: 0;
-    padding-top: 0;
-    visibility: visible;
-  }
-  100% {
-    width: 0;
-    height: 0;
-    padding-top: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes topleft {
-  0% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-  25% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-  50% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-  75% {
-    width: 100%;
-    height: 0;
-    padding-bottom: 0;
-    visibility: visible;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@keyframes revtopleft {
-  0% {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    visibility: visible;
-  }
-  25% {
-    width: 100%;
-    height: 0;
-    padding-bottom: 0;
-    visibility: visible;
-  }
-  50% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-  75% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-  100% {
-    width: 0;
-    height: 0;
-    padding-bottom: 0;
-    visibility: hidden;
-  }
-}
-
-.draw {
-  transition: color 1s ease-in-out;
-  text-decoration: none;
-  /* text-transform: uppercase; */
-  position: relative;
-}
-
-.draw:hover {
-  color: #ff2800;
-  transition: color 1s ease-in-out;
-}
-
-.draw:before {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  padding-right: 1px;
-  left: -1px;
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #ff2800;
-  border-right: 1px solid #ff2800;
-  visibility: hidden;
-}
-
-.draw:after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  padding-left: 1px;
-  width: 100%;
-  height: 100%;
-  border-top: 1px solid #ff2800;
-  border-left: 1px solid #ff2800;
-  visibility: hidden;
-}
-/* topleft */
-.draw:hover:before {
-  animation: topleft 0.5s ease-in-out forwards;
-}
-/* bottomright */
-.draw:hover:after {
-  animation: bottomright 0.5s ease-in-out forwards;
-}
-/* revtopleft */
-.draw.active:before {
-  animation: revtopleft 0.5s ease-in-out forwards;
-}
-/* revbottomright */
-.draw.active:after {
-  animation: revbottomright 0.5s ease-in-out forwards;
-}
-
-.draw.active:before,
-.draw.active:after {
-  width: 100%;
-  height: 100%;
-  visibility: visible;
-}
-
-.draw.temp:before, .draw.temp:after {
-  width: 100%;
-  height: 100%;
-  visibility: visible;
-}
-
-#homebutton .draw:before {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  padding-right: 2px;
-  left: -2px;
-  width: 100%;
-  height: 100%;
-  border-bottom: 2px solid #ff2800;
-  border-right: 2px solid #ff2800;
-  visibility: hidden;
-}
-
-#homebutton .draw:after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  padding-left: 2px;
-  width: 100%;
-  height: 100%;
-  border-top: 2px solid #ff2800;
-  border-left: 2px solid #ff2800;
-  visibility: hidden;
-}
 
 .p-item {
   height: 350px;

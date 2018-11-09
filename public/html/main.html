@@ -3,27 +3,28 @@
 <main id="main">
   <div id="sidebar" class="sidebar">
     <div class="menuitem mp">
-      <img>
-      <a ui-sref="products">
+      <a id="menubttn" class="menubttn" ui-sref="products">
         <h1>PRODUCTS</h1>
       </a>
     </div>
     <div class="menuitem ma">
-      <a ui-sref="home">
+      <a class="menubttn" ui-sref="home">
         <h1>ABOUT</h1>
       </a>
     </div>
     <div class="menuitem ml">
-      <a ui-sref="profile({user: user.displayName})">
+      <a class="menubttn" ui-sref="profile({user: user.displayName})">
         <h1>PROFILE</h1>
       </a>
     </div>
     <div class="menuitem mlg">
-      <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
-      <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
+      <a class="button menubttn" href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a>
+      <a class="button menubttn" href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a>
     </div>
     <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
-      <h1>Cart</h1>
+      <a class="menubttn" ui-sref="cart">
+        <h1>Cart <i class="fa fa-shopping-cart"></i></h1>
+      </a>
     </div>
   </div>
   <div id="hero" class="section">
@@ -122,7 +123,7 @@
     <div class="sec-7-con">
       <h1>JOIN OUR MAILING LIST</h1>
       <h2>AND NEVER MISS AN UPDATE</h2>
-      <input class="listinput field" type="email" ng-model="list_email" placeholder="{{email_list}}" style="color: white; padding-left: 15px"></input>
+      <input class="listinput field" type="email" ng-model="list_email" placeholder="{{email_list}}" style="color: white;"></input>
       <button id="subscribe" class="listbutton field" type="button" ng-click="addToList({email: list_email})" required>SUSCRIBE NOW</button>
     </div>
   </div>
