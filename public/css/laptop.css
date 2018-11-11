@@ -1045,6 +1045,7 @@ footer h1:hover {
 
 #all-products {
   height: auto;
+  width: 90vw;
   display: flex;
   margin: auto;
   flex-direction: row;

@@ -684,8 +684,8 @@
   }
 
   .p-item {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     margin: auto;
     text-align: center;
     display: flex;
@@ -746,6 +746,7 @@
 
   #all-products {
     height: auto;
+    width: 90vw;
     display: flex;
     margin: auto;
     flex-direction: row;
