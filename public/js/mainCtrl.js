@@ -3,12 +3,12 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
 
     function createSlick() {
         $('.slick').slick({
-            centerMode: !0,
-            infinite: !0,
+            // centerMode: !0,
+            // infinite: !0,
             responsive: [{
                 breakpoint: 1500,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: !0,
                     dots: !0

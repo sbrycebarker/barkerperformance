@@ -1,41 +1,41 @@
 <title>BPF | Products</title>
-<div id="sidebar" class="sidebar">
-  <div class="menuitem mp">
-    <img>
-    <a ui-sref="products">
-      <h1>PRODUCTS</h1>
-    </a>
-  </div>
-  <div class="menuitem ma">
-    <a ui-sref="home">
-      <h1>ABOUT</h1>
-    </a>
-  </div>
-  <div class="menuitem ml">
-    <a ui-sref="profile({user: user.displayName})">
-      <h1>PROFILE</h1>
-    </a>
-  </div>
-  <div class="menuitem mlg">
-    <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
-    <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
-  </div>
-  <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
-    <h1>Cart</h1>
-  </div>
-</div>
+  <!-- <div id="sidebar" class="sidebar">
+    <div class="menuitem mp">
+      <img>
+      <a ui-sref="products">
+        <h1>PRODUCTS</h1>
+      </a>
+    </div>
+    <div class="menuitem ma">
+      <a ui-sref="home">
+        <h1>ABOUT</h1>
+      </a>
+    </div>
+    <div class="menuitem ml">
+      <a ui-sref="profile({user: user.displayName})">
+        <h1>PROFILE</h1>
+      </a>
+    </div>
+    <div class="menuitem mlg">
+      <h1><a href="/auth"><button type="submit" class="button-primary log">{{username}}</button></a></h1>
+      <h1><a href="/auth/logout"><button type="submit" class="button-primary log">Logout</button></a></h1>
+    </div>
+    <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
+      <h1>Cart</h1>
+    </div>
+  </div> -->
 <div id="products" class="products" ng-controller"mainCtrl">
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
 <slick id="new-prod-con" class="things slick" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
-  <ul class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
+  <!-- <ul class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
     <img src="../assets/exploded-turbo.png">
     <div class="part-info">
       <h1>Racing Turbo lvl 2</h1>
       <h1>$800</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul>
+  </ul> -->
   <ul class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
     <img src="../assets/exploded-turbo.png" >
     <div class="part-info">
@@ -69,21 +69,24 @@
     </div>
   </ul>
 </slick>
+</div>
   <h1 class="title">ALL PRODUCTS</h1>
 <div id="all-products" class="things">
   <ul class="p-item draw" ui-sref="view({part: part._id})" ng-repeat="part in parts">
     <img src="{{part.img}}">
     <h1>{{part.name}}</h1>
     <h1>${{part.price}}</h1>
-    <!-- <h1>part id: {{part.part_id}}</h1> -->
   </ul>
-</div>
-<div class="things">
-</div>
+
+<!-- <div class="things">
+</div> -->
 </div>
 
 <footer id="prod-footer">
-<div>
-
+  <div>
+    <h1>&copy; 2018 by SERGIO BARKER</h1>
+    <h1>Shipping & Returns</h1>
+    <h1>Terms & Conditions</h1>
+  </div>
 </footer>
 </div>
