@@ -1,5 +1,5 @@
 <title>BPF | Products</title>
-  <!-- <div id="sidebar" class="sidebar">
+  <div id="sidebar" class="sidebar">
     <div class="menuitem mp">
       <img>
       <a ui-sref="products">
@@ -23,19 +23,11 @@
     <div class="menuitem mc" ng-click="cartOpen()" style="border-bottom: none">
       <h1>Cart</h1>
     </div>
-  </div> -->
+  </div>
 <div id="products" class="products" ng-controller"mainCtrl">
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
 <slick id="new-prod-con" class="things slick" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
-  <!-- <ul class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
-    <img src="../assets/exploded-turbo.png">
-    <div class="part-info">
-      <h1>Racing Turbo lvl 2</h1>
-      <h1>$800</h1>
-      <h1 class="details">View Details</h1>
-    </div>
-  </ul> -->
   <ul class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
     <img src="../assets/exploded-turbo.png" >
     <div class="part-info">
@@ -68,9 +60,19 @@
       <h1 class="details">View Details</h1>
     </div>
   </ul>
+  <!-- <ul class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
+    <img src="../assets/exploded-turbo.png">
+    <div class="part-info">
+      <h1>Racing Turbo lvl 2</h1>
+      <h1>$800</h1>
+      <h1 class="details">View Details</h1>
+    </div>
+  </ul> -->
 </slick>
 </div>
+
   <h1 class="title">ALL PRODUCTS</h1>
+
 <div id="all-products" class="things">
   <ul class="p-item draw" ui-sref="view({part: part._id})" ng-repeat="part in parts">
     <img src="{{part.img}}">

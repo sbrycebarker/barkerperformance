@@ -4,6 +4,14 @@
   text-align: center;
 }
 
+.p-item h1 {
+  margin: 5px auto;
+}
+
+#all-products {
+  margin: 15px auto;
+}
+
 
 
 @media only screen and (max-width: 950px) {
@@ -692,9 +700,13 @@
     flex-direction: column;
   }
 
+  .p-item {
+    margin: 5px auto;
+  }
+
   .part-info {
     bottom: 0;
-    margin: auto;
+    margin: 15px auto;
   }
 
   .p-item img {
