@@ -1,29 +1,54 @@
 angular.module('app').controller('mainCtrl', function($scope, $stateParams, service, $state) {
     window.scrollTo(0, 0)
+    function createScroll() {
+      $(document).ready(function() {
 
-    function createSlick() {
-        $('.slick').slick({
-            // centerMode: !0,
-            // infinite: !0,
-            responsive: [{
-                breakpoint: 1500,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: !0,
-                    dots: !0
-                }
-            }, {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: !0
-                }
-            }]
+        $('.owl-carousel').owlCarousel(
+          {
+            loop: true,
+            center: true,
+            items: 2,
+            autoWidth: true,
+            autoplay: true,
+            autoplayHoverPause: true
+          }
+        );
+        var owl = $('.owl-carousel');
+        owl.owlCarousel();
+        $('#owl-prev').click(function() {
+            console.log('next')
+            // With optional speed parameter
+            // Parameters has to be in square bracket '[]'
+            owl.trigger('prev.owl.carousel', [300]);
         })
+        $('#owl-next').click(function() {
+          console.log('next')
+            owl.trigger('next.owl.carousel');
+        })
+
+      })
     }
-    createSlick()
+    createScroll()
+    $('.owl-carousel').owlCarousel(
+      {
+        loop: true,
+        center: true,
+        items: 2,
+        autoWidth: true,
+      }
+    );
+    var owl = $('.owl-carousel');
+    owl.owlCarousel();
+    $('#prev-arrow').click(function() {
+        console.log('next')
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        owl.trigger('prev.owl.carousel', [300]);
+    })
+    $('#next-arrow').click(function() {
+      console.log('next')
+        owl.trigger('next.owl.carousel');
+    })
     $scope.home = function() {
         $("html, body").animate({
             scrollTop: "0"

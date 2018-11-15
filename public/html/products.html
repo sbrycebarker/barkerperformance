@@ -27,48 +27,50 @@
 <div id="products" class="products" ng-controller"mainCtrl">
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
-<slick id="new-prod-con" class="things slick" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
-  <ul class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
+  <div id="prev-arrow" class="arrow"><i class="fa fa-arrow-left"></i></div>
+<div id="new-prod-con" class="things slick owl-carousel" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
     <img src="../assets/exploded-turbo.png" >
     <div class="part-info">
       <h1>Racing Turbo lvl 1</h1>
       <h1>$1000</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul>
-  <ul class="p-item sale draw" ui-sref="view({part: '5ae7bf09f36d282906c48eb1'})">
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf09f36d282906c48eb1'})">
     <img src="../assets/suspension.png">
     <div class="part-info">
       <h1>Racing Suspension Package 2</h1>
       <h1>$800</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul>
-  <ul class="p-item sale draw" ui-sref="view({part: '5ae7bfe8f36d282906c48eee'})">
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bfe8f36d282906c48eee'})">
     <img src="../assets/disc-brake.png">
     <div class="part-info">
       <h1>Break Kit 3</h1>
       <h1>$2500</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul>
-  <ul class="p-item sale draw" ui-sref="view({part: '5ae7bf29f36d282906c48eb6'})">
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf29f36d282906c48eb6'})">
     <img src="../assets/suspension.png">
     <div class="part-info">
       <h1>Racing Suspension Package 3</h1>
       <h1>$2500</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul>
-  <!-- <ul class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
+  </div>
+  <!-- <div class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
     <img src="../assets/exploded-turbo.png">
     <div class="part-info">
       <h1>Racing Turbo lvl 2</h1>
       <h1>$800</h1>
       <h1 class="details">View Details</h1>
     </div>
-  </ul> -->
-</slick>
+  </div> -->
+</div>
+  <div id="next-arrow" class="arrow"><i class="fa fa-arrow-right"></i></div>
 </div>
 
   <h1 class="title">ALL PRODUCTS</h1>
@@ -91,4 +93,14 @@
     <h1>Terms & Conditions</h1>
   </div>
 </footer>
+  <script type="text/javascript">
+  $(window).scroll(function() {
+      let sc = $(window).scrollTop();
+      if (sc > 2300 && sc < 3200) {
+          $("#" + 'about').css("color", "#ff2800")
+      } else {
+          $('#about').css("color", "inherit")
+      }
+  })
+  </script>
 </div>

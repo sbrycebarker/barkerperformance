@@ -1,27 +1,33 @@
 angular.module('app').controller('partsCtrl', function($scope, service, $state) {
-    function createSlick() {
-        $('.slick').slick({
-            centerMode: !0,
-            infinite: !0,
-            responsive: [{
-                breakpoint: 1500,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: !0,
-                    dots: !0
-                }
-            }, {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: !0
-                }
-            }]
-        })
-    }
-    createSlick()
+  function createScroll() {
+    $(document).ready(function() {
+
+      $('.owl-carousel').owlCarousel(
+        {
+          loop: true,
+          center: true,
+          items: 2,
+          autoWidth: true,
+          autoplay: true,
+          autoplayHoverPause: true
+        }
+      );
+      var owl = $('.owl-carousel');
+      owl.owlCarousel();
+      $('#prev-arrow').click(function() {
+          console.log('next')
+          // With optional speed parameter
+          // Parameters has to be in square bracket '[]'
+          owl.trigger('prev.owl.carousel', [300]);
+      })
+      $('#next-arrow').click(function() {
+        console.log('next')
+          owl.trigger('next.owl.carousel');
+      })
+
+    })
+  }
+  createScroll()
     $scope.getParts = function() {
         let newPart = [];
         service.getParts().then(function(parts) {

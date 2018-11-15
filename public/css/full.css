@@ -645,8 +645,6 @@
 
   #products-con {
     height: 100%;
-    width: 60%;
-    background-color: black;
     margin: auto;
     position: relative;
   }
@@ -713,7 +711,7 @@
     position: relative;
   }
 
-  .details {
+  /* .details {
     width: 100%;
     background-color: white;
     z-index: 25;
@@ -724,7 +722,7 @@
     vertical-align: middle;
     transition: height 2s;
     position: absolute;
-  }
+  } */
 
   .details:hover {
     height: 25%
@@ -748,6 +746,7 @@
     width: 90vw;
     display: flex;
     margin: auto;
+    background-color: black;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;

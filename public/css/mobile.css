@@ -51,7 +51,7 @@
     position: fixed;
     top: 75px;
     right: 0;
-    transition: 2s;
+    transition: 1s;
     background-color: white;
     color: white;
     z-index: 5;
@@ -439,8 +439,6 @@
     right: 0px;
   }
 
-
-
   #section4 {
     height: 100vh;
     width: 100%;
@@ -656,8 +654,6 @@
 
   #products-con {
     height: 100%;
-    width: 60%;
-    background-color: black;
     margin: auto;
     position: relative;
     z-index: 0;
@@ -761,6 +757,7 @@
     width: 90vw;
     display: flex;
     margin: auto;
+    background-color: black;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
