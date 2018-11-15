@@ -1,34 +1,34 @@
 angular.module('app').controller('mainCtrl', function($scope, $stateParams, service, $state) {
     window.scrollTo(0, 0)
-    function createScroll() {
-      $(document).ready(function() {
-
-        $('.owl-carousel').owlCarousel(
-          {
-            loop: true,
-            center: true,
-            items: 2,
-            autoWidth: true,
-            autoplay: true,
-            autoplayHoverPause: true
-          }
-        );
-        var owl = $('.owl-carousel');
-        owl.owlCarousel();
-        $('#owl-prev').click(function() {
-            console.log('next')
-            // With optional speed parameter
-            // Parameters has to be in square bracket '[]'
-            owl.trigger('prev.owl.carousel', [300]);
-        })
-        $('#owl-next').click(function() {
-          console.log('next')
-            owl.trigger('next.owl.carousel');
-        })
-
-      })
-    }
-    createScroll()
+    // function createScroll() {
+    //   $(document).ready(function() {
+    //
+    //     $('.owl-carousel').owlCarousel(
+    //       {
+    //         loop: true,
+    //         center: true,
+    //         items: 2,
+    //         autoWidth: true,
+    //         autoplay: true,
+    //         autoplayHoverPause: true
+    //       }
+    //     );
+    //     var owl = $('.owl-carousel');
+    //     owl.owlCarousel();
+    //     $('#owl-prev').click(function() {
+    //         console.log('next')
+    //         // With optional speed parameter
+    //         // Parameters has to be in square bracket '[]'
+    //         owl.trigger('prev.owl.carousel', [300]);
+    //     })
+    //     $('#owl-next').click(function() {
+    //       console.log('next')
+    //         owl.trigger('next.owl.carousel');
+    //     })
+    //
+    //   })
+    // }
+    // createScroll()
     $('.owl-carousel').owlCarousel(
       {
         loop: true,
@@ -193,23 +193,37 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
             }
         })
     }
-    $scope.getParts = function() {
-        let newPart = [];
-        service.getParts().then(function(parts) {
-            $scope.parts = parts.data
-            for (var i = 0; i < parts.data.length; i++) {
-                if (parts.data[i].new === !0) {
-                    newPart.push(parts.data[i])
-                }
-            }
-            $scope.newpart = newPart
-        })
-    }
-    $scope.getParts()
+
+
+    // $scope.getCart = function() {
+    //     service.getParts().then(function(parts) {
+    //         $scope.parts = parts.data
+    //         for (var i = 0; i < parts.data.length; i++) {
+    //             if (parts.data[i].new === !0) {
+    //                 newPart.push(parts.data[i])
+    //             }
+    //         }
+    //         console.log("newpart", newPart)
+    //         $scope.newparts = newPart
+    //     })
+    // }
+    // $scope.getCart()
     let cart = [];
+    let total = []
     $scope.addToCart = (part) => {
         cart.push(part);
-        $scope.cart = cart
+        total.push(part.part.price);
+        $scope.cart = cart;
+        console.log('cart', cart[0]);
+        console.log("total $",total);
+        let adder = (a, b) => a + b;
+        $scope.total = total.reduce(adder);
+        console.log($scope.total)
     }
     let things = []
+    $scope.addtoWishList = (part) => {
+      things.push(part.part)
+      $scope.things = things
+      console.log(things)
+    }
 })

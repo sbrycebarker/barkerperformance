@@ -28,47 +28,65 @@
   <h1 class="title" class="animated fadeInLeft">NEW PRODUCTS</h1>
 <div id="products-con">
   <div id="prev-arrow" class="arrow"><i class="fa fa-arrow-left"></i></div>
-<div id="new-prod-con" class="things slick owl-carousel" style="margin: auto" data-slick='{"slidesToShow": 3 }'>
-  <div class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
-    <img src="../assets/exploded-turbo.png" >
+<div id="new-prod-con" class="things owl-carousel" style="margin: auto">
+  <!-- <div class="p-item sale draw" ui-sref="view({part: newPart._id})" ng-repeat="newPart in newParts | limitTo: 4">
+    <img src="{{newPart.img}}">
     <div class="part-info">
-      <h1>Racing Turbo lvl 1</h1>
-      <h1>$1000</h1>
-      <h1 class="details">View Details</h1>
-    </div>
-  </div>
-  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf09f36d282906c48eb1'})">
-    <img src="../assets/suspension.png">
-    <div class="part-info">
-      <h1>Racing Suspension Package 2</h1>
-      <h1>$800</h1>
-      <h1 class="details">View Details</h1>
-    </div>
-  </div>
-  <div class="p-item sale draw" ui-sref="view({part: '5ae7bfe8f36d282906c48eee'})">
-    <img src="../assets/disc-brake.png">
-    <div class="part-info">
-      <h1>Break Kit 3</h1>
-      <h1>$2500</h1>
-      <h1 class="details">View Details</h1>
-    </div>
-  </div>
-  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf29f36d282906c48eb6'})">
-    <img src="../assets/suspension.png">
-    <div class="part-info">
-      <h1>Racing Suspension Package 3</h1>
-      <h1>$2500</h1>
-      <h1 class="details">View Details</h1>
-    </div>
-  </div>
-  <!-- <div class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
-    <img src="../assets/exploded-turbo.png">
-    <div class="part-info">
-      <h1>Racing Turbo lvl 2</h1>
-      <h1>$800</h1>
+      <h1>{{newPart.name}}</h1>
+      <h1>${{newPart.price}}</h1>
       <h1 class="details">View Details</h1>
     </div>
   </div> -->
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7b25df36d282906c489fd'})">
+    <img src="../assets/exploded-turbo.png" >
+    <!-- <div class="part-info"> -->
+      <h1>Racing Turbo lvl 1</h1>
+      <h1>$800</h1>
+      <div class="details">
+        <h1>View Details</h1>
+      </div>
+    <!-- </div> -->
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf09f36d282906c48eb1'})">
+    <img src="../assets/suspension.png">
+    <!-- <div class="part-info"> -->
+      <h1>Racing Suspension Package 2</h1>
+      <h1>$800</h1>
+      <div class="details">
+        <h1>View Details</h1>
+      </div>
+    <!-- </div> -->
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bfe8f36d282906c48eee'})">
+    <img src="../assets/disc-brake.png">
+    <!-- <div class="part-info"> -->
+      <h1>Break Kit 3</h1>
+      <h1>$2500</h1>
+      <div class="details">
+        <h1>View Details</h1>
+      </div>
+    <!-- </div> -->
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7bf29f36d282906c48eb6'})">
+    <img src="../assets/suspension.png">
+    <!-- <div class="part-info"> -->
+      <h1>Racing Suspension Package 3</h1>
+      <h1>$2500</h1>
+      <div class="details">
+        <h1>View Details</h1>
+      </div>
+    <!-- </div> -->
+  </div>
+  <div class="p-item sale draw" ui-sref="view({part: '5ae7b265f36d282906c489fe'})">
+    <img src="../assets/exploded-turbo.png">
+    <!-- <div class="part-info"> -->
+      <h1>Racing Turbo lvl 2</h1>
+      <h1>$1000</h1>
+      <div class="details">
+        <h1>View Details</h1>
+      </div>
+    <!-- </div> -->
+  </div>
 </div>
   <div id="next-arrow" class="arrow"><i class="fa fa-arrow-right"></i></div>
 </div>
@@ -80,6 +98,9 @@
     <img src="{{part.img}}">
     <h1>{{part.name}}</h1>
     <h1>${{part.price}}</h1>
+    <div class="details">
+      <h1>View Details</h1>
+    </div>
   </ul>
 
 <!-- <div class="things">
@@ -102,5 +123,35 @@
           $('#about').css("color", "inherit")
       }
   })
+
+  function createScroll() {
+    $(document).ready(function() {
+
+      $('.owl-carousel').owlCarousel(
+        {
+          loop: true,
+          center: true,
+          items: 2,
+          autoWidth: true,
+          autoplay: true,
+          autoplayHoverPause: true
+        }
+      );
+      var owl = $('.owl-carousel');
+      owl.owlCarousel();
+      $('#prev-arrow').click(function() {
+          console.log('next')
+          // With optional speed parameter
+          // Parameters has to be in square bracket '[]'
+          owl.trigger('prev.owl.carousel', [300]);
+      })
+      $('#next-arrow').click(function() {
+        console.log('next')
+          owl.trigger('next.owl.carousel');
+      })
+
+    })
+  }
+  createScroll()
   </script>
 </div>

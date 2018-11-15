@@ -12,7 +12,21 @@
   margin: 15px auto;
 }
 
+.cartlist {
+  height: 100px;
+  width: 80%;
+  position: relative;
+  color: white;
+  margin: 150px auto;
+  background-color: grey;
+  opacity: .7;
+  display: flex;
+  flex-direction: row;
+}
 
+.cartlist h1 {
+  margin: auto;
+}
 
 @media only screen and (max-width: 950px) {
 

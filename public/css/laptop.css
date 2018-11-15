@@ -993,9 +993,6 @@ footer h1:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
-}
-
-.p-item:hover {
   cursor: pointer;
 }
 
@@ -1007,7 +1004,7 @@ footer h1:hover {
   z-index: 1;
 }
 
-.part-info {
+/* .part-info {
   width: 100%;
   height: 100px;
   display: flex;
@@ -1015,7 +1012,7 @@ footer h1:hover {
   position: absolute;
   bottom: 0;
   z-index: 1;
-}
+} */
 
 .item img {
   height: auto;
@@ -1029,6 +1026,11 @@ footer h1:hover {
   font-size: 30px;
 }
 
+.p-item h1 {
+  margin: auto;
+  font-size: 20px;
+}
+
 .details {
   height: 0;
   width: 100%;
@@ -1038,13 +1040,18 @@ footer h1:hover {
   text-align: center;
   display: flex;
   vertical-align: middle;
-  transition: height 2s, opacity 2s;
+  transition: height 1s, opacity 2s;
   transition-delay: opacity 1s;
   position: absolute;
   bottom: 0;
 }
 
 .item:hover > .details {
+  height: 25%;
+  opacity: .5;
+}
+
+.p-item:hover > .details {
   height: 25%;
   opacity: .5;
 }

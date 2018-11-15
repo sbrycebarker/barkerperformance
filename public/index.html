@@ -75,7 +75,13 @@
       </div>
       <h1>Cart</h1>
     </div>
-    <div class="cartlist"></div>
+
+    <div class="cartlist" ng-repeat="item in cart">
+      <h1>{{item.part.name}}</h1>
+      <h1>${{item.part.price}}</h1>
+
+
+    </div>
     <!-- <form action="/charge" method="POST">
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -90,7 +96,7 @@
   </form> -->
     <div class="total">
       <h1>Total</h1>
-      <h1>$ 300{{total}}</h1>
+      <h1>${{total}}</h1>
       <h1>
         <form action="/charge" method="POST">
         <script
