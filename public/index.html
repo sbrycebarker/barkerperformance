@@ -77,8 +77,10 @@
     </div>
 
     <div class="cartlist" ng-repeat="item in cart">
-      <h1>{{item.part.name}}</h1>
-      <h1>${{item.part.price}}</h1>
+      <div class="cartitem" ng-repeat="item in cart">
+        <h1>{{item.part.name}}</h1>
+        <h1>${{item.part.price}}</h1>
+      </div>
 
 
     </div>
@@ -103,7 +105,7 @@
           src="https://checkout.stripe.com/checkout.js"
           class="stripe-button"
           data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
-          data-amount="300"
+          data-amount="{{total}}"
           data-name="Barker Performance"
           data-description="Example charge"
           data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

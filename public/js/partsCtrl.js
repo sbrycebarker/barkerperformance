@@ -54,11 +54,11 @@ angular.module('app').controller('partsCtrl', function($scope, service, $state) 
     }
     createScroll()
 
-    let cart = [];
-    $scope.addToCart = (part) => {
-        cart.push(part);
-        $scope.cart = cart
-        console.log('cart', cart[0])
-    }
-    let things = []
+    // let cart = [];
+    // $scope.addToCart = (part) => {
+    //     cart.push(part);
+    //     $scope.cart = cart
+    //     console.log('cart', cart[0])
+    // }
+    // let things = []
 })

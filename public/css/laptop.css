@@ -513,13 +513,13 @@ header {
   letter-spacing: 5px;
 }
 
-/* .arrowcont {
+.arrowcont {
   height: 100px;
   width: 50px;
   display: flex;
   position: absolute;
   left: 0;
-} */
+}
 
 #cart-side .total {
   height: 75px;

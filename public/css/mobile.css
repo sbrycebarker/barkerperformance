@@ -13,18 +13,24 @@
 }
 
 .cartlist {
-  height: 100px;
+  height: auto;
   width: 80%;
   position: relative;
   color: white;
   margin: 150px auto;
-  background-color: grey;
   opacity: .7;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartitem {
   display: flex;
   flex-direction: row;
 }
 
-.cartlist h1 {
+.cartitem h1 {
+  width: 100%;
+  background-color: grey;
   margin: auto;
 }
 
