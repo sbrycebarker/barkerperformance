@@ -117,6 +117,7 @@ const express = require('express'),
       app.put('/updateUsers/:id', users.update);
       app.delete('/deleteUser/:id', users.destroy);
       app.post('/addUser', users.create);
+      // app.update('/addWishList', users.update);
       // app.post('/postPurchase', purchase.create);
       // app.get('/getPurchase', purchase.read);
       // app.get('/getPurchase/:id', purchase.show);
@@ -128,11 +129,28 @@ const express = require('express'),
 // <<=========================== Nodemailer ======================================>>
 
       let nodemail = require('./server/nodemailer.js');
-
+      let userlist = require('./server/userschema.js')
       app.post('/feedback', nodemail.create);
       app.get('/getFeedback', nodemail.read);
       // app.post('/feedconf', nodemail.fedconf);
-      app.put('/addToList', nodemail.list);
+      app.put('/addWishList', function(req, res, next) {
+        let userid = req.body[0];
+        let update = req.body[1];
+        console.log("current user", userid)
+        console.log("wishlist item", update)
+        userlist.findByIdAndUpdate(userid, {
+          $push: update
+        }, function(err, response) {
+          if (err) {
+            console.log("err", err)
+            return res.status(500).json(err)
+          } else {
+            console.log("added to wishlist", response)
+            return res.json(response)
+          }
+        })
+      })
+      app.get('/addToList', nodemail.list);
       app.get('/addToList', nodemail.getlist);
       // app.post('/listconf', nodemail.listconf);
 

@@ -1,12 +1,11 @@
 let nodemailer = require('nodemailer'),
     config = require('../config.js'),
     Feedback = require('./feedbackschema.js'),
-    mailinglist = require('./emailschema.js');
+    mailinglist = require('./mailinglist.js');
 
 
 
 
-// const db = config.mongoose
 
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -79,25 +78,6 @@ module.exports = {
     })
     },
 
-    list: function(req, res, next) {
-      // let new = {
-      //
-      // }
-      console.log(req.body.email)
-      mailinglist.findByIdAndUpdate('5ae77363f36d282906c4621a',
-       {$push: {mailing_list: req.body.email}},
-
-        function(error, response) {
-        if(error) {
-          console.log(error)
-          return res.status(500).json(error)
-        } else {
-          console.log("update", response)
-          return res.json(response)
-        }
-      })
-    },
-
     getlist: (req, res, next) => {
       mailinglist.find().exec(function(err, response) {
         if(error) {
@@ -113,6 +93,19 @@ module.exports = {
 
     list: (req, res) => {
       console.log(req)
+      console.log(req.body.email)
+      mailinglist.findByIdAndUpdate('5bee3cdae7179a56e2115a00',
+       {$push: {mailing_list: req.body.email}},
+
+        function(error, response) {
+        if(error) {
+          console.log(error)
+          return res.status(500).json(error)
+        } else {
+          console.log("update", response)
+          return res.json(response)
+        }
+      })
 
       let mailOptions = {
         from: '"Barker Performance 👻" <sergiobarkerdev@gmail.com>',

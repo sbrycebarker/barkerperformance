@@ -1,4 +1,6 @@
 angular.module('app').service('service', function($http, $stateParams) {
+
+
     this.getUsers = function(data) {
         return $http({
             method: 'GET',
@@ -8,7 +10,6 @@ angular.module('app').service('service', function($http, $stateParams) {
         })
     }
     this.getUser = function(res) {
-        console.log("GETUSER")
         return $http({
             method: 'GET',
             url: '/auth/me'
@@ -52,7 +53,7 @@ angular.module('app').service('service', function($http, $stateParams) {
         })
     }
     this.addUser = function(user) {
-        console.log('running service')
+        console.log('running service', user)
         return $http({
             method: 'POST',
             url: '/addUser',
@@ -67,5 +68,13 @@ angular.module('app').service('service', function($http, $stateParams) {
         }).catch(function() {
             return "nopart"
         })
+    }
+    this.addWishList = function(wishlist) {
+      console.log(wishlist)
+      return $http({
+        method: 'PUT',
+        url: '/addWishList',
+        data: wishlist
+      })
     }
 })
