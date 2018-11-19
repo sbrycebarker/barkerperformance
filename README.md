@@ -10,7 +10,8 @@ E commerce portfolio project designed to show skillset
 * NodeJs
 * Auth0
 * Stripe
-* Slick Carousel
+* Nodemailer
+* Owl Carousel
 * Adobe Photoshop
 * Jquery
 
