@@ -729,6 +729,7 @@
     margin: auto;
     text-align: center;
     display: flex;
+    z-index: 0;
     flex-direction: column;
   }
 
