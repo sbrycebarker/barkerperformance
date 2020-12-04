@@ -28,3 +28,4 @@ E commerce portfolio project designed to show skillset
 * DOM manipulation events
 * Animate CSS
 * Theme inspired by Wix template
+* "Purchase" products with Stripe in test mode
