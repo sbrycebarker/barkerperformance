@@ -3,147 +3,122 @@ let nodemailer = require('nodemailer'),
     Feedback = require('./feedbackschema.js'),
     mailinglist = require('./mailinglist.js');
 
-
-
-
-
 let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: config.nodemailer.user, // generated ethereal user
-        pass: config.nodemailer.pass // generated ethereal password
-}
+        user: config.nodemailer.user,
+        pass: config.nodemailer.pass
+    }
 });
 
 module.exports = {
 
-  create: (req, res, next) => {
-
-        console.log('sent', req.body);
-        let outPut = `
-          <p>You have new feedback</p>
-          <h3>Details</h3>
-          <ul>
-            <li>Name: ${req.body.name}</li>
-            <li>Email: ${req.body.email}</li>
-          </ul>
-          <h3>Message</h3>
-          <p> ${req.body.message}</p>
-        `;
-        let mailOptions = {
-          from: '"Barker Performance 👻" <sergiobarkerdev@gmail.com>',
-          to: 'sbrycebarker@gmail.com',
-          subject: req.body.subject,
-          html: outPut
-        };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-
-          if (error) {
-              return console.log(error);
-          }
-          console.log('Message sent: %s', info.messageId);
-
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-          res.send('thank you')
-
-      })
-
-      // console.log('feedback', req.body)
-      let name = req.body.name
-      let email = req.body.email
-      let subject = req.body.subject
-      let message = req.body.message
-
-      var feedback = new Feedback(req.body)
-        feedback.save(function(err, response) {
-          if (err) {
-            res.status(500).json(err);
-          } else {
-            res.status(200).json(response);
-          }
-        })
-    },
-    read: function(req, res, next) {
-      Feedback.find().exec(function(err, response) {
-        if(error) {
-          console.log(error)
-          return res.status(500).json(error)
-        } else {
-          // console.log("got feedback", response)
-          return res.json(response)
-        }
-    })
-    },
-
-    getlist: (req, res, next) => {
-      mailinglist.find().exec(function(err, response) {
-        if(error) {
-          console.log(error)
-          return res.status(500).json(error)
-        } else {
-          console.log("update", response)
-          return res.json(response)
-        }
-    })
-  }
-    ,
-
-    list: (req, res) => {
-      console.log(req)
-      console.log(req.body.email)
-      mailinglist.findByIdAndUpdate('5bee3cdae7179a56e2115a00',
-       {$push: {mailing_list: req.body.email}},
-
-        function(error, response) {
-        if(error) {
-          console.log(error)
-          return res.status(500).json(error)
-        } else {
-          console.log("update", response)
-          return res.json(response)
-        }
-      })
-
+  create: async (req, res, next) => {
+    try {
+      console.log('sent', req.body);
+      let outPut = `
+        <p>You have new feedback</p>
+        <h3>Details</h3>
+        <ul>
+          <li>Name: ${req.body.name}</li>
+          <li>Email: ${req.body.email}</li>
+        </ul>
+        <h3>Message</h3>
+        <p> ${req.body.message}</p>
+      `;
       let mailOptions = {
-        from: '"Barker Performance 👻" <sergiobarkerdev@gmail.com>',
+        from: '"Barker Performance 👻" <aldentedirectories@gmail.com>',
+        to: 'sbrycebarker@gmail.com',
+        subject: req.body.subject,
+        html: outPut
+      };
+
+      // Send email (don't await, fire and forget)
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      });
+
+      // Save feedback to database
+      var feedback = new Feedback(req.body);
+      const response = await feedback.save();
+      res.status(200).json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+
+  read: async function(req, res, next) {
+    try {
+      const response = await Feedback.find().exec();
+      return res.json(response);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
+
+  getlist: async (req, res, next) => {
+    try {
+      const response = await mailinglist.find().exec();
+      console.log("update", response);
+      return res.json(response);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
+
+  list: async (req, res) => {
+    try {
+      console.log(req.body.email);
+
+      const response = await mailinglist.findByIdAndUpdate(
+        '5bee3cdae7179a56e2115a00',
+        { $push: { mailing_list: req.body.email } },
+        { new: true }
+      ).exec();
+
+      console.log("update", response);
+
+      // Send confirmation email (fire and forget)
+      let mailOptions = {
+        from: '"Barker Performance 👻" <aldentedirectories@gmail.com>',
         to: req.body.email,
         subject: 'Thank You',
-        html: `<h1>Thanks for siging up for our 'mailing list'</h1>`
+        html: `<h1>Thanks for signing up for our 'mailing list'</h1>`
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
-          // console.log('sendMail', transporter)
-          if (error) {
-              return console.log(error);
-          }
-          console.log('Message sent: %s', info.messageId);
-          // Preview only available when sending through an Ethereal account
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-          res.send('thank you')
-          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+        if (error) {
+          return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
       });
 
-    },
-
-    listconf: (req, res) => {
-      transporter.sendMail(mailOptions, (error, info) => {
-          // console.log('sendMail', transporter)
-          if (error) {
-              return console.log(error);
-          }
-          console.log('Message sent: %s', info.messageId);
-          // Preview only available when sending through an Ethereal account
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-          res.send('thank you')
-          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-      });
-
+      return res.json(response);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json(error);
     }
+  },
 
+  listconf: async (req, res) => {
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Message sent: %s', info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      res.send('thank you');
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json(error);
+    }
+  }
 
 }

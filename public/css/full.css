@@ -4,6 +4,27 @@
 @import url("view.css");
 @import url("animate.css");
 
+/* Global button effects */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 @media only screen and (min-width: 1400px) {
   html {
     height: 100%;
@@ -234,6 +255,24 @@
     transition-duration: 1s;
   }
 
+  .cart-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background-color: white;
+    color: #ff2800;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ff2800;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
   .cart-side {
     position: fixed;
     display: block;
@@ -298,6 +337,80 @@
     vertical-align: middle;
   }
 
+  .cartlist {
+    margin-top: 120px;
+    padding: 20px;
+    color: white;
+  }
+
+  .cartitem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #1a1a1a;
+    border-radius: 5px;
+  }
+
+  .cartitem h1 {
+    margin: 0;
+    font-size: 14px;
+    width: auto;
+    height: auto;
+  }
+
+  .remove-btn {
+    background: #ff2800;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .remove-btn:hover {
+    background: #cc2000;
+    transform: scale(1.1);
+  }
+
+  .remove-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(255, 40, 0, 0.6);
+  }
+
+  .empty-cart-message {
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 150px;
+  }
+
+  .empty-cart-icon {
+    font-size: 80px;
+    color: #ff2800;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .empty-cart-message h2 {
+    font-size: 28px;
+    margin: 20px 0 10px 0;
+    color: silver;
+  }
+
+  .empty-cart-message p {
+    font-size: 18px;
+    color: #888;
+    margin: 10px 0;
+  }
 
   .menuitem {
     display: none;
@@ -452,30 +565,67 @@
     opacity: .5;
     color: white;
     position: absolute;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
   }
 
   .aboutus {
-    height: 100%;
-    width: 50%;
-    position: relative;
-    float: left;
-    text-align: justify;
     color: white;
-    opacity: none;
-    top: 40%;
-    left: 40%;
+    opacity: 1;
+    text-align: center;
+    padding: 40px;
   }
 
   .aboutus h1 {
-    font-size: 60px;
-    margin: 5px;
+    font-size: 48px;
+    margin: 0 0 20px 0;
+    color: #ff2800;
+    border-bottom: 2px solid #ff2800;
+    padding-bottom: 10px;
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .aboutus p {
-    font-size: 20px;
-    margin: 5px;
-    line-height: 30px;
+    font-size: 18px;
+    margin: 15px 0;
+    line-height: 1.7em;
+  }
+
+  .aboutus-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aboutus-right > div {
+    text-align: center;
+    padding: 40px;
+  }
+
+  .aboutus-right h2 {
+    font-size: 28px;
+    margin: 25px 0 15px 0;
+    color: #ff2800;
+  }
+
+  .aboutus-right p {
+    font-size: 18px;
+    margin: 10px 0;
+    line-height: 1.7em;
+  }
+
+  .aboutus-right strong {
+    color: #ff2800;
+    font-weight: bold;
   }
 
   #section6 {
@@ -618,18 +768,52 @@
   }
 
   footer {
-    height: 160px;
+    height: 200px;
     width: 100%;
     background-color: #1A1919;
     color: silver;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   footer h1 {
-    width: 200px;
-    height: 15px;
-    margin: auto;
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ff2800;
+  }
+
+  footer p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: silver;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    color: silver;
+    font-size: 28px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    color: #ff2800;
+    transform: translateY(-3px);
   }
 
   /* <-------------------------------------PRODUCTS--------------------------------------> */

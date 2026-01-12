@@ -169,15 +169,68 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
 
     let cart = [];
     let total = [];
+    $scope.cartCount = 0; // Track cart item count
+
     $scope.addToCart = (part) => {
         cart.push(part);
         total.push(part.part.price);
         $scope.cart = cart;
+        $scope.cartCount = cart.length; // Update cart count
         console.log('cart', cart[0]);
         console.log("total $",total);
         let adder = (a, b) => a + b;
         $scope.total = total.reduce(adder);
         console.log($scope.total);
+    };
+
+    $scope.removeFromCart = (index) => {
+        if (cart[index]) {
+            // Remove from total array
+            total.splice(index, 1);
+            // Remove from cart array
+            cart.splice(index, 1);
+            // Update scope
+            $scope.cart = cart;
+            $scope.cartCount = cart.length; // Update cart count
+            // Recalculate total
+            if (total.length > 0) {
+                let adder = (a, b) => a + b;
+                $scope.total = total.reduce(adder);
+            } else {
+                $scope.total = 0;
+            }
+            console.log('Item removed from cart');
+        }
+    };
+
+    // Check if item is already in cart
+    $scope.isInCart = (part) => {
+        if (!part || !part.part_id) return false;
+        return cart.some(item => item.part && item.part.part_id === part.part_id);
+    };
+
+    // Remove from cart by part (for product view)
+    $scope.removeFromCartByPart = (part) => {
+        if (!part || !part.part_id) return;
+
+        const index = cart.findIndex(item => item.part && item.part.part_id === part.part_id);
+        if (index !== -1) {
+            // Remove from total array
+            total.splice(index, 1);
+            // Remove from cart array
+            cart.splice(index, 1);
+            // Update scope
+            $scope.cart = cart;
+            $scope.cartCount = cart.length; // Update cart count
+            // Recalculate total
+            if (total.length > 0) {
+                let adder = (a, b) => a + b;
+                $scope.total = total.reduce(adder);
+            } else {
+                $scope.total = 0;
+            }
+            console.log('Item removed from cart');
+        }
     };
 
     let wishlist = [];

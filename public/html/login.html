@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Barker Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff2800;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .demo-notice {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .demo-notice h2 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .demo-notice p {
+            color: #856404;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #856404;
+        }
+
+        .features li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff2800;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #cc2000;
+        }
+
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">BARKER PERFORMANCE</div>
+        <div class="subtitle">High-Performance Auto Parts</div>
+
+        <div class="demo-notice">
+            <h2>🔒 Authentication Disabled for Demo</h2>
+            <p><strong>This is a portfolio demonstration project.</strong></p>
+            <p>OAuth authentication has been disabled for demo purposes, for safety. This provides a seamless experience without requiring access to your Google account.</p>
+
+            <div class="features">
+                <p><strong>You can still:</strong></p>
+                <ul>
+                    <li>Browse all products</li>
+                    <li>Add items to your cart</li>
+                    <li>Test the checkout flow</li>
+                    <li>Try Stripe payments (test mode)</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="/" class="btn">Continue Shopping</a>
+
+        <p class="info-text">
+            <strong>Note:</strong> In a production environment, this site would use Google OAuth via Auth0 for secure user authentication. For this demo, all features remain fully functional without login.
+        </p>
+    </div>
+</body>
+</html>

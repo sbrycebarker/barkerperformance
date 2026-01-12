@@ -3,24 +3,22 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       reload = require('reload'),
       cors = require('cors'),
-      http = require('http'),
       nodemailer = require('nodemailer'),
-      massive = require('massive'),
       mongoose = require('mongoose'),
       hbs = require('handlebars'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
       config = require('./config.js'),
       // angular = require('angular'),
-      stripe = require('stripe')(config.stripe.pk_test),
-      MongoStore = require('connect-mongo')(session);
+      { body, validationResult } = require('express-validator'),
+      stripe = require('stripe')(config.stripe.sec_key),
+      MongoStore = require('connect-mongo');
 
 
 
-// <<============================= Setup=====================================>>
-      mongoose.connect(config.mongoose.mongodb, {
-        useMongoClient: true,
-      });
+      mongoose.connect(config.mongoose.mongodb)
+        .then(() => console.log('MongoDB connected successfully'))
+        .catch(err => console.error('MongoDB connection error:', err));
 
       var app = express();
 
@@ -28,79 +26,88 @@ const express = require('express'),
 
       app.use(bodyParser.json())
       app.use(bodyParser.urlencoded({extended:false}))
-      app.use(cors());
-
+      // CORS configuration
+      const corsOptions = {
+        origin: process.env.NODE_ENV === 'production' ? (process.env.ALLOWED_ORIGIN || 'https://yourdomain.com') : '*',
+        credentials: true
+      };
+      app.use(cors(corsOptions));
       app.use(session({
         saveUninitialized: config.session.saveUninitialized,
         resave: config.session.resave,
         secret: config.secret,
-        cookie: config.session.cookie
+        cookie: config.session.cookie,
+        store: MongoStore.create({
+          mongoUrl: config.mongoose.mongodb,
+          touchAfter: 24 * 3600
+        })
       }))
 
-      app.use(passport.initialize());
-      app.use(passport.session());
+      // Auth0 disabled for demo - using mock authentication
+      // app.use(passport.initialize());
+      // app.use(passport.session());
 
       if (app.get('env') === 'production') {
         app.set('trust proxy', 1) // trust first proxy
-        sess.cookie.secure = true // serve secure cookies
+        // sess.cookie.secure = true // serve secure cookies
       }
 // <<=============================== Setup End ==============================>>
 
-//<<====================================login==============================>>
-  passport.use(new Auth0Strategy({
-    domain:       config.auth0.domain,
-    clientID:     config.auth0.clientID,
-    clientSecret: config.auth0.clientSecret,
-    callbackURL:  '/callback',
-    },
-    function(accessToken, refreshToken, extraParams, profile, done) {
-      // console.log(profile)
-      return done(null, profile);
-    }
-  ));
+//<<====================================login (DISABLED FOR DEMO)==============================>>
+  // Auth0 commented out for portfolio demo - no authentication required
 
+  // passport.use(new Auth0Strategy({
+  //   domain:       config.auth0.domain,
+  //   clientID:     config.auth0.clientID,
+  //   clientSecret: config.auth0.clientSecret,
+  //   callbackURL:  '/callback',
+  //   },
+  //   function(accessToken, refreshToken, extraParams, profile, done) {
+  //     return done(null, profile);
+  //   }
+  // ));
 
-  app.get('/callback',
-    passport.authenticate('auth0', { failureRedirect: '/login' }),
-    function(req, res) {
-      if (!req.user) {
-        throw new Error('user null');
-      }
-      res.redirect("/");
-    }
-  );
+  // app.get('/callback',
+  //   passport.authenticate('auth0', { failureRedirect: '/login' }),
+  //   function(req, res) {
+  //     if (!req.user) {
+  //       throw new Error('user null');
+  //     }
+  //     res.redirect("/");
+  //   }
+  // );
 
-  passport.serializeUser(function(userA, done) {
-  // console.log('serializing', userA);
-  var userB = userA;
-  done(null, userB); //PUTS 'USER' ON THE SESSION
+  // passport.serializeUser(function(userA, done) {
+  //   var userB = userA;
+  //   done(null, userB);
+  // });
+
+  // passport.deserializeUser(function(userB, done) {
+  //   var userC = userB;
+  //   done(null, userC);
+  // });
+
+  // Mock auth endpoints for demo purposes
+  app.get('/auth', function(req, res) {
+    res.sendFile(__dirname + '/public/html/login.html');
   });
 
-  //USER COMES FROM SESSION - THIS IS INVOKED FOR EVERY ENDPOINT
-  passport.deserializeUser(function(userB, done) {
-  var userC = userB;
-  //Things you might do here :
-  // Query the database with the user id, get other information to put on req.user
-  done(null, userC); //PUTS 'USER' ON REQ.USER
+  app.get('/login', function(req, res) {
+    res.sendFile(__dirname + '/public/html/login.html');
   });
 
-  app.get('/auth', passport.authenticate('auth0'));
-
-  app.get('/login',
-    passport.authenticate('auth0', {connection: 'google-oauth2'}), function (req, res) {
-    res.redirect("/");
-  });
-
+  // Return mock user for frontend compatibility
   app.get('/auth/me', function(req, res) {
-    if (!req.user) {
-       return res.send(null)
-     } else {
-       res.status(200).send(req.user);
-     }
+    res.status(200).send({
+      displayName: 'Demo User',
+      name: { familyName: 'User', givenName: 'Demo' },
+      emails: [{ value: 'demo@barkerperformance.com' }],
+      picture: 'https://via.placeholder.com/150/ff2800/ffffff?text=Demo',
+      _json: { name: 'Demo User', email: 'demo@barkerperformance.com' }
+    });
   })
 
   app.get('/auth/logout', function(req, res) {
-    req.logout();
     res.redirect('/');
   })
 
@@ -133,22 +140,21 @@ const express = require('express'),
       app.post('/feedback', nodemail.create);
       app.get('/getFeedback', nodemail.read);
       // app.post('/feedconf', nodemail.fedconf);
-      app.put('/addWishList', function(req, res, next) {
-        let userid = req.body[0];
-        let update = req.body[1];
-        console.log("current user", userid)
-        console.log("wishlist item", update)
-        userlist.findByIdAndUpdate(userid, {
-          $push: update
-        }, function(err, response) {
-          if (err) {
-            console.log("err", err)
-            return res.status(500).json(err)
-          } else {
-            console.log("added to wishlist", response)
-            return res.json(response)
-          }
-        })
+      app.put('/addWishList', async function(req, res, next) {
+        try {
+          let userid = req.body[0];
+          let update = req.body[1];
+          console.log("current user", userid)
+          console.log("wishlist item", update)
+          const response = await userlist.findByIdAndUpdate(userid, {
+            $push: update
+          }, { new: true });
+          console.log("added to wishlist", response)
+          return res.json(response)
+        } catch (err) {
+          console.log("err", err)
+          return res.status(500).json(err)
+        }
       })
       app.get('/addToList', nodemail.list);
       app.get('/addToList', nodemail.getlist);
@@ -169,15 +175,46 @@ const express = require('express'),
       })
     })
 
-    app.post('/charge', function(req, res) {
+    app.post('/charge', async function(req, res) {
+      try {
+        const { amount, currency, description, source } = req.body;
 
+        const charge = await stripe.charges.create({
+          amount: amount,
+          currency: currency || 'usd',
+          description: description || 'Barker Performance Purchase',
+          source: source
+        });
+
+        res.status(200).json({
+          success: true,
+          charge: charge
+        });
+      } catch (error) {
+        console.error('Stripe charge error:', error);
+        res.status(500).json({
+          success: false,
+          error: error.message
+        });
+      }
     })
 
 
       // reload(app);
 
+      // Global error handler
+      app.use(function(err, req, res, next) {
+        console.error('Global error handler:', err.stack);
+        res.status(err.status || 500).json({
+          error: {
+            message: err.message || 'Internal Server Error',
+            status: err.status || 500
+          }
+        });
+      });
+
       app.use(express.static('./public'))
-            var port = 8085
+            var port = process.env.PORT || 8085
         app.listen(port, function() {
-          console.log("listining on port " + port)
+          console.log("listening on port " + port)
         })

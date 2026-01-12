@@ -2,57 +2,50 @@ var purchase = require('./purchaseschema.js');
 
 module.exports = {
 
-  read: (req, res, next) => {
-    purchase.find().exec(err, response => {
-      if(err) {
-        // console.log(err);
-      } else {
-        res.json(response);
-      }
-    });
-  },
-  show: (req, res, next) => {
-    purchase.findById(req.params.id).exec(err, response => {
-      if(err) {
-        // console.log(err);
-      } else {
-        res.json(response);
-      }
-    });
+  read: async (req, res, next) => {
+    try {
+      const response = await purchase.find().exec();
+      res.json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
-  create: (req, res, next) => {
-  var user = new user(req.body);
-    // purchase.save(err, response => {
-    //   if (err) {
-    //     res.status(500).json(err);
-    //   } else {
-    //     res.status(200).json(response);
-    //   }
-    // })
+  show: async (req, res, next) => {
+    try {
+      const response = await purchase.findById(req.params.id).exec();
+      res.json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
-  update: (req, res, next) => {
-    purchase.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
-      if(error) {
-        return res.status(500).json(error)
-      } else {
-        return res.json(response)
-      }
-    })
+  create: async (req, res, next) => {
+    try {
+      var newPurchase = new purchase(req.body);
+      const response = await newPurchase.save();
+      res.status(200).json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
-  destroy: (req, res, next) => {
-    // console.log(req.params.body);
-    purchase.findByIdAndRemove(req.params.id, (error, response) => {
-      // console.log(response);
-      if(error) {
-        return res.status(500).json(error)
-      }else {
-        return res.json(response)
-      }
-    })
+  update: async (req, res, next) => {
+    try {
+      const response = await purchase.findByIdAndUpdate(req.params.id, req.body, { new: true }).exec();
+      return res.json(response);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  },
+
+  destroy: async (req, res, next) => {
+    try {
+      const response = await purchase.findByIdAndDelete(req.params.id).exec();
+      return res.json(response);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   }
-
 
 }

@@ -51,6 +51,36 @@
   background-color: inherit;
   color: silver;
   margin: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn-con button:hover {
+  background-color: #ff2800;
+  border-color: #ff2800;
+  color: white;
+  transform: translateY(-2px);
+}
+
+#btn-con button:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 8px rgba(255, 40, 0, 0.5);
+}
+
+#btn-con button.in-cart {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+#btn-con button.in-cart:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+#btn-con button.in-cart:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.5);
 }
 
 }

@@ -2,62 +2,50 @@ var parts = require('./partschema.js');
 
 module.exports = {
 
-  read: (req, res, next) => {
-    parts.find().exec(function(err, response) {
-      if(err) {
-        // console.log(err)
-        return res.status(500).json(err)
-      } else {
-        // console.log("got parts", response)
-        return res.json(response)
-      }
-  })
-  },
-  show: (req, res, next) => {
-    // console.log("getPart", req.params)
-    parts.findById(req.params)
-    .exec(function(err, response){
-      if(err) {
-        // console.log("error", err);
-      } else {
-        // console.log("response", response);
-        res.json(response);
-      }
-    });
+  read: async (req, res, next) => {
+    try {
+      const response = await parts.find().exec();
+      return res.json(response);
+    } catch (err) {
+      return res.status(500).json(err);
+    }
   },
 
-  create: (req, res, next) => {
-  var parts = new parts(req.body);
-    parts.save(err, response => {
-      if (err) {
-        res.status(500).json(err);
-      } else {
-        res.status(200).json(response);
-      }
-    })
+  show: async (req, res, next) => {
+    try {
+      const response = await parts.findById(req.params).exec();
+      res.json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
-  update: (req, res, next) => {
-    parts.findByIdAndUpdate(req.params.id, req.body, (error, response) => {
-      if(error) {
-        return res.status(500).json(error)
-      } else {
-        return res.json(response)
-      }
-    })
+  create: async (req, res, next) => {
+    try {
+      const newPart = new parts(req.body);
+      const response = await newPart.save();
+      res.status(200).json(response);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   },
 
-  destroy: (req, res, next) => {
-    // console.log(req.params.body);
-    parts.findByIdAndRemove(req.params.id, (error, response) => {
-      // console.log(response);
-      if(error) {
-        return res.status(500).json(error)
-      }else {
-        return res.json(response)
-      }
-    })
+  update: async (req, res, next) => {
+    try {
+      const response = await parts.findByIdAndUpdate(req.params.id, req.body, { new: true }).exec();
+      return res.json(response);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  },
+
+  destroy: async (req, res, next) => {
+    try {
+      const response = await parts.findByIdAndDelete(req.params.id).exec();
+      return res.json(response);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   }
-
 
 }

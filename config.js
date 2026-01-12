@@ -1,35 +1,31 @@
+require('dotenv').config();
+
 module.exports = {
-  secret: 'pizzaisgood',
+  secret: process.env.SESSION_SECRET,
   auth0: {
-    domain: "sbrycebarker.auth0.com",
-    clientID: "ZZLjUjwbdYp74jswH6QYTk2BrOT7220K",
-    clientSecret: "QF1ohVM-4txGKCGGwPkCVw51UO0fkDfVR5kC8Ycdr0EF9WcyDUmd8PYmeb8-uolo"
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET
   },
   session: {
-    saveUninitialized: true,
-    resave: true,
+    saveUninitialized: process.env.SESSION_SAVE_UNINITIALIZED === 'true',
+    resave: process.env.SESSION_RESAVE === 'true',
     cookie: {
       path: '/',
       httpOnly: true,
-      secure: false,
-      maxAge: 3600*24
+      secure: process.env.SESSION_COOKIE_SECURE === 'true',
+      maxAge: parseInt(process.env.SESSION_COOKIE_MAX_AGE) || 86400000
     }
   },
   stripe: {
-    // pub_key: 'pk_test_8Na8dE5Mru3gFLqBTitXTM2V',
-    sec_key: 'sk_test_HfnkOxWVpJKkfsEaH0y9jayf',
-    pk_test: 'pk_test_bLfWBEElGWXWGYBGUmZsMIbM'
+    sec_key: process.env.STRIPE_SECRET_KEY,
+    pk_test: process.env.STRIPE_PUBLIC_KEY
   },
   mongoose: {
-    mongodb: 'mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance'
+    mongodb: process.env.MONGODB_URI
   },
   nodemailer: {
-    user: 'sergiobarkerdev@gmail.com',
-    pass: '1304dev24'
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
   }
 }
-
-
-// mongoose.connect('mongodb://sbrycebarker:serg1234@ds125628.mlab.com:25628/barkerperformance', {
-//   useMongoClient: true,
-// })

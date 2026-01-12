@@ -30,11 +30,15 @@
 
 <div id="profile-con">
 
+  <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 15px; margin: 20px; text-align: center;">
+    <h2 style="color: #856404; margin-bottom: 10px;">🔒 Demo Profile</h2>
+    <p style="color: #856404; font-size: 14px;">This is a mock profile for demonstration purposes. In a production environment, this would display your authenticated user information and order history.</p>
+  </div>
 
   <div id="profile-header">
     <div id="user">
-      <ul id="username"><h1>a{{username}}</h1></ul>
-      <ul id="user-email"><h1>a{{user.emails[0].value}}</h1></ul>
+      <ul id="username"><h1>{{username}}</h1></ul>
+      <ul id="user-email"><h1>{{user.emails[0].value}}</h1></ul>
       <img src="{{user.picture}}" alt="">
       <!-- <h1>{{}}</h1> -->
     </div>
@@ -42,12 +46,13 @@
 
   <div id="profile-info">
     <div id="order-history">
+      <h2 style="padding: 20px; color: #666;">Order History</h2>
       <div id="oh-list" ng-repeat="order in history">
         <h1>{{order}}</h1>
         <h1>{{order.number}}</h1>
       </div>
-      <div>
-        <h1>Lorem ipsum dolor sit amet.</h1>
+      <div style="padding: 20px; color: #999; text-align: center;">
+        <p>No orders yet. This would display your purchase history in a production environment.</p>
       </div>
     </div>
   </div>
