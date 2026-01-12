@@ -213,8 +213,9 @@ const express = require('express'),
         });
       });
 
-      app.use(express.static('./public'))
-            var port = process.env.PORT || 8085
+app.use(express.static(__dirname + '/public'))
+
+var port = process.env.PORT || 8085
         app.listen(port, function() {
           console.log("listening on port " + port)
         })
