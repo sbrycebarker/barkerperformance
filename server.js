@@ -16,7 +16,11 @@ const express = require('express'),
 
 
 
-      mongoose.connect(config.mongoose.mongodb)
+      mongoose.connect(config.mongoose.mongodb, {
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        serverSelectionTimeoutMS: 30000
+      })
         .then(() => console.log('MongoDB connected successfully'))
         .catch(err => console.error('MongoDB connection error:', err));
 
