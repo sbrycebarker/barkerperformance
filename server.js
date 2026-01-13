@@ -16,9 +16,7 @@ const express = require('express'),
 
 
 
-      mongoose.connect(config.mongoose.mongodb, {
-        serverSelectionTimeoutMS: 30000
-      })
+      mongoose.connect(config.mongoose.mongodb)
         .then(() => console.log('MongoDB connected successfully'))
         .catch(err => console.error('MongoDB connection error:', err));
 
