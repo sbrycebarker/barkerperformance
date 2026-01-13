@@ -18,6 +18,9 @@
     "url": "https://github.com/sbrycebarker/barkerperformance/issues"
   },
   "homepage": "https://github.com/sbrycebarker/barkerperformance#readme",
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "angular": "^1.8.3",
     "angular-stripe": "^5.0.0",
