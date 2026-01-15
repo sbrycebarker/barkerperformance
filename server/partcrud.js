@@ -13,7 +13,7 @@ module.exports = {
 
   show: async (req, res, next) => {
     try {
-      const response = await parts.findById(req.params).exec();
+      const response = await parts.findById(req.params._id).exec();
       res.json(response);
     } catch (err) {
       res.status(500).json(err);

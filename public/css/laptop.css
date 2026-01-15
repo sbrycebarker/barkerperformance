@@ -956,6 +956,26 @@ footer h1:hover {
   /* overflow: hidden; */
 }
 
+/* Fix Owl Carousel center mode click issues */
+.owl-carousel .owl-item {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.owl-carousel .owl-item .p-item {
+  position: relative;
+  z-index: 1;
+}
+
+.owl-carousel .owl-item.center .p-item {
+  z-index: 2;
+}
+
+/* Ensure details overlay doesn't block clicks on parent */
+.p-item .details {
+  pointer-events: none;
+}
+
 .part-info {
   display: flex;
   flex-direction: column;
