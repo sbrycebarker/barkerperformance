@@ -105,22 +105,10 @@
     <div class="total">
       <h1>Total</h1>
       <h1>${{total}}</h1>
-      <h1>
-        <form action="/charge" method="POST">
-        <script
-          src="https://checkout.stripe.com/checkout.js"
-          class="stripe-button"
-          data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
-          data-amount="{{total}}"
-          data-name="Barker Performance"
-          data-description="Example charge"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto"
-          dat-currency= "usd">
-        </script>
-      </form>
-      </h1>
-      <!-- <button class="viewcart"></button> -->
+      <button class="checkout-btn" ng-click="checkout()" ng-disabled="!cart || cart.length === 0">
+        <i class="fa fa-credit-card"></i> Pay with Card
+      </button>
+      <p class="checkout-message" ng-if="checkoutMessage">{{checkoutMessage}}</p>
     </div>
   </div>
   <!-- <aside id="sidebar" class="sidebar"></aside> -->

@@ -386,6 +386,44 @@ button:disabled {
     box-shadow: 0 2px 8px rgba(255, 40, 0, 0.6);
   }
 
+  .checkout-btn {
+    background: #ff2800;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .checkout-btn:hover:not(:disabled) {
+    background: #cc2000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 40, 0, 0.4);
+  }
+
+  .checkout-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+  }
+
+  .checkout-btn i {
+    margin-right: 10px;
+  }
+
+  .checkout-message {
+    color: #4CAF50;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
   .empty-cart-message {
     color: white;
     text-align: center;

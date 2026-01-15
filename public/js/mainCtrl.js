@@ -233,6 +233,69 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
         }
     };
 
+    // Stripe Checkout
+    $scope.checkout = () => {
+        if (!$scope.total || $scope.total <= 0) {
+            $scope.checkoutMessage = 'Your cart is empty!';
+            return;
+        }
+
+        // Configure Stripe Checkout
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_bLfWBEElGWXWGYBGUmZsMIbM',
+            image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+            locale: 'auto',
+            token: function(token) {
+                // Send token to server
+                $scope.checkoutMessage = 'Processing payment...';
+                $scope.$apply();
+
+                // Convert dollars to cents for Stripe
+                const amountInCents = Math.round($scope.total * 100);
+
+                fetch('/charge', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        source: token.id,
+                        amount: amountInCents,
+                        currency: 'usd',
+                        description: 'Barker Performance Order'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        $scope.checkoutMessage = 'Payment successful! Thank you for your order.';
+                        // Clear the cart
+                        cart = [];
+                        total = [];
+                        $scope.cart = cart;
+                        $scope.total = 0;
+                        $scope.cartCount = 0;
+                    } else {
+                        $scope.checkoutMessage = 'Payment failed: ' + (data.error || 'Unknown error');
+                    }
+                    $scope.$apply();
+                })
+                .catch(error => {
+                    console.error('Payment error:', error);
+                    $scope.checkoutMessage = 'Payment error. Please try again.';
+                    $scope.$apply();
+                });
+            }
+        });
+
+        // Open Stripe Checkout with the current total
+        handler.open({
+            name: 'Barker Performance',
+            description: 'Auto Parts Order',
+            amount: Math.round($scope.total * 100) // Convert to cents
+        });
+    };
+
     let wishlist = [];
     $scope.addtoWishList = (part) => {
       wishlist.push(part);
