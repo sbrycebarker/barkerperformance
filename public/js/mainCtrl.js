@@ -242,7 +242,7 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
 
         // Configure Stripe Checkout
         var handler = StripeCheckout.configure({
-            key: 'pk_test_bLfWBEElGWXWGYBGUmZsMIbM',
+            key: 'pk_test_51Sog3v2f83MUVS4nEgO4NhkC10Vj9NoxlPY7LpAOH6p3UukgUatL0fPHbSg0d0wz26jSftGJMcyaBSkxMN9pfW0j00G8YeFOCT',
             image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
             locale: 'auto',
             token: function(token) {
