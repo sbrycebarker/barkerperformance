@@ -170,11 +170,78 @@ const express = require('express'),
     // }))
 
     app.get('/paysuccess', function(req, res) {
-      res.render('paysuccess', {
-        // `<h1>THANK YOU</h1>`
-      })
+      res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Payment Success</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #1a1a1a; color: white; }
+            h1 { color: #4CAF50; }
+            a { color: #ff2800; text-decoration: none; font-size: 18px; }
+          </style>
+        </head>
+        <body>
+          <h1>Payment Successful!</h1>
+          <p>Thank you for your order.</p>
+          <a href="#!/products">Continue Shopping</a>
+        </body>
+        </html>
+      `);
     })
 
+    app.get('/paycancel', function(req, res) {
+      res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Payment Cancelled</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #1a1a1a; color: white; }
+            h1 { color: #ff2800; }
+            a { color: #ff2800; text-decoration: none; font-size: 18px; }
+          </style>
+        </head>
+        <body>
+          <h1>Payment Cancelled</h1>
+          <p>Your order was not completed.</p>
+          <a href="#!/products">Return to Shop</a>
+        </body>
+        </html>
+      `);
+    })
+
+    // Modern Stripe Checkout Session
+    app.post('/create-checkout-session', async function(req, res) {
+      try {
+        const { items, total } = req.body;
+
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ['card'],
+          line_items: [{
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: 'Barker Performance Order',
+                description: items && items.length ? items.map(i => i.part?.name).join(', ') : 'Auto Parts'
+              },
+              unit_amount: Math.round(total * 100)
+            },
+            quantity: 1
+          }],
+          mode: 'payment',
+          success_url: req.protocol + '://' + req.get('host') + '/paysuccess',
+          cancel_url: req.protocol + '://' + req.get('host') + '/paycancel'
+        });
+
+        res.json({ url: session.url });
+      } catch (error) {
+        console.error('Stripe session error:', error);
+        res.status(500).json({ error: error.message });
+      }
+    })
+
+    // Legacy charge endpoint (kept for reference)
     app.post('/charge', async function(req, res) {
       try {
         const { amount, currency, description, source } = req.body;

@@ -233,66 +233,39 @@ angular.module('app').controller('mainCtrl', function($scope, $stateParams, serv
         }
     };
 
-    // Stripe Checkout
+    // Stripe Checkout (modern Checkout Sessions)
     $scope.checkout = () => {
         if (!$scope.total || $scope.total <= 0) {
             $scope.checkoutMessage = 'Your cart is empty!';
             return;
         }
 
-        // Configure Stripe Checkout
-        var handler = StripeCheckout.configure({
-            key: 'pk_test_51Sog3v2f83MUVS4nEgO4NhkC10Vj9NoxlPY7LpAOH6p3UukgUatL0fPHbSg0d0wz26jSftGJMcyaBSkxMN9pfW0j00G8YeFOCT',
-            image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-            locale: 'auto',
-            token: function(token) {
-                // Send token to server
-                $scope.checkoutMessage = 'Processing payment...';
+        $scope.checkoutMessage = 'Redirecting to checkout...';
+
+        fetch('/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                items: $scope.cart,
+                total: $scope.total
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.url) {
+                // Redirect to Stripe's hosted checkout page
+                window.location.href = data.url;
+            } else {
+                $scope.checkoutMessage = 'Error: ' + (data.error || 'Could not create checkout session');
                 $scope.$apply();
-
-                // Convert dollars to cents for Stripe
-                const amountInCents = Math.round($scope.total * 100);
-
-                fetch('/charge', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        source: token.id,
-                        amount: amountInCents,
-                        currency: 'usd',
-                        description: 'Barker Performance Order'
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        $scope.checkoutMessage = 'Payment successful! Thank you for your order.';
-                        // Clear the cart
-                        cart = [];
-                        total = [];
-                        $scope.cart = cart;
-                        $scope.total = 0;
-                        $scope.cartCount = 0;
-                    } else {
-                        $scope.checkoutMessage = 'Payment failed: ' + (data.error || 'Unknown error');
-                    }
-                    $scope.$apply();
-                })
-                .catch(error => {
-                    console.error('Payment error:', error);
-                    $scope.checkoutMessage = 'Payment error. Please try again.';
-                    $scope.$apply();
-                });
             }
-        });
-
-        // Open Stripe Checkout with the current total
-        handler.open({
-            name: 'Barker Performance',
-            description: 'Auto Parts Order',
-            amount: Math.round($scope.total * 100) // Convert to cents
+        })
+        .catch(error => {
+            console.error('Checkout error:', error);
+            $scope.checkoutMessage = 'Checkout error. Please try again.';
+            $scope.$apply();
         });
     };
 
