@@ -22,11 +22,8 @@
 <body data-spy="scroll" data-target=".header-items" data-offset="50">
 
   <header id="header">
-    <!-- <div class="header-overlay"><div class="loader"></div></div> -->
     <div id="homebutton" class="header-items" ng-click="home()"><a ui-sref="home"><h1 class="draw"><span style="color: white">Barker</span><br>Performance</h1></a></div>
     <div id="nav-con" class="header-items">
-
-      <!-- <div id="mobile-login" class="m-login"><a>{{users}}</a></div> -->
       <div id="home" class="nav" ng-click="home()">
         <a ui-sref="home">
           <h1>HOME</h1>
@@ -37,11 +34,6 @@
           <h1>PRODUCTS</h1>
         </a>
       </div>
-      <!-- <div id="life" class="nav">
-        <a ui-sref="view">
-          <h1>VIEW</h1>
-        </a>
-      </div> -->
       <div id="about" class="nav" ng-click="about()">
         <a ui-sref="home">
           <h1>ABOUT</h1>
@@ -71,51 +63,48 @@
   </header>
   <div id="cart-side" class="cart-side">
     <div class="cart-head">
-      <div class="arrowcont">
-        <h1 class="closeCart" ng-click="closeCart()">></h1>
-      </div>
-      <h1>Cart</h1>
-    </div>
-
-    <div class="cartlist" ng-if="cart.length > 0">
-      <div class="cartitem" ng-repeat="item in cart">
-        <h1>{{item.part.name}}</h1>
-        <h1>${{item.part.price}}</h1>
-        <button class="remove-btn" ng-click="removeFromCart($index)">✕</button>
+      <button class="close-cart-btn" ng-click="closeCart()">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="cart-title">
+        <i class="fa fa-shopping-cart"></i>
+        <span>Your Cart</span>
+        <span class="item-count" ng-if="cart.length > 0">({{cart.length}})</span>
       </div>
     </div>
 
-    <div class="empty-cart-message" ng-if="cart.length === 0">
-      <i class="fa fa-shopping-cart empty-cart-icon"></i>
-      <h2>Your cart is empty</h2>
-      <p>Add some awesome parts to get started!</p>
+    <div class="cart-content">
+      <div class="cartlist" ng-if="cart.length > 0">
+        <div class="cartitem" ng-repeat="item in cart">
+          <div class="cart-item-info">
+            <p class="cart-item-name">{{item.part.name}}</p>
+            <p class="cart-item-price">${{item.part.price}}</p>
+          </div>
+          <button class="remove-btn" ng-click="removeFromCart($index)" title="Remove item">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="empty-cart-message" ng-if="cart.length === 0">
+        <i class="fa fa-shopping-bag empty-cart-icon"></i>
+        <h2>Your cart is empty</h2>
+        <p>Add some parts to get started!</p>
+      </div>
     </div>
-    <!-- <form action="/charge" method="POST">
-    <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_bLfWBEElGWXWGYBGUmZsMIbM"
-      data-amount="300"
-      data-name="Barker Performance"
-      data-description="Example charge"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-      data-locale="auto"
-      dat-currency= "usd">
-    </script>
-  </form> -->
-    <div class="total">
-      <h1>Total</h1>
-      <h1>${{total}}</h1>
+
+    <div class="cart-footer" ng-if="cart.length > 0">
+      <div class="cart-total">
+        <span class="total-label">Total</span>
+        <span class="total-amount">${{total}}</span>
+      </div>
       <button class="checkout-btn" ng-click="checkout()" ng-disabled="!cart || cart.length === 0">
-        <i class="fa fa-credit-card"></i> Pay with Card
+        <i class="fa fa-lock"></i> Secure Checkout
       </button>
       <p class="checkout-message" ng-if="checkoutMessage">{{checkoutMessage}}</p>
     </div>
   </div>
-  <!-- <aside id="sidebar" class="sidebar"></aside> -->
   <ui-view></ui-view>
-  <script>
-
-  </script>
   <script defer src="https://use.fontawesome.com/9c92e0c655.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.min.js"></script>

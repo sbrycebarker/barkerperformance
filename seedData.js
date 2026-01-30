@@ -7,8 +7,46 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Seed data matching the hardcoded IDs in products.html
+// Seed data matching the hardcoded IDs in products.html and main.html
 const parts = [
+  // ON SALE NOW products (shown on main.html - these IDs MUST match main.html)
+  {
+    _id: '5ae7b1fff36d282906c489c2',
+    name: 'Street Turbo lvl 1',
+    part_id: 'STURBO-001',
+    price: 300,
+    img: '../assets/exploded-turbo.png',
+    type: 'Engine',
+    short_description: 'Entry-level street turbo. Perfect for daily drivers seeking +50 HP.',
+    details: 'Affordable turbocharger kit for street use. Adds approximately 50 HP with stock internals. Includes basic hardware and gaskets. Great entry point for turbo builds.',
+    new: false,
+    sale: true
+  },
+  {
+    _id: '5ae7b24bf36d282906c489f3',
+    name: 'Street Turbo lvl 2',
+    part_id: 'STURBO-002',
+    price: 400,
+    img: '../assets/exploded-turbo.png',
+    type: 'Engine',
+    short_description: 'Mid-range street turbo. +75 HP with improved spool.',
+    details: 'Upgraded street turbo with improved compressor wheel. Delivers 75+ HP gains with better throttle response. Includes intercooler piping and blow-off valve.',
+    new: false,
+    sale: true
+  },
+  {
+    _id: '5ae7b257f36d282906c489f5',
+    name: 'Street Turbo lvl 3',
+    part_id: 'STURBO-003',
+    price: 500,
+    img: '../assets/exploded-turbo.png',
+    type: 'Engine',
+    short_description: 'Premium street turbo. +100 HP with ceramic bearings.',
+    details: 'Top-tier street turbo with ceramic ball bearings for minimal lag. Capable of 100+ HP gains. Complete kit includes wastegate, intercooler, and all hardware.',
+    new: false,
+    sale: true
+  },
+
   // NEW PRODUCTS (shown in carousel - these IDs MUST match products.html)
   {
     _id: '5ae7b25df36d282906c489fd',

@@ -1,7 +1,6 @@
 <title>BP | {{part.name}}</title>
 <div id="sidebar" class="sidebar">
   <div class="menuitem mp">
-    <img>
     <a ui-sref="products">
       <h1>PRODUCTS</h1>
     </a>
@@ -24,19 +23,47 @@
     <h1>Cart</h1>
   </div>
 </div>
+
 <section id="view">
+  <div class="view-wrapper">
+    <a ui-sref="products" class="back-link">
+      <i class="fa fa-arrow-left"></i> Back to Products
+    </a>
 
-  <div id="view-con">
-    <img id="part-img" src="{{part.img}}" class="img">
-    <h1 class="part">{{part.name}}</h1>
-    <h1 class="part">Part id: {{part.part_id}}</h1>
-    <h1 class="part">Price: ${{part.price}}</h1>
-    <h1 class="part">{{part.details}}</h1>
-  </div>
-  <div id="btn-con">
-    <button ng-if="!isInCart(part)" ng-click="addToCart({part})">Add to cart</button>
-    <button ng-if="isInCart(part)" ng-click="removeFromCartByPart(part)" class="in-cart">Remove from cart</button>
-    <button ng-click="addtoWishList({wishlist: part})">Add to wishlist</button>
-  </div>
+    <div class="product-card">
+      <div class="product-image-container">
+        <img id="part-img" src="{{part.img}}" alt="{{part.name}}">
+        <span class="sale-badge" ng-if="part.sale">SALE</span>
+        <span class="new-badge" ng-if="part.new">NEW</span>
+      </div>
 
+      <div class="product-info">
+        <h1 class="product-name">{{part.name}}</h1>
+        <p class="product-id">Part #: {{part.part_id}}</p>
+
+        <div class="price-container">
+          <span class="price">${{part.price}}</span>
+        </div>
+
+        <p class="product-type"><strong>Category:</strong> {{part.type}}</p>
+
+        <div class="product-description">
+          <h3>Description</h3>
+          <p>{{part.details}}</p>
+        </div>
+
+        <div id="btn-con">
+          <button ng-if="!isInCart(part)" ng-click="addToCart({part})" class="btn-primary">
+            <i class="fa fa-shopping-cart"></i> Add to Cart
+          </button>
+          <button ng-if="isInCart(part)" ng-click="removeFromCartByPart(part)" class="btn-primary in-cart">
+            <i class="fa fa-check"></i> Remove from Cart
+          </button>
+          <button ng-click="addtoWishList({wishlist: part})" class="btn-secondary">
+            <i class="fa fa-heart"></i> Add to Wishlist
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
